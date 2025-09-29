@@ -3,44 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Trang chủ - Quản lý thư viện</title>
+    <link rel="icon" type="image/x-icon" href="../Img/fav.png" class="fav">
+    <link rel="stylesheet" href="../Css/BTL.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="navbar">
-        <a href="index.html" class="active">Trang chủ</a>
-        <a href="sach.html">Danh sách sách</a>
-        <a href="gioithieu.html">Giới thiệu</a>
-        <a href="dangnhap.html">Đăng nhập</a>
-        <a href="lienhe.html">Liên hệ</a>
+    <div class="menu">
+        <ul>
+            <li><a href="index.html" class="active">Trang chủ</a></li>
+            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li><a href="sach.html">Danh sách</a></li>
+            <li><a href="docgia.html">Độc giả</a></li>
+            <li><a href="lienhe.html">Liên hệ</a></li>
+            <div class="search">
+                <input type="text" placeholder="Tìm kiếm...">
+                <button type="button"><i class="fa fa-search"></i></button>
+            </div>
+        </ul>
+        <button class="sign">Đăng nhập</button>
     </div>
-
-    <div style="padding:20px">
-        <h1>Chào mừng đến với Hệ thống Quản lý Thư viện</h1>
-        <p>Nội dung trang chủ hiển thị ở đây...</p>
+    <div class="cc">
+        <h1 class="tieude">Chào mừng đến với Hệ thống Quản lý Thư viện</h1>
+        <p>Kho tri thức mở cửa 24/7</p>
+        <img src="../Img/thuvien.jpg" class="img1">
     </div>
+    
 </body>
-<style>
-    body {
-      margin: 0;
-      font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
-    }
-    .navbar {
-      overflow: hidden;
-      background-color: rgb(131, 62, 127); 
-    }
-    .navbar a {
-      float: left;
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 14px 20px;
-      text-decoration: none;
-    }
-    .navbar a:hover {
-      background-color: rgb(103, 1, 98);
-      color: white;
-    }
-    .navbar a.active {
-      background-color: rgb(103, 1, 98);
-    }
-</style>
 </html>
