@@ -8,25 +8,68 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!--Menu-->
     <div class="menu">
+        <img src="../Img/Screenshot 2025-09-26 205546.png">
         <ul>
             <li><a href="index.html" class="active">Trang chủ</a></li>
-            <li><a href="gioithieu.html">Giới thiệu</a></li>
+            <li><a href="tintuc.html">Tin tức</a></li>
             <li><a href="sach.html">Danh sách</a></li>
             <li><a href="docgia.html">Độc giả</a></li>
             <li><a href="lienhe.html">Liên hệ</a></li>
             <div class="search">
                 <input type="text" placeholder="Tìm kiếm...">
-                <button type="button"><i class="fa fa-search"></i></button>
+                <i class="fa fa-search"></i>
             </div>
         </ul>
-        <button class="sign">Đăng nhập</button>
+        <div class="sign">
+            <button class="sign-up" onclick="window.location.href='sign-in.html'">Đăng ký</button>
+            <button class="sign-in" onclick="window.location.href='sign-up.html'">Đăng nhập</button>
+        </div>
     </div>
-    <div class="cc">
-        <h1 class="tieude">Chào mừng đến với Hệ thống Quản lý Thư viện</h1>
-        <p>Kho tri thức mở cửa 24/7</p>
-        <img src="../Img/thuvien.jpg" class="img1">
+    <!--Banner-->
+    <div class="banner">
+        <div class="banner-content">
+            <h1>Chào mừng đến với Thư viện CC</h1>
+            <p>Khám phá hàng ngàn sách và tài liệu học tập miễn phí mọi lúc mọi nơi</p>
+            <button onclick="window.location.href='sach.html'">Khám phá ngay</button>
+        </div>
     </div>
-    
+    <!--Giới thiệu-->
+    <div class="gioithieu">
+        <h2>Giới thiệu</h2>
+        <p>
+            Thư viện CC là hệ thống quản lý sách và tài liệu trực tuyến, 
+            giúp bạn dễ dàng tìm kiếm, mượn và quản lý sách mọi lúc mọi nơi. 
+            Với kho tài nguyên phong phú và giao diện thân thiện, 
+            chúng tôi mong muốn mang đến trải nghiệm học tập và nghiên cứu 
+            thuận tiện nhất cho người dùng
+        </p>
+    </div>
+    <!--1 số loại sách-->
+    <div class="sach-noibat">
+        <div class="header">
+            <h2>Sách nổi bật</h2>
+            <button onclick="window.location.href='sach.html'">Xem tất cả</button>
+        </div>
+        <div class="list">
+            <div class="item">
+                <img src="../Img/nhagiakim.jpg" alt="Nhà giả kim">
+                <h3>Nhà giả kim</h3>
+                <p>Paulo Coelho</p>
+            </div>
+            <div class="item">
+                <img src="../Img/dacnhantam.webp" alt="Đắc nhân tâm">
+                <h3>Đắc nhân tâm</h3>
+                <p>Dale Carnegie</p>
+            </div>
+            <div class="item">
+                <img src="../Img/ditimlesong.jpg" alt="Đi tìm lẽ sống">
+                <h3>Đi tìm lẽ sống</h3>
+                <p>Viktor E. Frankl</p>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

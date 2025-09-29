@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quản Lý Thư Viện - Canva Code</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: light; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji"; }
+    /* Smooth cards */
+    .glass {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    .scroll-smooth { scroll-behavior: smooth; }
+    /* Simple fade for modals */
+    .modal-enter { opacity: 0; transform: translateY(10px) scale(0.98); }
+    .modal-enter-active { opacity: 1; transform: translateY(0) scale(1); transition: all 220ms ease; }
+    .modal-leave { opacity: 1; transform: translateY(0) scale(1); }
+    .modal-leave-active { opacity: 0; transform: translateY(10px) scale(0.98); transition: all 180ms ease; }
+    /* Hide number input arrows */
+    input[type=number]::-webkit-outer-spin-button,
+    input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    input[type=number] { -moz-appearance: textfield; }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-indigo-900 via-sky-900 to-cyan-800 text-white scroll-smooth">
+  <!-- App Wrapper -->
+  <div class="min-h-screen flex flex-col">
+    <!-- Top Bar -->
+    <header class="px-6 lg:px-10 py-5">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="p-2 rounded-xl bg-gradient-to-br from-cyan-400 to-indigo-500 shadow-lg">
+            <!-- Book SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 2a2 2 0 0 0-2 2v15.5A2.5 2.5 0 0 0 6.5 22H20a1 1 0 1 0 0-2H6.5a.5.5 0 0 1-.5-.5V18h13a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6z"/>
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-xl md:text-2xl font-extrabold tracking-tight">Hệ Thống Quản Lý Thư Viện</h1>
+            <p class="text-white/70 text-sm">Canva Code • Giao diện trực quan, thao tác nhanh</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="btnExportCSV" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 active:scale-[0.98] transition text-sm font-semibold shadow">
+            Xuất báo cáo CSV
+          </button>
+          <button id="btnResetDemo" class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 active:scale-[0.98] transition text-sm font-semibold border border-white/20">
+            Làm mới dữ liệu mẫu
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="flex-1 px-6 lg:px-10 pb-10">
+      <div class="max-w-7xl mx-auto grid grid-cols-12 gap-6">
+        <!-- Sidebar -->
+        <aside class="col-span-12 lg:col-span-3">
+          <div class="glass rounded-2xl p-4">
+            <h2 class="font-bold text-white/90 mb-3">Điều hướng</h2>
+            <nav class="flex lg:flex-col gap-2" id="navTabs">
+              <button data-tab="dashboard" class="tab-btn active w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition border border-white/10">
+                <span class="w-6 h-6 grid place-content-center rounded-md bg-gradient-to-br from-indigo-400 to-indigo-600">
+                  <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/></svg>
+                </span>
+                Tổng quan
+              </button>
+              <button data-tab="books" class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition border border-white/10">
+                <span class="w-6 h-6 grid place-content-center rounded-md bg-gradient-to-br from-cyan-400 to-cyan-600">
+                  <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H8a2 2 0 0 0-2 2v15.5A2.5 2.5 0 0 0 8.5 22H20a1 1 0 1 0 0-2H8.5a.5.5 0 0 1-.5-.5V18h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>
+                </span>
+                Sách
+              </button>
+              <button data-tab="members" class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition border border-white/10">
+                <span class="w-6 h-6 grid place-content-center rounded-md bg-gradient-to-br from-rose-400 to-pink-600">
+                  <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.33 0-8 2.17-8 5v1h16v-1c0-2.83-3.67-5-8-5z"/></svg>
+                </span>
+                Độc giả
+              </button>
+              <button data-tab="loans" class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition border border-white/10">
+                <span class="w-6 h-6 grid place-content-center rounded-md bg-gradient-to-br from-amber-400 to-orange-600">
+                  <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3zm2 4h14v2H5zm3 4h8v2H8z"/></svg>
+                </span>
+                Mượn & Trả
+              </button>
+              <button data-tab="reports" class="tab-btn w-full flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/10 transition border border-white/10">
+                <span class="w-6 h-6 grid place-content-center rounded-md bg-gradient-to-br from-emerald-400 to-teal-600">
+                  <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v2H3zm2 4h8v2H5zm0 4h14v2H5zm0 4h10v2H5z"/></svg>
+                </span>
+                Báo cáo
+              </button>
+            </nav>
+          </div>
+
+
+
+          <!-- Quick tips -->
+          <div class="glass rounded-2xl p-4 mt-6">
+            <h3 class="font-semibold mb-2">Mẹo nhanh</h3>
+            <ul class="space-y-2 text-white/80 text-sm">
+              <li>- Dùng thanh tìm kiếm để lọc nhanh.</li>
+              <li>- Nhấn vào một hàng để chỉnh sửa.</li>
+              <li>- Phải trả phí quá hạn mới được trả sách.</li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="col-span-12 lg:col-span-9 space-y-6">
+          <!-- Search + Actions -->
+          <section class="glass rounded-2xl p-4 md:p-6">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+              <!-- Search Area -->
+              <div class="flex-1 space-y-3">
+                <div class="relative">
+                  <input id="globalSearch" type="text" placeholder="tác giả:Nam Cao, năm:1997, hoặc tìm kiếm thường..."
+                         class="w-full rounded-xl bg-white/10 border border-white/20 placeholder-white/60 text-white px-12 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all">
+                  <span class="absolute left-4 top-1/2 -translate-y-1/2 text-white/70">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M10 2a8 8 0 1 1 5.29 14.29l4.2 4.2-1.42 1.42-4.2-4.2A8 8 0 0 1 10 2zm0 2a6 6 0 1 0 0 12A6 6 0 0 0 10 4z"/></svg>
+                  </span>
+                  <button id="clearSearch" class="absolute right-3 top-1/2 -translate-y-1/2 text-white/50 hover:text-white/80 transition hidden">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                  </button>
+                </div>
+                
+                <!-- Quick Search Suggestions -->
+                <div id="searchSuggestions" class="flex flex-wrap gap-2">
+                  <span class="text-white/60 text-sm">Gợi ý:</span>
+                  <button class="search-tag px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-sm transition" data-query="quá hạn">Quá hạn</button>
+                  <button class="search-tag px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-sm transition" data-query="đang mượn">Đang mượn</button>
+                  <button class="search-tag px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-sm transition" data-query="văn học">Văn học</button>
+                  <button class="search-tag px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-sm transition" data-query="thiếu nhi">Thiếu nhi</button>
+                  <button class="search-tag px-3 py-1 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-sm transition border border-cyan-400/30" data-query="tác giả:">📝 Tìm theo tác giả</button>
+                  <button class="search-tag px-3 py-1 rounded-lg bg-indigo-500/20 hover:bg-indigo-500/30 text-sm transition border border-indigo-400/30" data-query="năm:">📅 Tìm theo năm</button>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-wrap items-center gap-2">
+                <button id="btnAddBook" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-600 active:scale-95 font-semibold transition shadow-lg">
+                  <span class="hidden sm:inline">+ Thêm sách</span>
+                  <span class="sm:hidden">+ Sách</span>
+                </button>
+                <button id="btnAddMember" class="px-4 py-2 rounded-xl bg-pink-500 hover:bg-pink-600 active:scale-95 font-semibold transition shadow-lg">
+                  <span class="hidden sm:inline">+ Thêm độc giả</span>
+                  <span class="sm:hidden">+ Độc giả</span>
+                </button>
+                <button id="btnAddLoan" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 active:scale-95 font-semibold transition shadow-lg">
+                  <span class="hidden sm:inline">+ Tạo mượn</span>
+                  <span class="sm:hidden">+ Mượn</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Search Results Info -->
+            <div id="searchResults" class="mt-3 text-white/70 text-sm hidden">
+              <div class="rounded-xl bg-white/10 border border-white/20 p-4">
+                <pre id="searchResultText" class="whitespace-pre-wrap font-sans text-sm leading-relaxed"></pre>
+                <div class="mt-3 pt-3 border-t border-white/20">
+                  <button id="clearAllFilters" class="text-cyan-300 hover:text-cyan-200 underline">🗑️ Xóa bộ lọc</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Dashboard -->
+          <section id="tab-dashboard" class="tab-pane">
+            <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+              <!-- Cards -->
+              <div class="glass rounded-2xl p-5 flex items-center justify-between">
+                <div>
+                  <p class="text-white/70 text-sm">Tổng đầu sách</p>
+                  <p id="statTotalTitles" class="mt-2 text-3xl font-extrabold">0</p>
+                </div>
+                <div class="p-3 rounded-xl bg-indigo-500/90">
+                  <svg class="w-7 h-7" viewBox="0 0 24 24" fill="white"><path d="M18 2H8a2 2 0 0 0-2 2v15.5A2.5 2.5 0 0 0 8.5 22H20a1 1 0 1 0 0-2H8.5a.5.5 0 0 1-.5-.5V18h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>
+                </div>
+              </div>
+              <div class="glass rounded-2xl p-5 flex items-center justify-between">
+                <div>
+                  <p class="text-white/70 text-sm">Bản còn sẵn</p>
+                  <p id="statAvailable" class="mt-2 text-3xl font-extrabold">0</p>
+                </div>
+                <div class="p-3 rounded-xl bg-emerald-500/90">
+                  <svg class="w-7 h-7" viewBox="0 0 24 24" fill="white"><path d="M12 2a10 10 0 1 0 10 10A10.012 10.012 0 0 0 12 2zm1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
+                </div>
+              </div>
+              <div class="glass rounded-2xl p-5 flex items-center justify-between">
+                <div>
+                  <p class="text-white/70 text-sm">Tổng độc giả</p>
+                  <p id="statMembers" class="mt-2 text-3xl font-extrabold">0</p>
+                </div>
+                <div class="p-3 rounded-xl bg-rose-500/90">
+                  <svg class="w-7 h-7" viewBox="0 0 24 24" fill="white"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.33 0-8 2.17-8 5v1h16v-1c0-2.83-3.67-5-8-5z"/></svg>
+                </div>
+              </div>
+              <div class="glass rounded-2xl p-5 flex items-center justify-between">
+                <div>
+                  <p class="text-white/70 text-sm">Đang mượn</p>
+                  <p id="statActiveLoans" class="mt-2 text-3xl font-extrabold">0</p>
+                </div>
+                <div class="p-3 rounded-xl bg-amber-500/90">
+                  <svg class="w-7 h-7" viewBox="0 0 24 24" fill="white"><path d="M3 6h18v2H3zm2 4h14v2H5zm3 4h8v2H8z"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-4 mt-4">
+              <div class="glass rounded-2xl p-5">
+                <div class="flex items-center justify-between mb-3">
+                  <h3 class="font-bold">Sách mới thêm</h3>
+                  <button class="text-cyan-300 hover:text-cyan-200 text-sm" onclick="switchTab('books')">Xem tất cả →</button>
+                </div>
+                <div id="recentBooks" class="space-y-2"></div>
+              </div>
+              <div class="glass rounded-2xl p-5">
+                <div class="flex items-center justify-between mb-3">
+                  <h3 class="font-bold">Mượn sắp quá hạn</h3>
+                  <button class="text-amber-300 hover:text-amber-200 text-sm" onclick="switchTab('loans')">Xem chi tiết →</button>
+                </div>
+                <div id="dueSoon" class="space-y-2"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Books -->
+          <section id="tab-books" class="tab-pane hidden">
+            <div class="glass rounded-2xl p-5">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-2">
+                  <select id="filterBookGenre" class="rounded-lg bg-white/10 border border-white/20 px-3 py-2">
+                    <option value="">Thể loại: Tất cả</option>
+                  </select>
+                  <select id="filterBookStock" class="rounded-lg bg-white/10 border border-white/20 px-3 py-2">
+                    <option value="">Tình trạng: Tất cả</option>
+                    <option value="available">Còn</option>
+                    <option value="out">Hết</option>
+                  </select>
+                </div>
+                <div class="text-white/70 text-sm">Nhấp đúp để chỉnh sửa</div>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                  <thead class="text-white/70 text-sm">
+                    <tr class="border-b border-white/10">
+                      <th class="py-3 pr-4">Tên sách</th>
+                      <th class="py-3 pr-4">Tác giả</th>
+                      <th class="py-3 pr-4">Năm</th>
+                      <th class="py-3 pr-4">Thể loại</th>
+                      <th class="py-3 pr-4">Sẵn/ Tổng</th>
+                      <th class="py-3 pr-4">Thao tác</th>
+                    </tr>
+                  </thead>
+                  <tbody id="bookTbody" class="text-white/90"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- Members -->
+          <section id="tab-members" class="tab-pane hidden">
+            <div class="glass rounded-2xl p-5">
+              <div class="flex items-center justify-between mb-4">
+                <div class="text-white/70 text-sm">Nhấp đúp để chỉnh sửa</div>
+                <div class="text-white/70 text-sm" id="memberCount"></div>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                  <thead class="text-white/70 text-sm">
+                    <tr class="border-b border-white/10">
+                      <th class="py-3 pr-4">Tên độc giả</th>
+                      <th class="py-3 pr-4">SĐT</th>
+                      <th class="py-3 pr-4">Ghi chú</th>
+                      <th class="py-3 pr-4">Thao tác</th>
+                    </tr>
+                  </thead>
+                  <tbody id="memberTbody" class="text-white/90"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- Loans -->
+          <section id="tab-loans" class="tab-pane hidden">
+            <!-- Fee Settings -->
+            <div class="glass rounded-2xl p-4 mb-6">
+              <h3 class="font-semibold mb-3">⚙️ Cài đặt phí quá hạn</h3>
+              <div class="grid md:grid-cols-3 gap-3">
+                <div>
+                  <label class="text-sm text-white/80">Phí quá hạn/ngày</label>
+                  <input id="feePerDay" type="number" min="0" step="1000" value="5000" 
+                         class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-sm">
+                </div>
+                <div>
+                  <label class="text-sm text-white/80">Phí tối đa</label>
+                  <input id="maxFee" type="number" min="0" step="1000" value="100000" 
+                         class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2 text-sm">
+                </div>
+                <div class="flex items-end">
+                  <button id="saveFeeSettings" class="w-full px-3 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-sm font-semibold">
+                    Lưu cài đặt
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass rounded-2xl p-5">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-2">
+                  <select id="filterLoanStatus" class="rounded-lg bg-white/10 border border-white/20 px-3 py-2">
+                    <option value="">Trạng thái: Tất cả</option>
+                    <option value="active">Đang mượn</option>
+                    <option value="overdue">Quá hạn</option>
+                    <option value="returned">Đã trả</option>
+                  </select>
+                </div>
+                <div class="text-white/70 text-sm" id="loanCount"></div>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left">
+                  <thead class="text-white/70 text-sm">
+                    <tr class="border-b border-white/10">
+                      <th class="py-3 pr-4">Sách</th>
+                      <th class="py-3 pr-4">Độc giả</th>
+                      <th class="py-3 pr-4">Mượn</th>
+                      <th class="py-3 pr-4">Hạn trả</th>
+                      <th class="py-3 pr-4">Phí quá hạn</th>
+                      <th class="py-3 pr-4">Trạng thái</th>
+                      <th class="py-3 pr-4">Thao tác</th>
+                    </tr>
+                  </thead>
+                  <tbody id="loanTbody" class="text-white/90"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- Reports -->
+          <section id="tab-reports" class="tab-pane hidden">
+            <div class="glass rounded-2xl p-5 space-y-4">
+              <h3 class="font-bold">Báo cáo nhanh</h3>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="rounded-xl bg-white/10 p-4 border border-white/10">
+                  <p class="text-white/70 text-sm">Top sách đang được mượn</p>
+                  <div id="reportTopBooks" class="mt-2 space-y-2"></div>
+                </div>
+                <div class="rounded-xl bg-white/10 p-4 border border-white/10">
+                  <p class="text-white/70 text-sm">Độc giả mượn nhiều</p>
+                  <div id="reportTopMembers" class="mt-2 space-y-2"></div>
+                </div>
+              </div>
+              <div class="text-white/70 text-sm">Mẹo: Dùng nút "Xuất báo cáo CSV" ở trên để tải dữ liệu tổng hợp.</div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div id="modalBackdrop" class="fixed inset-0 bg-black/50 hidden z-40"></div>
+
+  <!-- Book Modal -->
+  <div id="bookModal" class="fixed inset-0 z-50 hidden place-items-center px-4">
+    <div class="w-full max-w-xl modal-enter glass rounded-2xl p-6">
+      <div class="flex items-center justify-between">
+        <h3 id="bookModalTitle" class="font-bold text-xl">Thêm sách</h3>
+        <button class="text-white/70 hover:text-white" onclick="closeBookModal()">✕</button>
+      </div>
+      <form id="bookForm" class="mt-4 space-y-4">
+        <input type="hidden" id="bookId" />
+        <div class="grid md:grid-cols-2 gap-3">
+          <div>
+            <label class="text-sm text-white/80">Tên sách</label>
+            <input id="bookTitle" required class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2">
+          </div>
+          <div>
+            <label class="text-sm text-white/80">Tác giả</label>
+            <input id="bookAuthor" required class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2">
+          </div>
+          <div>
+            <label class="text-sm text-white/80">Năm xuất bản</label>
+            <input id="bookYear" type="number" min="0" class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2">
+          </div>
+          <div>
+            <label class="text-sm text-white/80">Thể loại</label>
+            <input id="bookGenre" class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2">
+          </div>
+          <div>
+            <label class="text-sm text-white/80">Tổng bản</label>
+            <input id="bookTotal" type="number" min="1" value="1" class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2" required>
+          </div>
+          <div>
+            <label class="text-sm text-white/80">Bản sẵn có</label>
+            <input id="bookAvailable" type="number" min="0" value="1" class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2" required>
+          </div>
+        </div>
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button type="button" class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20" onclick="closeBookModal()">Hủy</button>
+          <button class="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-600 font-semibold">Lưu</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Member Modal -->
+  <div id="memberModal" class="fixed inset-0 z-50 hidden place-items-center px-4">
+    <div class="w-full max-w-xl modal-enter glass rounded-2xl p-6">
+      <div class="flex items-center justify-between">
+        <h3 id="memberModalTitle" class="font-bold text-xl">Thêm độc giả</h3>
+        <button class="text-white/70 hover:text-white" onclick="closeMemberModal()">✕</button>
+      </div>
+      <form id="memberForm" class="mt-4 space-y-4">
+        <input type="hidden" id="memberId" />
+        <div class="grid md:grid-cols-2 gap-3">
+          <div>
+            <label class="text-sm text-white/80">Tên độc giả</label>
+            <input id="memberName" required class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2">
+          </div>
+          <div>
+            <label class="text-sm text-white/80">Số điện thoại</label>
+            <input id="memberPhone" class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2" placeholder="Tuỳ chọn">
+          </div>
+          <div class="md:col-span-2">
+            <label class="text-sm text-white/80">Ghi chú</label>
+            <input id="memberNotes" class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2" placeholder="VD: Hết hạn thẻ 2026">
+          </div>
+        </div>
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button type="button" class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20" onclick="closeMemberModal()">Hủy</button>
+          <button class="px-4 py-2 rounded-lg bg-pink-500 hover:bg-pink-600 font-semibold">Lưu</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Loan Modal -->
+  <div id="loanModal" class="fixed inset-0 z-50 hidden place-items-center px-4">
+    <div class="w-full max-w-xl modal-enter glass rounded-2xl p-6">
+      <div class="flex items-center justify-between">
+        <h3 id="loanModalTitle" class="font-bold text-xl">Tạo mượn sách</h3>
+        <button class="text-white/70 hover:text-white" onclick="closeLoanModal()">✕</button>
+      </div>
+      <form id="loanForm" class="mt-4 space-y-4">
+        <input type="hidden" id="loanId" />
+        <div class="grid md:grid-cols-2 gap-3">
+          <div>
+            <label class="text-sm text-white/80">Chọn sách</label>
+            <select id="loanBook" required class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2"></select>
+          </div>
+          <div>
+            <label class="text-sm text-white/80">Chọn độc giả</label>
+            <select id="loanMember" required class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2"></select>
+          </div>
+          <div>
+            <label class="text-sm text-white/80">Ngày mượn</label>
+            <input id="loanDate" type="date" required class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2">
+          </div>
+          <div>
+            <label class="text-sm text-white/80">Hạn trả</label>
+            <input id="loanDue" type="date" required class="w-full mt-1 rounded-lg bg-white/10 border border-white/20 px-3 py-2">
+          </div>
+        </div>
+        <div id="loanWarning" class="text-amber-300 text-sm hidden">Sách này hiện đã hết bản sẵn.</div>
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button type="button" class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20" onclick="closeLoanModal()">Hủy</button>
+          <button class="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 font-semibold">Lưu</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Fee Payment Modal -->
+  <div id="feeModal" class="fixed inset-0 z-50 hidden place-items-center px-4">
+    <div class="w-full max-w-md modal-enter glass rounded-2xl p-6">
+      <div class="flex items-center justify-between">
+        <h3 class="font-bold text-xl">Thu phí quá hạn</h3>
+        <button class="text-white/70 hover:text-white" onclick="closeFeeModal()">✕</button>
+      </div>
+      <div class="mt-4 space-y-4">
+        <div class="rounded-xl bg-rose-500/20 border border-rose-400/30 p-4">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 rounded-full bg-rose-500 flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-rose-200">Sách quá hạn</p>
+              <p class="text-rose-300 text-sm" id="feeBookTitle"></p>
+            </div>
+          </div>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between">
+              <span class="text-white/70">Độc giả:</span>
+              <span id="feeMemberName"></span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-white/70">Quá hạn:</span>
+              <span id="feeOverdueDays" class="text-rose-300"></span>
+            </div>
+            <div class="flex justify-between font-semibold text-lg border-t border-rose-400/30 pt-2">
+              <span>Tổng phí:</span>
+              <span id="feeTotalAmount" class="text-rose-200"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button type="button" class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20" onclick="closeFeeModal()">Hủy</button>
+          <button id="confirmPayment" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 font-semibold">Thu phí & Trả sách</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Data & Storage
+    const LS_KEY = 'canva_library_data_v1';
+    let state = {
+      books: [],
+      members: [],
+      loans: [],
+      settings: {
+        feePerDay: 5000,
+        maxFee: 100000
+      },
+      createdAt: new Date().toISOString()
+    };
+
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => document.querySelectorAll(sel);
+
+    function saveState() {
+      localStorage.setItem(LS_KEY, JSON.stringify(state));
+      updateAll();
+    }
+    function loadState() {
+      const raw = localStorage.getItem(LS_KEY);
+      if (raw) {
+        try { 
+          state = JSON.parse(raw); 
+          // Ensure settings exist
+          if (!state.settings) {
+            state.settings = { feePerDay: 5000, maxFee: 100000 };
+          }
+        }
+        catch { /* ignore, fallback sample */ }
+      }
+      if (!state.books?.length) seedSample();
+      // Load settings to UI
+      $('#feePerDay').value = state.settings.feePerDay || 5000;
+      $('#maxFee').value = state.settings.maxFee || 100000;
+      updateAll();
+    }
+
+    function seedSample() {
+      const now = new Date();
+      state.books = [
+        { id: uid(), title: "Dế Mèn Phiêu Lưu Ký", author: "Tô Hoài", year: 1941, genre: "Thiếu nhi", total: 5, available: 3, createdAt: now.toISOString() },
+        { id: uid(), title: "Lão Hạc", author: "Nam Cao", year: 1943, genre: "Văn học", total: 4, available: 4, createdAt: now.toISOString() },
+        { id: uid(), title: "Harry Potter", author: "J.K. Rowling", year: 1997, genre: "Giả tưởng", total: 6, available: 2, createdAt: now.toISOString() },
+      ];
+      state.members = [
+        { id: uid(), name: "Nguyễn An", phone: "0901 234 567", notes: "" , createdAt: now.toISOString()},
+        { id: uid(), name: "Trần Bình", phone: "0987 654 321", notes: "Ưu tiên", createdAt: now.toISOString()},
+      ];
+      state.loans = [
+        { id: uid(), bookId: state.books[0].id, memberId: state.members[0].id, loanDate: dstr(addDays(now,-5)), dueDate: dstr(addDays(now,2)), returnedDate: null, createdAt: now.toISOString() },
+        { id: uid(), bookId: state.books[2].id, memberId: state.members[1].id, loanDate: dstr(addDays(now,-14)), dueDate: dstr(addDays(now,-1)), returnedDate: null, createdAt: now.toISOString() },
+      ];
+      // reflect availability
+      state.loans.forEach(l => {
+        const b = state.books.find(x => x.id === l.bookId);
+        if (b && l.returnedDate == null && b.available > 0) b.available -= 1;
+      });
+      saveState();
+    }
+
+    function uid() { return Math.random().toString(36).slice(2) + Date.now().toString(36); }
+    function addDays(date, days){ const d = new Date(date); d.setDate(d.getDate() + days); return d; }
+    function dstr(d){ const y=d.getFullYear(); const m=('0'+(d.getMonth()+1)).slice(-2); const dd=('0'+d.getDate()).slice(-2); return `${y}-${m}-${dd}`; }
+    function todayStr(){ return dstr(new Date()); }
+
+    // Tabs
+    function switchTab(key){
+      $$('.tab-pane').forEach(el => el.classList.add('hidden'));
+      $(`#tab-${key}`)?.classList.remove('hidden');
+      $$('#navTabs .tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-tab')===key);
+        btn.classList.toggle('bg-white/10', btn.getAttribute('data-tab')!==key);
+      });
+      // focus areas
+      if (key==='books') $('#globalSearch').placeholder = "Tìm sách... (VD: tác giả:Nam Cao, năm:1997)";
+      else if (key==='members') $('#globalSearch').placeholder = "Tìm tên độc giả, SĐT...";
+      else if (key==='loans') $('#globalSearch').placeholder = "Tìm theo sách, độc giả, trạng thái...";
+      else $('#globalSearch').placeholder = "Tìm kiếm sách, độc giả, giao dịch...";
+    }
+    function initTabs(){
+      $$('#navTabs .tab-btn').forEach(btn=>{
+        btn.addEventListener('click', ()=> switchTab(btn.getAttribute('data-tab')));
+      });
+      switchTab('dashboard');
+    }
+
+    // Rendering
+    function updateStats(){
+      $('#statTotalTitles').textContent = state.books.length;
+      const totalAvail = state.books.reduce((s,b)=> s + (b.available||0),0);
+      $('#statAvailable').textContent = totalAvail;
+      $('#statMembers').textContent = state.members.length;
+      const active = state.loans.filter(l=>!l.returnedDate).length;
+      $('#statActiveLoans').textContent = active;
+    }
+
+    function renderRecentBooks(){
+      const box = $('#recentBooks');
+      const recent = [...state.books].sort((a,b)=> (b.createdAt||'').localeCompare(a.createdAt||'')).slice(0,5);
+      box.innerHTML = recent.map(b => `
+        <div class="flex items-center justify-between rounded-lg bg-white/10 border border-white/10 px-3 py-2">
+          <div>
+            <p class="font-semibold">${escapeHtml(b.title)}</p>
+            <p class="text-white/70 text-xs">${escapeHtml(b.author)} • ${escapeHtml(b.genre||'Khác')}</p>
+          </div>
+          <span class="text-sm ${b.available>0?'text-emerald-300':'text-rose-300'}">${b.available}/${b.total}</span>
+        </div>
+      `).join('') || '<div class="text-white/70 text-sm">Chưa có sách.</div>';
+    }
+
+    function renderDueSoon(){
+      const box = $('#dueSoon');
+      const soon = state.loans.filter(l=>!l.returnedDate)
+        .map(l => ({...l, due:new Date(l.dueDate)}))
+        .sort((a,b)=> a.due - b.due)
+        .slice(0,5);
+      box.innerHTML = soon.map(l=>{
+        const book = state.books.find(b=>b.id===l.bookId);
+        const mem = state.members.find(m=>m.id===l.memberId);
+        const overdue = new Date(l.dueDate) < new Date(todayStr());
+        return `
+          <div class="flex items-center justify-between rounded-lg bg-white/10 border border-white/10 px-3 py-2">
+            <div>
+              <p class="font-semibold">${escapeHtml(book?.title||'[Đã xoá]')}</p>
+              <p class="text-white/70 text-xs">Độc giả: ${escapeHtml(mem?.name||'[Đã xoá]')}</p>
+            </div>
+            <span class="text-sm ${overdue?'text-rose-300':'text-amber-300'}">${l.dueDate}</span>
+          </div>
+        `;
+      }).join('') || '<div class="text-white/70 text-sm">Không có mục sắp đến hạn.</div>';
+    }
+
+    function renderBooks(){
+      // Populate genre filter
+      const genres = Array.from(new Set(state.books.map(b => (b.genre||'Khác').trim()))).filter(Boolean).sort();
+      const genreSel = $('#filterBookGenre');
+      const current = genreSel.value;
+      genreSel.innerHTML = '<option value="">Thể loại: Tất cả</option>' + genres.map(g=>`<option ${g===current?'selected':''} value="${escapeAttr(g)}">${escapeHtml(g)}</option>`).join('');
+
+      const q = $('#globalSearch').value.trim().toLowerCase();
+      const g = $('#filterBookGenre').value;
+      const stock = $('#filterBookStock').value; // available|out|''
+      
+      const filtered = state.books.filter(b=>{
+        let matchQ = true;
+        if (q) {
+          // Advanced search patterns
+          if (q.startsWith('tác giả:')) {
+            const authorQuery = q.replace('tác giả:', '').trim();
+            matchQ = authorQuery ? (b.author||'').toLowerCase().includes(authorQuery) : true;
+          } else if (q.startsWith('năm:')) {
+            const yearQuery = q.replace('năm:', '').trim();
+            matchQ = yearQuery ? String(b.year||'').includes(yearQuery) : true;
+          } else if (q.startsWith('thể loại:')) {
+            const genreQuery = q.replace('thể loại:', '').trim();
+            matchQ = genreQuery ? (b.genre||'').toLowerCase().includes(genreQuery) : true;
+          } else {
+            // Normal search across all fields
+            matchQ = [b.title, b.author, b.genre, String(b.year)].some(x => (x||'').toLowerCase().includes(q));
+          }
+        }
+        const matchG = !g || (b.genre||'').trim() === g;
+        const matchS = !stock || (stock==='available' ? b.available>0 : b.available===0);
+        return matchQ && matchG && matchS;
+      });
+      const tbody = $('#bookTbody');
+      tbody.innerHTML = filtered.map(b=>{
+        const stockColor = b.available>0 ? 'text-emerald-300' : 'text-rose-300';
+        return `
+          <tr data-id="${b.id}" class="border-b border-white/10 hover:bg-white/5">
+            <td class="py-3 pr-4 cursor-pointer" ondblclick="openBookModal('${b.id}')">${escapeHtml(b.title)}</td>
+            <td class="py-3 pr-4">${escapeHtml(b.author||'')}</td>
+            <td class="py-3 pr-4">${escapeHtml(b.year||'')}</td>
+            <td class="py-3 pr-4">${escapeHtml(b.genre||'Khác')}</td>
+            <td class="py-3 pr-4 ${stockColor}">${b.available}/${b.total}</td>
+            <td class="py-3 pr-4">
+              <div class="flex items-center gap-2">
+                <button class="px-3 py-1 rounded-md bg-white/10 hover:bg-white/20 text-sm" onclick="openBookModal('${b.id}')">Sửa</button>
+                <button class="px-3 py-1 rounded-md bg-rose-500/80 hover:bg-rose-600 text-sm" onclick="deleteBook('${b.id}')">Xoá</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('') || `<tr><td colspan="6" class="py-6 text-center text-white/70">Không có sách phù hợp.</td></tr>`;
+    }
+
+    function renderMembers(){
+      const q = $('#globalSearch').value.trim().toLowerCase();
+      const filtered = state.members.filter(m=>{
+        return !q || [m.name, m.phone, m.notes].some(x => (x||'').toLowerCase().includes(q));
+      });
+      $('#memberCount').textContent = `Tổng: ${filtered.length}`;
+      const tbody = $('#memberTbody');
+      tbody.innerHTML = filtered.map(m=>`
+        <tr class="border-b border-white/10 hover:bg-white/5">
+          <td class="py-3 pr-4 cursor-pointer" ondblclick="openMemberModal('${m.id}')">${escapeHtml(m.name)}</td>
+          <td class="py-3 pr-4">${escapeHtml(m.phone||'')}</td>
+          <td class="py-3 pr-4">${escapeHtml(m.notes||'')}</td>
+          <td class="py-3 pr-4">
+            <div class="flex items-center gap-2">
+              <button class="px-3 py-1 rounded-md bg-white/10 hover:bg-white/20 text-sm" onclick="openMemberModal('${m.id}')">Sửa</button>
+              <button class="px-3 py-1 rounded-md bg-rose-500/80 hover:bg-rose-600 text-sm" onclick="deleteMember('${m.id}')">Xoá</button>
+            </div>
+          </td>
+        </tr>
+      `).join('') || `<tr><td colspan="4" class="py-6 text-center text-white/70">Không có độc giả phù hợp.</td></tr>`;
+    }
+
+    function loanStatus(l){
+      if (l.returnedDate) return { key:'returned', label:'Đã trả', color:'text-emerald-300' };
+      const overdue = new Date(l.dueDate) < new Date(todayStr());
+      if (overdue) return { key:'overdue', label:'Quá hạn', color:'text-rose-300' };
+      return { key:'active', label:'Đang mượn', color:'text-amber-300' };
+    }
+
+    function calculateOverdueFee(loan) {
+      if (loan.returnedDate) return 0;
+      const dueDate = new Date(loan.dueDate);
+      const today = new Date(todayStr());
+      if (today <= dueDate) return 0;
+      
+      const overdueDays = Math.ceil((today - dueDate) / (1000 * 60 * 60 * 24));
+      const fee = overdueDays * (state.settings.feePerDay || 5000);
+      return Math.min(fee, state.settings.maxFee || 100000);
+    }
+
+    function formatCurrency(amount) {
+      return new Intl.NumberFormat('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+      }).format(amount);
+    }
+
+    function renderLoans(){
+      const q = $('#globalSearch').value.trim().toLowerCase();
+      const f = $('#filterLoanStatus').value;
+      const tbody = $('#loanTbody');
+      const rows = state.loans
+        .map(l => ({...l, book: state.books.find(b=>b.id===l.bookId), member: state.members.find(m=>m.id===l.memberId)}))
+        .filter(x=>{
+          const st = loanStatus(x).key;
+          const matchF = !f || st===f;
+          const matchQ = !q || [x.book?.title, x.member?.name, st].some(v => (v||'').toLowerCase().includes(q));
+          return matchF && matchQ;
+        })
+        .sort((a,b)=> (b.createdAt||'').localeCompare(a.createdAt||''));
+      $('#loanCount').textContent = `Tổng: ${rows.length}`;
+      tbody.innerHTML = rows.map(x=>{
+        const st = loanStatus(x);
+        const fee = calculateOverdueFee(x);
+        const feeDisplay = fee > 0 ? formatCurrency(fee) : '-';
+        const feeColor = fee > 0 ? 'text-rose-300' : 'text-white/70';
+        
+        return `
+          <tr class="border-b border-white/10 hover:bg-white/5">
+            <td class="py-3 pr-4">${escapeHtml(x.book?.title||'[Đã xoá]')}</td>
+            <td class="py-3 pr-4">${escapeHtml(x.member?.name||'[Đã xoá]')}</td>
+            <td class="py-3 pr-4">${x.loanDate}</td>
+            <td class="py-3 pr-4">${x.dueDate}</td>
+            <td class="py-3 pr-4 ${feeColor}">${feeDisplay}</td>
+            <td class="py-3 pr-4 ${st.color}">${st.label}</td>
+            <td class="py-3 pr-4">
+              <div class="flex items-center gap-2">
+                ${!x.returnedDate ? (fee > 0 ? 
+                  `<button class="px-3 py-1 rounded-md bg-rose-500/90 hover:bg-rose-600 text-sm" onclick="openFeeModal('${x.id}')">Thu phí</button>` :
+                  `<button class="px-3 py-1 rounded-md bg-emerald-500/90 hover:bg-emerald-600 text-sm" onclick="returnLoan('${x.id}')">Trả sách</button>`
+                ) : ''}
+                <button class="px-3 py-1 rounded-md bg-white/10 hover:bg-white/20 text-sm" onclick="openLoanModal('${x.id}')">Chi tiết</button>
+                <button class="px-3 py-1 rounded-md bg-rose-500/80 hover:bg-rose-600 text-sm" onclick="deleteLoan('${x.id}')">Xoá</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('') || `<tr><td colspan="7" class="py-6 text-center text-white/70">Không có giao dịch phù hợp.</td></tr>`;
+    }
+
+    function renderReports(){
+      // Top borrowed books (by active + returned count)
+      const counts = {};
+      state.loans.forEach(l => { counts[l.bookId] = (counts[l.bookId]||0) + 1; });
+      const topBooks = Object.entries(counts).map(([bookId, count])=>{
+        const book = state.books.find(b=>b.id===bookId);
+        return { title: book?.title || '[Đã xoá]', count };
+      }).sort((a,b)=> b.count-a.count).slice(0,5);
+      $('#reportTopBooks').innerHTML = topBooks.map((x,i)=>`
+        <div class="flex items-center justify-between rounded-lg bg-white/10 border border-white/10 px-3 py-2">
+          <div class="flex items-center gap-3">
+            <span class="w-7 h-7 grid place-content-center rounded-md bg-indigo-500/80 font-bold">${i+1}</span>
+            <span class="font-semibold">${escapeHtml(x.title)}</span>
+          </div>
+          <span class="text-white/70 text-sm">${x.count} lần</span>
+        </div>
+      `).join('') || '<div class="text-white/70 text-sm">Chưa có dữ liệu.</div>';
+
+      // Top members by borrow count
+      const mCounts = {};
+      state.loans.forEach(l => { mCounts[l.memberId] = (mCounts[l.memberId]||0) + 1; });
+      const topMembers = Object.entries(mCounts).map(([memberId, count])=>{
+        const m = state.members.find(mm=>mm.id===memberId);
+        return { name: m?.name||'[Đã xoá]', count };
+      }).sort((a,b)=> b.count-a.count).slice(0,5);
+      $('#reportTopMembers').innerHTML = topMembers.map((x,i)=>`
+        <div class="flex items-center justify-between rounded-lg bg-white/10 border border-white/10 px-3 py-2">
+          <div class="flex items-center gap-3">
+            <span class="w-7 h-7 grid place-content-center rounded-md bg-pink-500/80 font-bold">${i+1}</span>
+            <span class="font-semibold">${escapeHtml(x.name)}</span>
+          </div>
+          <span class="text-white/70 text-sm">${x.count} lượt</span>
+        </div>
+      `).join('') || '<div class="text-white/70 text-sm">Chưa có dữ liệu.</div>';
+    }
+
+    function updateAll(){
+      updateStats();
+      renderRecentBooks();
+      renderDueSoon();
+      renderBooks();
+      renderMembers();
+      renderLoans();
+      renderReports();
+      populateLoanSelectors();
+    }
+
+    // Helpers
+    function escapeHtml(s){ return String(s ?? '').replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[m])); }
+    function escapeAttr(s){ return escapeHtml(s).replace(/"/g, '&quot;'); }
+
+    // Book CRUD
+    function openBookModal(id=null){
+      $('#bookModalTitle').textContent = id ? 'Sửa sách' : 'Thêm sách';
+      $('#bookForm').reset();
+      $('#bookId').value = id || '';
+      if (id){
+        const b = state.books.find(x=>x.id===id);
+        if (!b) return;
+        $('#bookTitle').value = b.title || '';
+        $('#bookAuthor').value = b.author || '';
+        $('#bookYear').value = b.year || '';
+        $('#bookGenre').value = b.genre || '';
+        $('#bookTotal').value = b.total ?? 1;
+        $('#bookAvailable').value = b.available ?? 0;
+      } else {
+        $('#bookAvailable').value = 1;
+        $('#bookTotal').value = 1;
+      }
+      openModal('bookModal');
+    }
+    function closeBookModal(){ closeModal('bookModal'); }
+    $('#btnAddBook').addEventListener('click', ()=> openBookModal());
+
+    $('#bookForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const id = $('#bookId').value || uid();
+      const isNew = !state.books.some(b=>b.id===id);
+      const total = clampInt($('#bookTotal').value,1,9999);
+      const available = clampInt($('#bookAvailable').value,0,total);
+      const book = {
+        id,
+        title: $('#bookTitle').value.trim(),
+        author: $('#bookAuthor').value.trim(),
+        year: clampInt($('#bookYear').value,0,9999),
+        genre: $('#bookGenre').value.trim(),
+        total,
+        available,
+        createdAt: isNew ? new Date().toISOString() : (state.books.find(b=>b.id===id)?.createdAt||new Date().toISOString())
+      };
+      if (!book.title) { alert('Vui lòng nhập tên sách'); return; }
+      if (isNew) state.books.unshift(book);
+      else {
+        const idx = state.books.findIndex(b=>b.id===id);
+        // Adjust availability if total decreased below current available
+        if (book.available > book.total) book.available = book.total;
+        state.books[idx] = {...state.books[idx], ...book};
+      }
+      saveState();
+      closeBookModal();
+      switchTab('books');
+    });
+
+    function deleteBook(id){
+      const loaned = state.loans.some(l=> l.bookId===id && !l.returnedDate);
+      const msg = loaned ? 'Sách đang được mượn. Bạn vẫn muốn xoá?' : 'Xoá sách này?';
+      if (!confirm(msg)) return;
+      state.books = state.books.filter(b=> b.id!==id);
+      // Also remove loans related? Better keep history; do nothing.
+      saveState();
+    }
+
+    // Member CRUD
+    function openMemberModal(id=null){
+      $('#memberModalTitle').textContent = id ? 'Sửa độc giả' : 'Thêm độc giả';
+      $('#memberForm').reset();
+      $('#memberId').value = id || '';
+      if (id){
+        const m = state.members.find(x=>x.id===id);
+        if (!m) return;
+        $('#memberName').value = m.name || '';
+        $('#memberPhone').value = m.phone || '';
+        $('#memberNotes').value = m.notes || '';
+      }
+      openModal('memberModal');
+    }
+    function closeMemberModal(){ closeModal('memberModal'); }
+    $('#btnAddMember').addEventListener('click', ()=> openMemberModal());
+
+    $('#memberForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const id = $('#memberId').value || uid();
+      const isNew = !state.members.some(m=>m.id===id);
+      const m = {
+        id,
+        name: $('#memberName').value.trim(),
+        phone: $('#memberPhone').value.trim(),
+        notes: $('#memberNotes').value.trim(),
+        createdAt: isNew ? new Date().toISOString() : (state.members.find(x=>x.id===id)?.createdAt||new Date().toISOString())
+      };
+      if (!m.name) { alert('Vui lòng nhập tên độc giả'); return; }
+      if (isNew) state.members.unshift(m);
+      else {
+        const idx = state.members.findIndex(x=>x.id===id);
+        state.members[idx] = {...state.members[idx], ...m};
+      }
+      saveState();
+      closeMemberModal();
+      switchTab('members');
+    });
+
+    function deleteMember(id){
+      const hasLoan = state.loans.some(l=> l.memberId===id && !l.returnedDate);
+      const msg = hasLoan ? 'Độc giả đang có sách mượn. Bạn vẫn muốn xoá?' : 'Xoá độc giả này?';
+      if (!confirm(msg)) return;
+      state.members = state.members.filter(m=> m.id!==id);
+      saveState();
+    }
+
+    // Loans
+    function populateLoanSelectors(){
+      const selBook = $('#loanBook');
+      const selMem = $('#loanMember');
+      // Books with availability first
+      const sortedBooks = [...state.books].sort((a,b)=> (b.available>0)-(a.available>0) || a.title.localeCompare(b.title));
+      selBook.innerHTML = `<option value="">-- Chọn sách --</option>` + sortedBooks.map(b=>`
+        <option value="${escapeAttr(b.id)}">${escapeHtml(b.title)} ${b.available>0?'':'(hết)'}</option>
+      `).join('');
+      selMem.innerHTML = `<option value="">-- Chọn độc giả --</option>` + [...state.members].sort((a,b)=> a.name.localeCompare(b.name)).map(m=>`
+        <option value="${escapeAttr(m.id)}">${escapeHtml(m.name)}</option>
+      `).join('');
+    }
+
+    function openLoanModal(id=null){
+      $('#loanModalTitle').textContent = id ? 'Chi tiết mượn trả' : 'Tạo mượn sách';
+      $('#loanForm').reset();
+      $('#loanId').value = id || '';
+      populateLoanSelectors();
+      $('#loanDate').value = todayStr();
+      $('#loanDue').value = dstr(addDays(new Date(), 7));
+      $('#loanWarning').classList.add('hidden');
+
+      if (id){
+        const l = state.loans.find(x=>x.id===id);
+        if (!l) return;
+        $('#loanBook').value = l.bookId;
+        $('#loanMember').value = l.memberId;
+        $('#loanDate').value = l.loanDate;
+        $('#loanDue').value = l.dueDate;
+        if (bookById(l.bookId)?.available === 0 && !l.returnedDate){
+          $('#loanWarning').classList.remove('hidden');
+        }
+      }
+      openModal('loanModal');
+    }
+    function closeLoanModal(){ closeModal('loanModal'); }
+    $('#btnAddLoan').addEventListener('click', ()=> openLoanModal());
+
+    function bookById(id){ return state.books.find(b=>b.id===id); }
+    function memberById(id){ return state.members.find(m=>m.id===id); }
+
+    $('#loanBook').addEventListener('change', ()=>{
+      const b = bookById($('#loanBook').value);
+      if (!b) return;
+      $('#loanWarning').classList.toggle('hidden', b.available>0);
+    });
+
+    $('#loanForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const id = $('#loanId').value || uid();
+      const isNew = !state.loans.some(x=>x.id===id);
+      const payload = {
+        id,
+        bookId: $('#loanBook').value,
+        memberId: $('#loanMember').value,
+        loanDate: $('#loanDate').value,
+        dueDate: $('#loanDue').value,
+        returnedDate: null,
+        createdAt: isNew ? new Date().toISOString() : (state.loans.find(x=>x.id===id)?.createdAt||new Date().toISOString())
+      };
+      if (!payload.bookId || !payload.memberId){ alert('Vui lòng chọn sách và độc giả'); return; }
+      const b = bookById(payload.bookId);
+      if (!b){ alert('Sách không tồn tại'); return; }
+      if (isNew){
+        if (b.available<=0){ if(!confirm('Sách đã hết. Vẫn tạo mượn?')) return; }
+        else b.available -= 1;
+        state.loans.unshift(payload);
+      } else {
+        const old = state.loans.find(x=>x.id===id);
+        // If changed book, adjust availability
+        if (old.bookId !== payload.bookId && !old.returnedDate){
+          const prev = bookById(old.bookId); if (prev) prev.available += 1;
+          if (b.available<=0){ if(!confirm('Sách đã hết. Vẫn đổi sang sách này?')) return; }
+          else b.available -= 1;
+        }
+        old.bookId = payload.bookId;
+        old.memberId = payload.memberId;
+        old.loanDate = payload.loanDate;
+        old.dueDate = payload.dueDate;
+      }
+      saveState();
+      closeLoanModal();
+      switchTab('loans');
+    });
+
+    function returnLoan(id){
+      const l = state.loans.find(x=>x.id===id);
+      if (!l || l.returnedDate) return;
+      if (!confirm('Xác nhận trả sách?')) return;
+      l.returnedDate = todayStr();
+      const b = bookById(l.bookId);
+      if (b) b.available = Math.min(b.total, (b.available||0) + 1);
+      saveState();
+    }
+
+    // Fee Modal Functions
+    let currentFeePaymentLoanId = null;
+
+    function openFeeModal(loanId) {
+      const loan = state.loans.find(l => l.id === loanId);
+      if (!loan || loan.returnedDate) return;
+      
+      const book = bookById(loan.bookId);
+      const member = memberById(loan.memberId);
+      const fee = calculateOverdueFee(loan);
+      
+      if (fee === 0) {
+        returnLoan(loanId);
+        return;
+      }
+      
+      const dueDate = new Date(loan.dueDate);
+      const today = new Date(todayStr());
+      const overdueDays = Math.ceil((today - dueDate) / (1000 * 60 * 60 * 24));
+      
+      $('#feeBookTitle').textContent = book?.title || '[Đã xoá]';
+      $('#feeMemberName').textContent = member?.name || '[Đã xoá]';
+      $('#feeOverdueDays').textContent = `${overdueDays} ngày`;
+      $('#feeTotalAmount').textContent = formatCurrency(fee);
+      
+      currentFeePaymentLoanId = loanId;
+      openModal('feeModal');
+    }
+
+    function closeFeeModal() {
+      currentFeePaymentLoanId = null;
+      closeModal('feeModal');
+    }
+
+    $('#confirmPayment').addEventListener('click', () => {
+      if (!currentFeePaymentLoanId) return;
+      
+      const loan = state.loans.find(l => l.id === currentFeePaymentLoanId);
+      if (!loan) return;
+      
+      const fee = calculateOverdueFee(loan);
+      
+      // Record payment (in real system, this would integrate with payment processing)
+      loan.returnedDate = todayStr();
+      loan.feesPaid = fee;
+      
+      const book = bookById(loan.bookId);
+      if (book) book.available = Math.min(book.total, (book.available || 0) + 1);
+      
+      saveState();
+      closeFeeModal();
+      
+      alert(`Đã thu phí ${formatCurrency(fee)} và trả sách thành công!`);
+    });
+
+    function deleteLoan(id){
+      if (!confirm('Xoá giao dịch này?')) return;
+      const l = state.loans.find(x=>x.id===id);
+      if (l && !l.returnedDate){
+        const b = bookById(l.bookId);
+        if (b) b.available = Math.min(b.total, (b.available||0) + 1);
+      }
+      state.loans = state.loans.filter(x=>x.id!==id);
+      saveState();
+    }
+
+    // Inputs helpers
+    function clampInt(v,min,max){ v = parseInt(v||0,10); if(isNaN(v)) v=min; return Math.max(min, Math.min(max, v)); }
+
+    // Enhanced Search & Filters
+    let searchTimeout;
+    
+    function updateSearchUI() {
+      const query = $('#globalSearch').value.trim();
+      const clearBtn = $('#clearSearch');
+      const suggestions = $('#searchSuggestions');
+      const results = $('#searchResults');
+      
+      // Show/hide clear button
+      clearBtn.classList.toggle('hidden', !query);
+      
+      // Show suggestions when focused and empty, or when query is incomplete pattern
+      const showSuggestions = (!query && document.activeElement === $('#globalSearch')) || 
+                             (query && (query.endsWith(':') || query.length < 2));
+      
+      suggestions.classList.toggle('hidden', !showSuggestions);
+      
+      // Update search results info - always show when there's a query
+      if (query && query.length >= 1) {
+        updateSearchResults();
+        results.classList.remove('hidden');
+      } else {
+        results.classList.add('hidden');
+      }
+    }
+    
+    function updateSearchResults() {
+      const query = $('#globalSearch').value.trim().toLowerCase();
+      if (!query) return;
+      
+      const currentTab = document.querySelector('.tab-btn.active')?.getAttribute('data-tab');
+      let count = 0;
+      let total = 0;
+      let type = '';
+      let searchType = '';
+      let filteredItems = [];
+      let matchDetails = [];
+      
+      if (currentTab === 'books') {
+        // Determine search type for better messaging
+        if (query.startsWith('tác giả:')) {
+          searchType = 'theo tác giả';
+          const authorQuery = query.replace('tác giả:', '').trim();
+          filteredItems = state.books.filter(b => {
+            const match = authorQuery ? (b.author||'').toLowerCase().includes(authorQuery) : true;
+            if (match && authorQuery) {
+              matchDetails.push(`📚 "${b.title}" - ${b.author} (${b.available}/${b.total} sẵn)`);
+            }
+            return match;
+          });
+        } else if (query.startsWith('năm:')) {
+          searchType = 'theo năm xuất bản';
+          const yearQuery = query.replace('năm:', '').trim();
+          filteredItems = state.books.filter(b => {
+            const match = yearQuery ? String(b.year||'').includes(yearQuery) : true;
+            if (match && yearQuery) {
+              matchDetails.push(`📚 "${b.title}" - ${b.author} (${b.year}) • ${b.available}/${b.total} sẵn`);
+            }
+            return match;
+          });
+        } else if (query.startsWith('thể loại:')) {
+          searchType = 'theo thể loại';
+          const genreQuery = query.replace('thể loại:', '').trim();
+          filteredItems = state.books.filter(b => {
+            const match = genreQuery ? (b.genre||'').toLowerCase().includes(genreQuery) : true;
+            if (match && genreQuery) {
+              matchDetails.push(`📚 "${b.title}" - ${b.author} [${b.genre}] • ${b.available}/${b.total} sẵn`);
+            }
+            return match;
+          });
+        } else {
+          // Regular search - show what matched
+          filteredItems = state.books.filter(b => {
+            const titleMatch = (b.title||'').toLowerCase().includes(query);
+            const authorMatch = (b.author||'').toLowerCase().includes(query);
+            const genreMatch = (b.genre||'').toLowerCase().includes(query);
+            const yearMatch = String(b.year||'').includes(query);
+            
+            if (titleMatch || authorMatch || genreMatch || yearMatch) {
+              let matchInfo = [];
+              if (titleMatch) matchInfo.push('tên sách');
+              if (authorMatch) matchInfo.push('tác giả');
+              if (genreMatch) matchInfo.push('thể loại');
+              if (yearMatch) matchInfo.push('năm');
+              
+              const statusIcon = b.available > 0 ? '✅' : '❌';
+              matchDetails.push(`${statusIcon} "${b.title}" - ${b.author} • Khớp: ${matchInfo.join(', ')} • ${b.available}/${b.total} sẵn`);
+              return true;
+            }
+            return false;
+          });
+        }
+        count = filteredItems.length;
+        total = state.books.length;
+        type = 'sách';
+      } else if (currentTab === 'members') {
+        filteredItems = state.members.filter(m => {
+          const nameMatch = (m.name||'').toLowerCase().includes(query);
+          const phoneMatch = (m.phone||'').toLowerCase().includes(query);
+          const notesMatch = (m.notes||'').toLowerCase().includes(query);
+          
+          if (nameMatch || phoneMatch || notesMatch) {
+            let matchInfo = [];
+            if (nameMatch) matchInfo.push('tên');
+            if (phoneMatch) matchInfo.push('SĐT');
+            if (notesMatch) matchInfo.push('ghi chú');
+            
+            matchDetails.push(`👤 ${m.name} ${m.phone ? '• ' + m.phone : ''} • Khớp: ${matchInfo.join(', ')}`);
+            return true;
+          }
+          return false;
+        });
+        count = filteredItems.length;
+        total = state.members.length;
+        type = 'độc giả';
+      } else if (currentTab === 'loans') {
+        filteredItems = state.loans.filter(l => {
+          const book = state.books.find(b => b.id === l.bookId);
+          const member = state.members.find(m => m.id === l.memberId);
+          const status = loanStatus(l).label;
+          
+          const bookMatch = (book?.title||'').toLowerCase().includes(query);
+          const memberMatch = (member?.name||'').toLowerCase().includes(query);
+          const statusMatch = status.toLowerCase().includes(query);
+          
+          if (bookMatch || memberMatch || statusMatch) {
+            let matchInfo = [];
+            if (bookMatch) matchInfo.push('tên sách');
+            if (memberMatch) matchInfo.push('độc giả');
+            if (statusMatch) matchInfo.push('trạng thái');
+            
+            const statusIcon = l.returnedDate ? '✅' : (new Date(l.dueDate) < new Date() ? '⚠️' : '📖');
+            matchDetails.push(`${statusIcon} "${book?.title || '[Đã xoá]'}" - ${member?.name || '[Đã xoá]'} • ${status} • Khớp: ${matchInfo.join(', ')}`);
+            return true;
+          }
+          return false;
+        });
+        count = filteredItems.length;
+        total = state.loans.length;
+        type = 'giao dịch';
+      } else {
+        // Dashboard - search across all data with detailed breakdown
+        const bookResults = state.books.filter(b => {
+          const match = [b.title, b.author, b.genre, String(b.year)].some(x => (x||'').toLowerCase().includes(query));
+          if (match) {
+            const statusIcon = b.available > 0 ? '✅' : '❌';
+            matchDetails.push(`${statusIcon} Sách: "${b.title}" - ${b.author} • ${b.available}/${b.total} sẵn`);
+          }
+          return match;
+        });
+        
+        const memberResults = state.members.filter(m => {
+          const match = [m.name, m.phone, m.notes].some(x => (x||'').toLowerCase().includes(query));
+          if (match) {
+            matchDetails.push(`👤 Độc giả: ${m.name} ${m.phone ? '• ' + m.phone : ''}`);
+          }
+          return match;
+        });
+        
+        const loanResults = state.loans.filter(l => {
+          const book = state.books.find(b => b.id === l.bookId);
+          const member = state.members.find(m => m.id === l.memberId);
+          const status = loanStatus(l).label;
+          const match = [book?.title, member?.name, status].some(x => (x||'').toLowerCase().includes(query));
+          if (match) {
+            const statusIcon = l.returnedDate ? '✅' : (new Date(l.dueDate) < new Date() ? '⚠️' : '📖');
+            matchDetails.push(`${statusIcon} Giao dịch: "${book?.title || '[Đã xoá]'}" - ${member?.name || '[Đã xoá]'} • ${status}`);
+          }
+          return match;
+        });
+        
+        count = bookResults.length + memberResults.length + loanResults.length;
+        total = state.books.length + state.members.length + state.loans.length;
+        type = 'kết quả';
+        
+        // Show breakdown for dashboard
+        const breakdown = [];
+        if (bookResults.length > 0) breakdown.push(`${bookResults.length} sách`);
+        if (memberResults.length > 0) breakdown.push(`${memberResults.length} độc giả`);
+        if (loanResults.length > 0) breakdown.push(`${loanResults.length} giao dịch`);
+        
+        if (breakdown.length > 0) {
+          searchType = `(${breakdown.join(', ')})`;
+        }
+      }
+      
+      const displayQuery = $('#globalSearch').value.trim();
+      let message = '';
+      
+      if (count === 0) {
+        message = `❌ Không tìm thấy ${type} nào phù hợp với "${displayQuery}"`;
+        if (currentTab !== 'dashboard') {
+          message += `. Thử tìm ở tab khác hoặc thay đổi từ khóa.`;
+        }
+      } else if (count === total && currentTab !== 'dashboard') {
+        message = `✅ Hiển thị tất cả ${total} ${type}`;
+      } else {
+        message = `🔍 Tìm thấy ${count}/${total} ${type}`;
+        
+        if (searchType) {
+          message += ` ${searchType}`;
+        }
+        
+        message += ` cho "${displayQuery}"`;
+        
+        // Add helpful suggestions
+        if (count > 0 && currentTab === 'books') {
+          const availableCount = filteredItems.filter(b => b.available > 0).length;
+          if (availableCount !== count) {
+            message += ` • ${availableCount} sách còn sẵn`;
+          }
+        }
+        
+        // Show detailed matches (limit to prevent UI overflow)
+        if (matchDetails.length > 0) {
+          const maxShow = currentTab === 'dashboard' ? 8 : 12;
+          const showDetails = matchDetails.slice(0, maxShow);
+          message += '\n\n📋 Chi tiết kết quả:\n' + showDetails.join('\n');
+          
+          if (matchDetails.length > maxShow) {
+            message += `\n... và ${matchDetails.length - maxShow} kết quả khác`;
+          }
+        }
+      }
+      
+      $('#searchResultText').textContent = message;
+    }
+
+    $('#globalSearch').addEventListener('input', () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        renderBooks(); 
+        renderMembers(); 
+        renderLoans();
+        updateSearchUI();
+      }, 300); // Debounce search
+    });
+    
+    $('#globalSearch').addEventListener('focus', updateSearchUI);
+    $('#globalSearch').addEventListener('blur', () => {
+      setTimeout(() => $('#searchSuggestions').classList.add('hidden'), 150);
+    });
+    
+    $('#clearSearch').addEventListener('click', () => {
+      $('#globalSearch').value = '';
+      $('#globalSearch').focus();
+      renderBooks(); 
+      renderMembers(); 
+      renderLoans();
+      updateSearchUI();
+    });
+    
+    // Search suggestions with smart completion
+    function attachSearchTagListeners() {
+      document.querySelectorAll('.search-tag').forEach(tag => {
+        tag.addEventListener('click', () => {
+          const query = tag.getAttribute('data-query');
+          $('#globalSearch').value = query;
+          
+          // Auto-focus for completion if it's a search pattern
+          if (query.endsWith(':')) {
+            setTimeout(() => {
+              const input = $('#globalSearch');
+              input.focus();
+              input.setSelectionRange(input.value.length, input.value.length);
+            }, 50);
+          }
+          
+          renderBooks(); 
+          renderMembers(); 
+          renderLoans();
+          updateSearchUI();
+        });
+      });
+    }
+    
+    // Initialize search functionality
+    function initSearch() {
+      attachSearchTagListeners();
+      updateSearchUI();
+    }
+    
+    $('#clearAllFilters').addEventListener('click', () => {
+      $('#globalSearch').value = '';
+      $('#filterBookGenre').value = '';
+      $('#filterBookStock').value = '';
+      $('#filterLoanStatus').value = '';
+      renderBooks(); 
+      renderMembers(); 
+      renderLoans();
+      updateSearchUI();
+    });
+
+    $('#filterBookGenre').addEventListener('change', () => {
+      renderBooks();
+      updateSearchUI();
+    });
+    $('#filterBookStock').addEventListener('change', () => {
+      renderBooks();
+      updateSearchUI();
+    });
+    $('#filterLoanStatus').addEventListener('change', () => {
+      renderLoans();
+      updateSearchUI();
+    });
+
+    // CSV Export (simple combined export)
+    function exportCSV(){
+      const rows = [];
+      rows.push(['[SACH] id','ten','tac_gia','nam','the_loai','san','tong']);
+      state.books.forEach(b=> rows.push(['B', b.title, b.author, b.year, b.genre, b.available, b.total]));
+      rows.push([]);
+      rows.push(['[DOC_GIA] id','ten','sdt','ghi_chu']);
+      state.members.forEach(m=> rows.push(['M', m.name, m.phone, m.notes]));
+      rows.push([]);
+      rows.push(['[MUON_TRA] id','sach','doc_gia','ngay_muon','han_tra','tra_ngay','trang_thai']);
+      state.loans.forEach(l=>{
+        const st = loanStatus(l).label;
+        const b = bookById(l.bookId)?.title || '[Đã xoá]';
+        const m = memberById(l.memberId)?.name || '[Đã xoá]';
+        rows.push(['L', b, m, l.loanDate, l.dueDate, l.returnedDate || '', st]);
+      });
+      const csv = rows.map(r=> r.map(cell => {
+        const s = String(cell ?? '');
+        if (/[",\n]/.test(s)) return '"' + s.replace(/"/g,'""') + '"';
+        return s;
+      }).join(',')).join('\n');
+      const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'baocao_thuvien.csv';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(()=> URL.revokeObjectURL(url), 1000);
+    }
+    $('#btnExportCSV').addEventListener('click', exportCSV);
+
+    // Reset Sample
+    $('#btnResetDemo').addEventListener('click', ()=>{
+      if (!confirm('Làm mới dữ liệu mẫu? Toàn bộ thay đổi sẽ mất.')) return;
+      localStorage.removeItem(LS_KEY);
+      state = { books:[], members:[], loans:[], createdAt: new Date().toISOString() };
+      seedSample();
+      switchTab('dashboard');
+    });
+
+    // Settings
+    $('#saveFeeSettings').addEventListener('click', () => {
+      const feePerDay = clampInt($('#feePerDay').value, 0, 999999);
+      const maxFee = clampInt($('#maxFee').value, 0, 9999999);
+      
+      state.settings.feePerDay = feePerDay;
+      state.settings.maxFee = maxFee;
+      
+      $('#feePerDay').value = feePerDay;
+      $('#maxFee').value = maxFee;
+      
+      saveState();
+      alert('Đã lưu cài đặt phí thành công!');
+    });
+
+    // Modal helpers
+    function openModal(id){
+      const back = $('#modalBackdrop');
+      back.classList.remove('hidden');
+      back.style.opacity = '0';
+      requestAnimationFrame(()=> back.style.opacity = '1');
+      const box = document.getElementById(id);
+      box.classList.remove('hidden');
+      const card = box.querySelector('.modal-enter');
+      card.classList.add('modal-enter'); card.classList.remove('modal-leave');
+      requestAnimationFrame(()=> card.classList.add('modal-enter-active'));
+    }
+    function closeModal(id){
+      const back = $('#modalBackdrop');
+      const box = document.getElementById(id);
+      const card = box.querySelector('.modal-enter');
+      card.classList.remove('modal-enter-active');
+      card.classList.add('modal-leave', 'modal-leave-active');
+      back.style.opacity = '0';
+      setTimeout(()=>{
+        back.classList.add('hidden');
+        card.classList.remove('modal-leave','modal-leave-active');
+        box.classList.add('hidden');
+      }, 180);
+    }
+    $('#modalBackdrop').addEventListener('click', ()=>{
+      ['bookModal','memberModal','loanModal','feeModal'].forEach(id=>{
+        const el = document.getElementById(id);
+        if(!el.classList.contains('hidden')) closeModal(id);
+      });
+    });
+
+    // Init
+    initTabs();
+    loadState();
+    initSearch();
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982985e5e47781d2',t:'MTc1ODQ1NzI5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
