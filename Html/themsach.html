@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thêm Sách Mới - Quản Lý Thư Viện</title>
+  <link rel="stylesheet" href="/Css/themsach.css">
+</head>
+<body>
+  <!-- Thanh điều hướng -->
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">📚 Quản Lý Thư Viện</h1>
+      <button class="btn btn-secondary" id="viewBooksBtn">Xem Danh Sách</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Tiêu đề -->
+    <header class="page-header">
+      <h2>Thêm Sách Mới</h2>
+      <p>Nhập thông tin sách để thêm vào thư viện</p>
+    </header>
+
+    <!-- Thống kê nhanh -->
+    <section class="stats">
+      <div class="stat blue">
+        <p>Tổng Sách</p>
+        <span id="totalBooks">0</span>
+      </div>
+      <div class="stat green">
+        <p>Đã Thêm Hôm Nay</p>
+        <span id="todayAdded">0</span>
+      </div>
+      <div class="stat purple">
+        <p>Thể Loại</p>
+        <span id="totalCategories">7</span>
+      </div>
+    </section>
+
+    <!-- Form thêm sách -->
+    <section class="card">
+      <h3>Thông Tin Sách Mới</h3>
+      <form id="addBookForm">
+        <div class="form-group">
+          <label for="bookTitle">Tên sách *</label>
+          <input type="text" id="bookTitle" required>
+          <small class="error" id="titleError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="bookAuthor">Tác giả *</label>
+          <input type="text" id="bookAuthor" required>
+          <small class="error" id="authorError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="bookISBN">ISBN *</label>
+          <input type="text" id="bookISBN" required>
+          <small class="error" id="isbnError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="bookCategory">Thể Loại *</label>
+          <select id="bookCategory" required>
+            <option value="">-- Chọn thể loại --</option>
+            <option value="van-hoc">Văn Học</option>
+            <option value="khoa-hoc">Khoa Học</option>
+            <option value="lich-su">Lịch Sử</option>
+            <option value="kinh-te">Kinh Tế</option>
+            <option value="cong-nghe">Công Nghệ</option>
+            <option value="giao-duc">Giáo Dục</option>
+            <option value="thieu-nhi">Thiếu Nhi</option>
+          </select>
+          <small class="error" id="categoryError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="bookPublisher">Nhà xuất bản *</label>
+          <input type="text" id="bookPublisher" required>
+          <small class="error" id="publisherError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="bookYear">Năm xuất bản *</label>
+          <input type="number" id="bookYear" min="1900" max="2025" required>
+          <small class="error" id="yearError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="bookPages">Số trang</label>
+          <input type="number" id="bookPages" min="1">
+        </div>
+
+        <div class="form-group">
+          <label for="bookQuantity">Số lượng *</label>
+          <input type="number" id="bookQuantity" min="1" required>
+          <small class="error" id="quantityError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="bookLocation">Vị trí trong thư viện</label>
+          <input type="text" id="bookLocation">
+        </div>
+
+        <div class="form-group">
+          <label for="bookDescription">Mô tả sách</label>
+          <textarea id="bookDescription" rows="4"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Thêm Sách</button>
+          <button type="reset" class="btn btn-secondary" id="clearForm">Xóa Form</button>
+        </div>
+      </form>
+    </section>
+</body>
+</html>

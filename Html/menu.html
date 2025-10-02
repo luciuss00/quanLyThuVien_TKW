@@ -1,0 +1,101 @@
+<body>
+    <div class="menu">
+            <img src="../Img/logo.png">
+            <ul>
+                <li><a href="trangchu.html" class="active">Trang chủ</a></li>
+                <li><a href="tintuc.html">Tin tức</a></li>
+                <li><a href="themsach.html">Danh sách</a></li>
+                <li><a href="docgia.html">Độc giả</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+                <div class="search">
+                    <input type="text" placeholder="Tìm kiếm...">
+                    <i class="fa fa-search"></i>
+                </div>
+            </ul>
+            <div class="sign">
+                <button class="sign-up" onclick="window.location.href='dangky.html'">Đăng ký</button>
+                <button class="sign-in" onclick="window.location.href='dangnhap.html'">Đăng nhập</button>
+            </div>
+    </div>
+</body>
+
+<style>
+    body {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 18px;
+        margin: 0px;
+    } 
+    .menu {
+        background: linear-gradient(to right , #833E7F 55%, #3f8ae0);
+        align-items: center;
+        display: flex;
+    }
+    .menu img {
+        width: 68px;
+        padding-right: 50px;
+    }
+    .menu ul {   
+        display: flex;
+        margin: 0px;
+        padding-left: 0px;
+    }
+    .menu ul li {
+        display: inline-block;  
+        padding: 15px;
+        cursor: pointer;
+    }
+    .menu ul li a {
+        color: white;
+        text-decoration: none;
+        margin-left: 0px;
+    }
+    .menu ul li:hover {
+        background-color: rgb(103, 1, 98);
+        transform: scale(1.1);
+        transition: transform 0.3s;
+    }
+    .menu ul li.active {
+        background-color: rgb(103, 1, 98);
+    }
+    .search {
+        position: relative;
+        display: inline-block;
+    }
+    .search input {
+        border: none;
+        padding: 8px 35px 8px 10px; 
+        border-radius: 40px;
+        margin: 11px;
+        margin-left: 120px;
+        width: 200px;
+    }   
+    .search i {
+        position: absolute;
+        right: 3px;
+        margin: 18px;
+        cursor: pointer;
+    }
+    .search button:hover {
+        background-color: rgb(103, 1, 98);
+    }
+    /* Đăng nhập, đăng ký */
+    .sign {
+        display: flex;
+        margin-left: auto;
+    }
+    .sign button {
+        border: none;
+        background-color: white;
+        color: black;
+        padding: 10px;
+        border-radius: 20px;
+        margin: 7px;
+        margin-left: 0px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 16px; 
+        cursor: pointer;
+    } 
+    .sign button:hover {
+        background-color: rgb(26, 81, 183);
+    }
+</style>

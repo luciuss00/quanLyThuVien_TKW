@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;  
+  color: #000;       
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #6a1b9a;
+  padding: 10px 20px;
+}
+header .logo {
+  font-size: 24px;
+  color: white;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+header nav ul li a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.search-login {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.search-login input {
+  padding: 5px 10px;
+  border-radius: 15px;
+  border: none;
+}
+.search-login .btn {
+  padding: 5px 12px;
+  border: none;
+  border-radius: 15px;
+  background: #fff;
+  cursor: pointer;
+}
+.banner {
+  position: relative;
+  height: 350px;
+  background: url("https://media.istockphoto.com/id/949118068/vi/anh/s%C3%A1ch-v%E1%BB%9F.jpg?s=612x612&w=0&k=20&c=0chhd8BWYUNQidNDqUF-JsxLwj8xKoGnC92_AcuCQkA=") no-repeat center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;left: 0; 
+  width: 100%; height: 70%;
+}
+.banner-content h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+.banner-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.btn-banner {
+  padding: 10px 20px;
+  background: #9c27b0;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+.tin {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  padding: 30px;
+}
+.tintuc {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid #ddd;
+}
+.tintuc:hover {
+  background: #eee;
+}
+.tintuc img {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  height: 250px;
+}
+.tintuc .date {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+.tintuc h3 {
+  font-size: 18px;
+  margin: 10px 0 0;
+  font-weight: bold;
+  color: #000;
+}
+.tintuc:hover{
+  text-decoration: underline;
+}
+.hidden {
+  display: none;
+}
+.nut {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+  margin bottom: 20px;;
+  border-radius: 4px;
+}
+.nut li a{
+  font-size: 10px;
+  padding: 10px 15px;
+  display: block;
+  color: #110d0d;
+  text-decoration: none;
+  border: 1px solid #250202;
+  margin: 0 ;
+  border-radius: 10px;
+  transition: 0.3;
+}
+.nut li a:hover{
+  background: #ddd;
+  color: aqua;
+}
+.nut .hđ a{
+  background: #9d97ce;
+}
+
