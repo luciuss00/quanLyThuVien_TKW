@@ -8,17 +8,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!--Menu-->
     <div id="menu">
         <script>
-        fetch("menu.html")
-            .then(response => response.text())
-            .then(data => {
-            document.getElementById("menu").innerHTML = data;
-            });
+            fetch("menu.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("menu").innerHTML = data;
+                    const lienKet = document.querySelectorAll(".menu ul li a");
+                    const trangHienTai = window.location.pathname.split("/").pop();
+                    if(trangHienTai === "" || trangHienTai === "index.html") {
+                        trangHienTai = "trangchu.html";
+                    }
+                    lienKet.forEach(lk => {
+                        if(lk.getAttribute("href") === trangHienTai){
+                            lk.parentElement.classList.add("active");
+                        }
+                    })
+                });
         </script>
     </div>
-    <!--header-->
     <div class="header">
         <div class="header-noidung">
             <h1>Chào mừng đến với Thư viện CC</h1>
@@ -26,7 +34,6 @@
             <button onclick="window.location.href='sach.html'">Khám phá ngay</button>
         </div>
     </div>
-    <!--Giới thiệu-->
     <div class="gioithieu">
         <h2>Giới thiệu</h2>
         <p>
@@ -36,11 +43,10 @@
             nghiên cứu thuận tiện nhất cho người dùng
         </p>
     </div>
-    <!--1 số loại sách-->
     <div class="sach-noibat">
         <div class="snb">
             <h2>Sách nổi bật</h2>
-            <button onclick="window.location.href='sach.html'">Xem tất cả</button>
+            <button onclick="window.location.href='danhsach.html'">Xem tất cả</button>
         </div>
         <div class="list">
             <div class="item">
@@ -74,14 +80,16 @@
                 <p>Thích Nhất Hạnh</p>
             </div>
         </div>
+        <div class="them-sach">
+            <button onclick="window.location.href='themsach.html'">Thêm sách</button>
+        </div>
     </div>
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-noidung">
             <div class="footer-thongtin">
                 <h3>Thư viện CC</h3>
-                <p>Địa chỉ: 123 Đường Sách, Quận 1, TP.HCM</p>
-                <p>Email: support@thuviencc.vn</p>
+                <p>Địa chỉ: Đường Tên Lửa, P. Bình Trị Đông B, Q. Bình Tân, TPHCM</p>
+                <p>Email: thuviencc@gmail.com</p>
                 <p>Điện thoại: 0123 456 789</p>
             </div>
             <div class="footer-mxh">
@@ -95,6 +103,5 @@
             <p>© 2025 Thư viện CC. All rights reserved.</p>
         </div>
     </footer>
-
 </body>
 </html>
