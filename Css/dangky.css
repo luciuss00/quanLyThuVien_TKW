@@ -63,6 +63,8 @@ button{
     width: 500px;
     margin-left:50px ;
     transition: all 0.3s ease-in-out;
+    box-sizing: border-box;
+    height: 40px;
 }
 button:hover{
     box-shadow:  inset 20px 20px 20px 20px rgb(208, 208, 208);
@@ -76,7 +78,7 @@ button:hover{
     padding: 0;
 }
 .alter{
-    border-top:1px solid rgb(111, 163, 226) ;
+    
     width: 100%;
     text-align: center;
     margin: auto;
