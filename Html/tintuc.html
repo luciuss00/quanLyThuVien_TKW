@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tin tức thư viện</title>
   <link rel="stylesheet" href="/Css/tintuc.css">
-  <iframe src="menu.html"width="100%" style="border: none;" height="70px"></iframe>
 </head>
 <body>
+  <div id="menu"></div>
+  <script>
+  fetch("menu.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("menu").innerHTML = data;
+    });
+  </script>
   <main>
     <section id="list" class="tin">
       <div class="tintuc">
