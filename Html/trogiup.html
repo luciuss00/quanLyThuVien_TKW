@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trợ Giúp - Hệ Thống Quản Lý Thư Viện</title>
-    <link rel="stylesheet" href="../Css/trogiup.css">
-    <iframe src="menu.html" width="100%" height="90px" style="border: none;"></iframe>
+    <link rel="stylesheet" href="/Css/trogiup.css">
 </head>
 <body>
+    <div id="menu"></div>
+    <script>
+  fetch("menu.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("menu").innerHTML = data;
+    });
+  </script> 
     <!-- Main -->
     <main class="main">
         <!-- Hero -->
@@ -48,7 +55,6 @@
                 </div>
             </div>
         </section>
-        <!-- FAQ -->
         <section class="faq">
             <h3>Câu Hỏi Thường Gặp</h3>
             <div class="faq-item">
@@ -101,7 +107,6 @@
                         </div>
             </div>
         </section>
-        <!-- Danh mục hướng dẫn -->
         <section class="categories">
             <h3>Danh Mục Hướng Dẫn</h3>
             <div class="category-grid">
@@ -146,7 +151,6 @@
                 </div>
             </div>
         </section>
-        <!-- Liên hệ -->
         <section class="contact">
             <h3>Cần Hỗ Trợ Thêm?</h3>
             <p>Liên hệ với đội ngũ hỗ trợ qua các kênh sau:</p>
@@ -169,4 +173,5 @@
     </footer>
 </body>
 </html>
+
 
