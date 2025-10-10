@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kết quả tìm kiếm</title>
+  <link rel="stylesheet" href="/Css/timkiem.css">
+</head>
+<body>
+  <div id="menu">
+  </div>
+  <div class="search-layout">
+    <aside class="filter-panel">
+      <h3>Bộ lọc</h3>
+      <div class="filter-group">
+        <h4>Loại tài liệu</h4>
+        <label><input type="checkbox"> Sách đơn</label>
+        <label><input type="checkbox"> Bài trích</label>
+        <label><input type="checkbox"> Luận án</label>
+        <label><input type="checkbox"> Sách tập</label>
+      </div>
+      <div class="filter-group">
+        <h4>Tác giả</h4>
+        <input type="text" placeholder="Nhập tên tác giả...">
+      </div>
+      <div class="filter-group">
+        <h4>Năm xuất bản</h4>
+        <input type="number" placeholder="VD: 2020">
+      </div>
+    </aside>
+    <main class="results-section">
+      <div class="results-header">
+        <h2>Kết quả tìm kiếm</h2>
+        <p id="searchStats">Hiển thị kết quả...</p>
+      </div>
+      <div id="resultsGrid" class="results-grid"></div>
+      <div id="noResults" class="no-results" style="display:none;">
+        <i class="fas fa-search"></i>
+        <h3>Không tìm thấy kết quả</h3>
+        <p>Thử tìm kiếm với từ khóa khác.</p>
+      </div>
+    </main>
+  </div>
+  <script src="/Js/timkiem.js"></script>
+</body>
+</html>
