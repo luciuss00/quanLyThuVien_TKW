@@ -3,29 +3,35 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="/Css/dangnhap.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
     <body>
-        <div class="container">
+        <div class="my-container">
             <h2>Đăng nhập</h2>
-            <form>
+            <form id="formLogin">
                 <div class="form-input">
-                    <input type="text" placeholder=" " required>
+                    <input type="text" placeholder=" " id="email/sdt" >
                     <label>Email / SĐT</label>
+                    <div class="error" id="emailortelEror">Email hoặc số điện thoại không được để trống</div>
                 </div>
                 <div class="form-input">
-                    <input type="password" placeholder=" " required>
+                    <input type="password" placeholder=" "id="password">
                     <label>Mật Khẩu</label>
+                    <div class="error" id="passwordError" >Mật khẩu không được để trống</div>
                 </div>
+                <div  id="LoginError" class="alert alert-danger" role="alert" style="display: none;"   >
+                        Email/SĐT hoặc mật khẩu không đúng !!!
+                        </div>
                 <div class="form-extra">
                     <label><input type="checkbox">Nhớ tài khoản</label>
-                    <a href="#">Quên mật khẩu?</a>
+                    <a href="/Html/quenmatkhau.html">Quên mật khẩu?</a>
                 </div>
                 <button type="submit" class="btn">Đăng nhập</button>
                 <div class="form-link">
-                    <p>Bạn chưa có tài khoản? <a href="#">Đăng ký</a></p>
+                    <p>Bạn chưa có tài khoản? <a href="/Html/dangky.html">Đăng ký</a></p>
                 </div>
             </form>
         </div>
     </body>
-    
+    <script src="/Js/dangnhap.js"></script>
 </html>

@@ -9,28 +9,39 @@
 <body>
     <div class="container">
         <h1>Đăng Ký</h1>
-        <form>
-            <label for="name">Tên<span>*</span>: <input type="text" placeholder="Nhập tên của bạn" require=></label>
-            <label for="password">Mật khẩu<span>*</span>: <input type="password" placeholder="Nhập mật khẩu của bạn" required></label>
-            <label for="re-password">Xác minh mật khẩu<span>*</span>: <input type="password" placeholder="Xác minh lại mật khẩu" required></label>
+        <form id="formDangky">
+            <label for="userName">Tên<span>*</span>: <input type="text" placeholder="Nhập tên của bạn"  id="userName"></label>
+            <div class="error" id="userNameError">Tên đăng nhập không được để trống</div>
+            <label for="password">Mật khẩu<span>*</span>: <input type="password" placeholder="Nhập mật khẩu của bạn" id="password"></label>
+            <div class="error" id="passwordError">Mật khẩu không được để trống</div>
+            <label for="re-password">Xác minh mật khẩu<span>*</span>: <input type="password" placeholder="Xác minh lại mật khẩu"  id="re-password"></label>
+            <div class="error" id="re-passwordError">Mật khẩu  không được để trống</div>
+            <div class="error" id="re-passwordNotsuit">Mật khẩu xác minh không khớp </div>
             <label for="email">
-                Email<span>*</span>: <input type="email" placeholder="Nhập email của bạn" required >
+                Email<span>*</span>: <input type="email" placeholder="Nhập email của bạn"  id="email">
             </label>
+            <div class="error" id="emailError">Email không được để trống</div>
             <label for="Gender">Giới tính<span>*</span>
                 <input type="radio" name="gender" value="male">Nam
                 <input type="radio" name="gender" value="female">Nữ
                 <input type="radio" name="gender" value="other">Khác
+                
             </label>
+           <div class="error" id="GenderError">Giới tính không được để trống</div>
             <label for="tel">Số điện thoai<span>*</span>:
-                <input type="tel" placeholder="Nhập số điện thoại" required maxlength="10">
+                <input type="tel" placeholder="Nhập số điện thoại"  maxlength="10" id="tel">
             </label>
+            <div class="error" id="telError">Số điện thoại không được để trống</div>
             <label for="CCCD">CCCD<span>*</span>:
-                <input type="tel" placeholder="Nhập số căn cược công dân" required maxlength="12" >
+                <input type="tel" placeholder="Nhập số căn cược công dân"  maxlength="12" id="CCCD">
             </label>
+            <div class="error" id="CCCDError">CCCD không được để trống</div>
+            <button type="submit">Đăng ký</button>
     </form>
-         <button>Đăng ký</button>
-        <p class="alter">Đã có tài khoản? <a href="#">Đăng nhập</a></p>
+       
+        <p class="alter">Đã có tài khoản? <a href="/Html/dangnhap.html">Đăng nhập</a></p>
         <p class="note"> *Lập tài khoản để truy cập vào tất cả dữ liệu của thư viện</p>
     </div>
 </body>
+<script src="/Js/dangky.js"></script>
 </html>
