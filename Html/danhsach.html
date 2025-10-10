@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Sách - Quản Lý Thư Viện</title>
+    <link rel="stylesheet" href="../Css/danhsach.css">
+</head>
+<body>
+    <div id="menu">
+        <script>
+            fetch("menu.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("menu").innerHTML = data;
+                   let lienKet = document.querySelectorAll(".menu ul li a");
+                   let trangHienTai = window.location.pathname.split("/").pop();
+                    if(trangHienTai === "") {
+                        trangHienTai = "trangchu.html";
+                    }
+                    lienKet.forEach(lk => {
+                        if(lk.getAttribute("href") === trangHienTai){
+                            lk.parentElement.classList.add("active");
+                        }
+                    })
+                });
+        </script>
+    </div>
+    <h1>Danh sách tài liệu</h1>
+
+    <table id="bookTable">
+        <tr>
+            <th>STT</th>
+            <th>Tên sách</th>
+            <th>Tác giả</th>
+            <th>Thể loại</th>
+            <th>Nhà XB</th>
+            <th>Năm XB</th>
+            <th>Mô Tả</th>
+            <th>Ngày thêm</th>
+            <th>Thao tác</th>
+        </tr>
+        <tbody id="listEmp"></tbody>
+    </table>
+    <div class="them-sach">
+        <button onclick="window.location.href='themsach.html'">Thêm sách</button>
+    </div>
+</body>
+<script src="../Js/danhsach.js"></script>
+</html>
