@@ -7,29 +7,36 @@
     <link rel="stylesheet" href="/Css/trogiup.css">
 </head>
 <body>
-    <div id="menu"></div>
-    <script>
-  fetch("menu.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("menu").innerHTML = data;
-    });
-  </script> 
-    <!-- Main -->
+    <div id="menu">
+        <script>
+            fetch("menu.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("menu").innerHTML = data;
+                    const lienKet = document.querySelectorAll(".menu ul li a");
+                    const trangHienTai = window.location.pathname.split("/").pop();
+                    if(trangHienTai === "" || trangHienTai === "index.html") {
+                        trangHienTai = "trogiup.html";
+                    }
+                    lienKet.forEach(lk => {
+                        if(lk.getAttribute("href") === trangHienTai){
+                            lk.parentElement.classList.add("active");
+                        }
+                    })
+                });
+        </script>
+        </div>
     <main class="main">
-        <!-- Hero -->
         <section class="hero">
             <h2>Trung Tâm Trợ Giúp</h2>
             <p>Tìm hiểu cách sử dụng hệ thống quản lý thư viện một cách hiệu quả.</p>
         </section>
-        <!-- Tìm kiếm -->
         <section class="search-section">
             <div class="search-box">
                 <input type="text" placeholder="Tìm kiếm câu hỏi hoặc chủ đề...">
                 <button>Tìm</button>
             </div>
         </section>
-        <!-- Liên kết nhanh -->
         <section class="quick-links">
             <h3>Truy Cập Nhanh</h3>
             <div class="quick-grid">
@@ -167,11 +174,9 @@
             </div>
         </section>
     </main>
-    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2025 Hệ Thống Quản Lý Thư Viện. Mọi quyền được bảo lưu.</p>
     </footer>
 </body>
 </html>
-
 
