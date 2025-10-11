@@ -7,14 +7,25 @@
   <link rel="stylesheet" href="/Css/tintuc.css">
 </head>
 <body>
-  <div id="menu"></div>
-  <script>
-  fetch("menu.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("menu").innerHTML = data;
-    });
-  </script>
+  <div id="menu">
+        <script>
+            fetch("menu.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("menu").innerHTML = data;
+                    const lienKet = document.querySelectorAll(".menu ul li a");
+                    const trangHienTai = window.location.pathname.split("/").pop();
+                    if(trangHienTai === "" || trangHienTai === "index.html") {
+                        trangHienTai = "tintuc.html";
+                    }
+                    lienKet.forEach(lk => {
+                        if(lk.getAttribute("href") === trangHienTai){
+                            lk.parentElement.classList.add("active");
+                        }
+                    })
+                });
+        </script>
+        </div>
   <main>
     <section id="list" class="tin">
       <div class="tintuc">
