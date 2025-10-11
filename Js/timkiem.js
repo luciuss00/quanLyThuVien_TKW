@@ -1,4 +1,6 @@
 function initializeMenuSearch() {
+     const searchInput = document.getElementById("localSearchInput");
+    const searchIcon = document.getElementById("localSearchIcon");
     function performSearch() {
         const query = searchInput.value.trim();
         if (query) {
@@ -22,7 +24,6 @@ function displayResults(results, term) {
     title.innerHTML = `Kết quả tìm kiếm cho "<strong>${term}</strong>"`;
     if (!results || results.length === 0) {
         noRes.style.display = "block";
-        stats.innerText = "Không tìm thấy kết quả.";
         return;
     }
     stats.innerHTML = `Tìm thấy <strong>${results.length}</strong> kết quả.`;
@@ -37,21 +38,12 @@ function displayResults(results, term) {
         </div>
     `).join("");
 }
-async function main() {
-    try {
-        const response = await fetch("menu.html");
-        document.getElementById("menu").innerHTML = await response.text();
-        initializeMenuSearch();
-    } catch (error) {
-        console.error("Không thể tải menu:", error);
-    }
+function main(){
+document.addEventListener("DOMContentLoaded", () => {
+    initializeMenuSearch();
+});
     const params = new URLSearchParams(window.location.search);
     const query = params.get("query");
-    if (!query) {
-        document.querySelector(".results-header h2").textContent = "Vui lòng thực hiện tìm kiếm";
-        document.getElementById("searchStats").textContent = "";
-        return;
-    }
     const listBook = JSON.parse(localStorage.getItem("listBook")) || [];
     const keyword = query.toLowerCase();
     const results = listBook.filter(b =>
@@ -59,5 +51,5 @@ async function main() {
         (b.tacGia && b.tacGia.toLowerCase().includes(keyword))
     );
     displayResults(results, query);
-}
+  }
 main();
