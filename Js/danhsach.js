@@ -1,5 +1,5 @@
 var listEmp = document.getElementById("listEmp");
-var listBook = JSON.parse(localStorage.getItem("listBook"));
+var listBook = JSON.parse(localStorage.getItem("listBook")) || [];
 function display() {
     if(listBook.length === 0) {
         listEmp.innerHTML = `<tr><td colspan=9 class="no-data">Danh sách trống</td></tr>`;
@@ -7,8 +7,9 @@ function display() {
     }
     else {
         var row = document.getElementById("listEmp");
+        row.innerHTML = "";
         listBook.forEach(function(book, index) {
-            row.innerHTML = `
+            row.innerHTML += `
                 <td>${index + 1}</td>
                 <td>${book.tenSach}</td>
                 <td>${book.tacGia}</td>
@@ -33,7 +34,7 @@ function display() {
     function deleteBook(id) {
         if (confirm("Có muốn tiếp tục k")) {
             listBook = listBook.filter(function(kt) {
-                kt.id !== id
+                return kt.id !== id
             });
             localStorage.setItem("listBook", JSON.stringify(listBook));
             display();

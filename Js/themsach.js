@@ -6,8 +6,9 @@ function addBook() {
     let namXB = document.getElementById("bookYear").value;
     let moTa =  document.getElementById("bookDescription").value.trim();
     
-    let listBook = JSON.parse(localStorage.getItem("listBook"));
+    let listBook = JSON.parse(localStorage.getItem("listBook")) || [];
     const newBook = {
+        id: Date.now(),
         tenSach,
         tacGia,
         theLoai,
