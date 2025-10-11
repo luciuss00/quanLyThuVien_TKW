@@ -6,7 +6,7 @@
 
 body {
     font-family: "Poppins", Arial, sans-serif;
-    background: linear-gradient(180deg, #e0f2ff, #f8fbff);
+    background: linear-gradient(180deg, #ede9fe, #e0f2ff);
     color: #333;
     line-height: 1.6;
     font-size:16px;
@@ -19,7 +19,7 @@ body {
 }
 .hero {
     text-align: center;
-    background: linear-gradient(180deg, #ffffff, #f1faf7);
+    background: linear-gradient(180deg, #ffffff, #f3e8ff);
     padding: 50px 30px;
     margin: 0px auto;
     border-radius: 15px;
@@ -57,7 +57,7 @@ body {
 }
 
 .search-box button {
-   background: linear-gradient(90deg, #3b82f6, #1e40af);
+   background: linear-gradient(to right , #6d28d9 40%, #2563eb);
     color: white;
     border: none;
     padding: 12px 22px;
@@ -67,7 +67,7 @@ body {
 }
 
 .search-box button:hover {
-     background: linear-gradient(90deg, #2563eb, #1e3a8a);
+    background: linear-gradient(to right , #4c1d95 40%, #1e3a8a);
 }
 .quick-links {
     text-align: center;
@@ -88,7 +88,7 @@ body {
 }
 
 .card {
-    background: linear-gradient(180deg, #ffffff, #f8fffb);
+   background: linear-gradient(180deg, #ffffff, #f5f3ff);
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -148,7 +148,7 @@ body {
 }
 
 .category {
-    background: linear-gradient(180deg, #ffffff, #f7fafc);
+   background: linear-gradient(180deg, #ffffff, #f5f3ff);
     padding: 22px;
     border-radius: 12px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.08);
@@ -186,7 +186,7 @@ body {
 }
 .contact {
     text-align: center;
-    background: linear-gradient(135deg, #3b82f6, #1e40af);
+   background: linear-gradient(135deg, #4d09b3, #4768c4);
     color: white;
      padding: 50px 25px;
 }
@@ -211,9 +211,10 @@ body {
     text-decoration: underline;
 }
 .footer {
-    background: #1a202c;
+    background: #4d4c4c;
     color: #cbd5e0;
     text-align: center;
     padding: 25px;
     font-size: 15px;
 }
+
