@@ -1,0 +1,24 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+}   
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-left: 60px;
+    border: 2px solid black;
+}
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+th, td {
+    padding: 15px;
+    border: 1px solid black;
+    text-align: center;
+}
+th {
+    background-color: rgb(171, 82, 167);
+    color: white;
+}
