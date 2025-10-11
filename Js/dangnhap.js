@@ -31,6 +31,7 @@ formLogin.addEventListener("submit",function(e){
     else{
         setTimeout(function(){
             window.location.href="trangchu.html";
+            alert("Đăng nhập thành công");
         },1000)
     }
 })
