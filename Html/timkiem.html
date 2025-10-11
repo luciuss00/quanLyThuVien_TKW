@@ -5,10 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kết quả tìm kiếm</title>
   <link rel="stylesheet" href="/Css/timkiem.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div id="menu">
-  </div>
+  <div id="menu"></div>
+  <script> 
+    fetch("menu.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("menu").innerHTML = data);
+  </script>
+  <section class="search-box">
+    <div class="search-bar">
+      <input type="text" id="localSearchInput" placeholder="Nhập từ khóa...">
+      <i class="fa fa-search" id="localSearchIcon"></i>
+    </div>
+  </section>
   <div class="search-layout">
     <aside class="filter-panel">
       <h3>Bộ lọc</h3>
@@ -28,18 +39,20 @@
         <input type="number" placeholder="VD: 2020">
       </div>
     </aside>
-    <main class="results-section">
-      <div class="results-header">
-        <h2>Kết quả tìm kiếm</h2>
-        <p id="searchStats">Hiển thị kết quả...</p>
-      </div>
-      <div id="resultsGrid" class="results-grid"></div>
-      <div id="noResults" class="no-results" style="display:none;">
-        <i class="fas fa-search"></i>
-        <h3>Không tìm thấy kết quả</h3>
-        <p>Thử tìm kiếm với từ khóa khác.</p>
-      </div>
-    </main>
+<main class="results-section">
+  <div class="results-header">
+    <h2></h2>
+    <p id="searchStats"></p>
+  </div>
+
+  <div id="resultsGrid" class="results-grid"></div>
+
+  <div id="noResults" class="no-results" style="display:none;">
+    <i class="fas fa-search"></i>
+    <h3>Không tìm thấy kết quả</h3>
+    <p>Thử tìm kiếm với từ khóa khác.</p>
+  </div>
+</main>
   </div>
   <script src="/Js/timkiem.js"></script>
 </body>
