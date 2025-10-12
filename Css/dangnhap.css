@@ -9,7 +9,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(tv.jpg); 
+    background: url(../Img/tv.jpg); 
     background-size: cover;
     overflow: hidden;
 
