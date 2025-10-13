@@ -7,7 +7,25 @@
     <link href="/Css/docgia.css" rel="stylesheet">
 </head>
 <body>
- 
+  <div id="menu">
+        <script>
+            fetch("menu.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("menu").innerHTML = data;
+                   let lienKet = document.querySelectorAll(".menu ul li a");
+                   let trangHienTai = window.location.pathname.split("/").pop();
+                    if(trangHienTai === "") {
+                        trangHienTai = "trangchu.html";
+                    }
+                    lienKet.forEach(lk => {
+                        if(lk.getAttribute("href") === trangHienTai){
+                            lk.parentElement.classList.add("active");
+                        }
+                    })
+                });
+        </script>
+    </div>
   <h1>Danh sách người dùng</h1>
   <table border="1" cellpadding="8" style="border-collapse: collapse;">
     <thead>
