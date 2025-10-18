@@ -17,7 +17,9 @@ body {
 }
 .hero {
     text-align: center;
-    background: url('../Img/thuvien.jpg') no-repeat center center/cover;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url('../Img/thuvien.jpg') no-repeat center center/cover;
     padding: 50px 30px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
 }
@@ -69,7 +71,7 @@ body {
     margin-top: 20px;
 }
 .card {
-   background: linear-gradient(180deg, #ffffff, #f5f3ff);
+   background:#eae6fc; 
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -84,7 +86,7 @@ body {
     font-size: 35px;
     margin-bottom: 10px;}
 .faq {
-    background: linear-gradient(180deg, #ffffff, #f5f3ff);            
+       background:#eae6fc;   
     padding: 30px 20px;
     border-radius: 12px;
     width: 100%;         
@@ -144,7 +146,7 @@ h3 {
     gap: 25px;
 }
 .category {
-   background: linear-gradient(180deg, #ffffff, #f5f3ff);
+   background:#eae6fc; 
     padding: 22px;
     border-radius: 12px;
     box-shadow: 0 3px 8px rgba(0,0,0,0.08);
@@ -178,19 +180,23 @@ h3 {
    transform: scale(1.02); 
 }
 .footer {
-    background: linear-gradient(to right , #833E7F 55%, #3f8ae0);
+    background: url(/Img/library-488679_1280.jpg) no-repeat center center/cover;
     color: white;
-    padding: 20px 150px;
+    padding: 20px 90px;
     margin-top: 100px;
-    height: 230px;
+    height: auto;
 }
 .footer-noidung {
     display: flex;
     justify-content: space-between;
     gap: 30px;
 }
+.footer-thongtin {
+    margin-left: 0px;
+}
 .footer-thongtin h3 {
     margin-bottom: 15px;
+    color:white;
 }
 .footer-mxh h4 {
     margin-bottom: 10px;
@@ -203,15 +209,41 @@ h3 {
     transition: transform 0.3s;
     cursor: pointer;
 }
-.footer-mxh a:hover {
+#fb:hover {
     transform: scale(1.2);
-    color: rgb(140, 2, 133);
+    color: blue;
+    transition: transform 0.3s;
+    
+}
+#ytb:hover {
+    transform: scale(1.2);
+    color: red;
+    transition: transform 0.3s;
+}
+#ins:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.2);
+    transition: transform 0.3s;
+
 }
 .footer-bottom {
-    margin-top: 10px;
     border-top: 2px solid rgb(163, 161, 161);
-    padding-top: 10px;
     font-size: 14px;
     text-align: center;
 }
-
+footer .menu1 ul {
+    list-style-type: none;
+    margin-right: 100px;
+}
+footer .menu1 ul li {
+    padding-bottom: 10px;
+}
+footer .menu1 ul li a {
+    text-decoration: none;
+    color: white;
+}
+footer .menu1 ul li a:hover {
+    color: red;
+}
