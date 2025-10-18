@@ -25,14 +25,17 @@ function createGenreSection(genre, books) {
         card.classList.add("book-card");
         card.innerHTML = `
         <div class="book-image">
-            <img src="/Img/${book.tenSach}.jpg" alt="${book.tenSach}">
-            
+            <img src="/Img/${book.tenSach}.jpg" alt="${book.tenSach}">     
         </div>
         <div class="book-info">
             <h3>${book.tenSach}</h3>
             <p>${book.tacGia}</p>
         </div>
         `;
+        card.onclick = function() {
+            localStorage.setItem("sachDangXem", book.tenSach);
+            window.location.href = "chitiet.html";
+        };
         row.appendChild(card);
     });
 

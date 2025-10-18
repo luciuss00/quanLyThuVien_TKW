@@ -1,0 +1,44 @@
+#chitiet {
+    text-align: center;
+    margin: 40px;
+}
+.chitiet-container {
+    display: flex;
+    gap: 70px;
+    padding: 40px;
+    margin-bottom: 150px;
+}
+
+.chitiet-container img {
+    margin-left: 100px;
+    width: 320px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin-right: 60px;
+}
+
+.info h2 {
+  margin: 0 0 10px;
+  font-size: 38px;
+}
+.info h3 {
+    font-size: 25px;
+}
+.info p {
+    font-size: 18px;
+    margin-right: 30px;
+}
+button {
+    padding: 10px 20px;
+    background: #833E7F;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button:hover {
+  background: #5c2a5b;
+}
+* {
+    font-family: 'Times New Roman', Times, serif;
+}

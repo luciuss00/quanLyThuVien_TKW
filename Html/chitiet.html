@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh Sách Sách - Quản Lý Thư Viện</title>
-    <link rel="stylesheet" href="../Css/danhsach.css">
+    <title>Chi tiết sách</title>
+    <link rel="stylesheet" href="../Css/chitiet.css">
 </head>
 <body>
     <div id="menu">
@@ -29,13 +28,17 @@
                 });
         </script>
     </div>
-    <button type="button" id="clearBooksBtn">xóa</button>
-    <h1>Danh sách tài liệu</h1>
-    <div class="them-sach">
-        <button onclick="window.location.href='themsach.html'">Thêm sách</button>
+    <h1 id="chitiet">Thông tin chi tiết</h1>
+
+    <div class="chitiet-container">
+        <img id="anhSach" alt="Ảnh sách">
+        <div class="info">
+            <h2 id="tenSach"></h2>
+            <h3><strong>Tác giả:</strong> <span id="tacGia"></span></h3>
+            <p id="moTa"></p>
+            <button onclick="window.history.back()">⬅ Quay lại</button>
+        </div>
     </div>
-    <div class="categories-container" id="categoriesContainer">
-        
     <div id="footer">
         <script>
             fetch("footer.html")
@@ -45,7 +48,6 @@
                 });
         </script>
     </div>
-
+    <script src="/Js/chitiet.js"></script>
 </body>
-<script src="../Js/danhsach.js"></script>
 </html>

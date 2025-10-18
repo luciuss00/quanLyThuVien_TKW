@@ -33,7 +33,7 @@
         <div class="header-noidung">
             <h1>Chào mừng đến với Thư viện EA3</h1>
             <p>Khám phá hàng ngàn sách và tài liệu học tập miễn phí mọi lúc mọi nơi</p>
-            <button onclick="window.location.href='danhsach.html'">Khám phá ngay</button>
+            <button onclick="xemTatCaSach()">Khám phá ngay</button>
         </div>
     </div>
     <div class="gioithieu">
@@ -48,7 +48,7 @@
     <div class="sach-noibat">
         <div class="snb">
             <h2>Sách nổi bật</h2>
-            <button onclick="window.location.href='danhsach.html'">Xem tất cả</button>
+            <button onclick="xemTatCaSach()">Xem tất cả</button>
         </div>
         <div class="list">
             <div class="item">
@@ -57,12 +57,12 @@
                 <p>Paulo Coelho</p>
             </div>
             <div class="item">
-                <img src="../Img/dacnhantam.webp" alt="Đắc nhân tâm">
+                <img src="../Img/Đắc nhân tâm.jpg" alt="Đắc nhân tâm">
                 <h3>Đắc nhân tâm</h3>
                 <p>Dale Carnegie</p>
             </div>
             <div class="item">
-                <img src="../Img/ditimlesong.jpg" alt="Đi tìm lẽ sống">
+                <img src="../Img/Đi tìm lẽ sống.jpg" alt="Đi tìm lẽ sống">
                 <h3>Đi tìm lẽ sống</h3>
                 <p>Viktor E. Frankl</p>
             </div>
@@ -72,48 +72,29 @@
                 <p>Alexander Pushkin</p>
             </div>
             <div class="item">
-                <img src="../Img/nhatkytrongtu.jpg" alt="Nhật ký trong tù">
+                <img src="../Img/Nhật ký trong tù.jpg" alt="Nhật ký trong tù">
                 <h3>Nhật ký trong tù</h3>
                 <p>Hồ Chí Minh</p>
             </div>
             <div class="item">
-                <img src="../Img/khongsinhkhongdietdungsohai.webp" alt="Không sinh không diệt đừng sợ hãi">
+                <img src="../Img/Không sinh không diệt đừng sợ hãi.jpg" alt="Không sinh không diệt đừng sợ hãi">
                 <h3>Không sinh không diệt đừng sợ hãi</h3>
                 <p>Thích Nhất Hạnh</p>
             </div>
         </div>
-        <div class="them-sach">
-            <button onclick="window.location.href='themsach.html'">Thêm sách</button>
+        <div class="them-sach" id="themSachContainer" style="display:none;">
+            <button id="btnThemSach" onclick="moTrangThemSach()">Thêm sách</button>
         </div>
     </div>
-    <footer class="footer">
-        <div class="footer-noidung">
-            <div class="footer-thongtin">
-                <h3>Thư viện EA3</h3>
-                <p>Địa chỉ: Đường Tên Lửa, P. Bình Trị Đông B, Q. Bình Tân, TPHCM</p>
-                <p>Email: thuvienea3@gmail.com</p>
-                <p>Điện thoại: 0123 456 789</p>
-            </div>
-            <div class="menu1">
-                <ul>
-                    <li><a href="trangchu.html">Trang chủ</a></li>
-                    <li><a href="tintuc.html">Tin tức</a></li>
-                    <li><a href="danhsach.html">Danh sách</a></li>
-                    <li><a href="lienhe.html">Liên hệ</a></li>
-                    <li><a href="trogiup.html">Trợ giúp</a></li>
-                </ul>
-
-            </div>
-            <div class="footer-mxh">
-                <h4>Kết nối</h4>
-                <a><i class="fab fa-facebook-f" id="fb"></i></a>
-                <a><i class="fab fa-youtube" id="ytb"></i></a>
-                <a><i class="fab fa-instagram" id="ins"></i></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Thư viện EA3. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer">
+        <script>
+            fetch("footer.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("footer").innerHTML = data;
+                });
+        </script>
+    </div>
+    <script src="/Js/trangchu.js"></script>
 </body>
 </html>
