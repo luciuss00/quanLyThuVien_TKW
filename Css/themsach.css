@@ -12,13 +12,12 @@ body {
 }
 
 .container {
-  margin-top: 70px;
-  margin-left: 440px;
   width: 500px;
   border-radius: 25px;
   padding: 30px 40px;
   backdrop-filter: blur(5px);
   text-align: center;
+  margin: 80px auto;
 }
 .card h2 {
   font-size: 28px;
@@ -64,40 +63,33 @@ body {
   resize: none;
   height: 90px;
 }
-.form-actions {
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.btn {
-  padding: 10px 25px;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
+.add, .delete{
+  color:#fff;
+  border:none;
+  border-radius: 5px;
+  padding: 5px 15px;
   cursor: pointer;
-  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+.add {
+  background: linear-gradient(135deg, #28a745, #1e7e34); /* xanh lá nhạt → đậm */
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #4b6cb7, #182848);
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(24, 40, 72, 0.4);
-}
-
-.btn-primary:hover {
+.add:hover {
+  background: linear-gradient(135deg, #34d058, #218838); /* sáng hơn khi hover */
   transform: scale(1.05);
-  background: linear-gradient(135deg, #5a7bd8, #223c8c);
 }
 
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+
+.delete {
+  background: linear-gradient(135deg, #d9534f, #b52b27);
+  box-shadow: 0 4px 10px rgba(181, 43, 39, 0.4);
 }
 
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.35);
+.delete:hover {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
   transform: scale(1.05);
 }
 #preview {
