@@ -8,12 +8,28 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div id="menu"></div>
-  <script> 
-    fetch("menu.html")
-      .then(res => res.text())
-      .then(data => document.getElementById("menu").innerHTML = data);
-  </script>
+  <div id="menu">
+        <script>
+            fetch("menu.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("menu").innerHTML = data;
+                    const script = document.createElement("script");
+                    script.src = "/Js/menu.js"; 
+                    document.body.appendChild(script);
+                    let lienKet = document.querySelectorAll(".menu ul li a");
+                    let trangHienTai = window.location.pathname.split("/").pop();
+                    if(trangHienTai === "") {
+                        trangHienTai = "trangchu.html";
+                    }
+                    lienKet.forEach(lk => {
+                        if(lk.getAttribute("href") === trangHienTai){
+                            lk.parentElement.classList.add("active");
+                        }
+                    })
+                });
+        </script>
+    </div>
   <section class="search-box">
     <div class="search-bar">
       <input type="text" id="localSearchInput" placeholder="Nhập từ khóa...">

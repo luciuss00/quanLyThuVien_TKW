@@ -13,10 +13,13 @@
                 .then(res => res.text())
                 .then(data => {
                     document.getElementById("menu").innerHTML = data;
-                    const lienKet = document.querySelectorAll(".menu ul li a");
-                    const trangHienTai = window.location.pathname.split("/").pop();
-                    if(trangHienTai === "" || trangHienTai === "index.html") {
-                        trangHienTai = "trogiup.html";
+                    const script = document.createElement("script");
+                    script.src = "/Js/menu.js"; 
+                    document.body.appendChild(script);
+                    let lienKet = document.querySelectorAll(".menu ul li a");
+                    let trangHienTai = window.location.pathname.split("/").pop();
+                    if(trangHienTai === "") {
+                        trangHienTai = "trangchu.html";
                     }
                     lienKet.forEach(lk => {
                         if(lk.getAttribute("href") === trangHienTai){
@@ -25,7 +28,7 @@
                     })
                 });
         </script>
-        </div>
+    </div>
     <main class="main">
         <section class="hero">
             <h2>Trung Tâm Trợ Giúp</h2>

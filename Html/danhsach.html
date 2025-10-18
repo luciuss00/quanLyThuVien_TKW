@@ -13,8 +13,11 @@
                 .then(res => res.text())
                 .then(data => {
                     document.getElementById("menu").innerHTML = data;
-                   let lienKet = document.querySelectorAll(".menu ul li a");
-                   let trangHienTai = window.location.pathname.split("/").pop();
+                    const script = document.createElement("script");
+                    script.src = "/Js/menu.js"; 
+                    document.body.appendChild(script);
+                    let lienKet = document.querySelectorAll(".menu ul li a");
+                    let trangHienTai = window.location.pathname.split("/").pop();
                     if(trangHienTai === "") {
                         trangHienTai = "trangchu.html";
                     }
@@ -26,25 +29,14 @@
                 });
         </script>
     </div>
+    <button type="button" id="clearBooksBtn">xóa</button>
     <h1>Danh sách tài liệu</h1>
-
-    <table id="bookTable">
-        <tr>
-            <th>STT</th>
-            <th>Tên sách</th>
-            <th>Tác giả</th>
-            <th>Thể loại</th>
-            <th>Nhà XB</th>
-            <th>Năm XB</th>
-            <th>Mô Tả</th>
-            <th>Ngày thêm</th>
-            <th>Thao tác</th>
-        </tr>
-        <tbody id="listEmp"></tbody>
-    </table>
     <div class="them-sach">
         <button onclick="window.location.href='themsach.html'">Thêm sách</button>
     </div>
+    <div class="categories-container" id="categoriesContainer">
+
+
 </body>
 <script src="../Js/danhsach.js"></script>
 </html>

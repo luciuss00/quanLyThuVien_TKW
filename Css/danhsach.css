@@ -58,3 +58,134 @@ button {
     padding: 20px;
     font-weight: bold;
 }
+.list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    gap: 25px;
+}
+.item {
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+    background-size: cover;
+}
+.item:hover {
+    transform: translateY(-5px);
+}
+.item img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+.item h3 {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 5px;
+}
+.item p {
+    font-size: 15px;
+    color: #555;
+}
+.genre-title {
+  font-size: 26px;
+  color: #5a2d82;
+  font-weight: bold;
+  border-left: 6px solid #a36af9;
+  padding-left: 10px;
+}
+.categories-container {
+  padding: 30px 60px;
+}
+
+.genre-section {
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.genre-header {
+  margin-bottom: 15px;
+}
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.book-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 25px;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  scroll-snap-type: x mandatory;
+}
+.book-row::-webkit-scrollbar {
+  height: 8px;
+}
+.book-row::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 5px;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  font-size: 28px;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.carousel-btn:hover {
+  background-color: rgba(30, 83, 123, 0.3);
+}
+.left-btn {
+  left: -10px;
+}
+
+.right-btn {
+  right: -20px;
+}
+.book-card {
+  flex: 0 0 200px;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(100, 100, 255, 0.2);
+}
+.book-image {
+  position: relative;
+}
+.book-image img {
+    border-radius: 20px;
+    width: 100%;
+    height: 300px;
+    display: block;
+}
+.book-info {
+    padding: 10px;
+    text-align: center;
+}
+.book-info h3 {
+    font-size: 18px;
+    color: black;
+}
+.book-info p {
+    margin-top: 20px;
+    font-size: 15px;
+    color: black
+}

@@ -13,9 +13,12 @@
                 .then(res => res.text())
                 .then(data => {
                     document.getElementById("menu").innerHTML = data;
-                    const lienKet = document.querySelectorAll(".menu ul li a");
-                    const trangHienTai = window.location.pathname.split("/").pop();
-                    if(trangHienTai === "" || trangHienTai === "index.html") {
+                    const script = document.createElement("script");
+                    script.src = "/Js/menu.js"; 
+                    document.body.appendChild(script);
+                    let lienKet = document.querySelectorAll(".menu ul li a");
+                    let trangHienTai = window.location.pathname.split("/").pop();
+                    if(trangHienTai === "") {
                         trangHienTai = "trangchu.html";
                     }
                     lienKet.forEach(lk => {
@@ -27,29 +30,9 @@
         </script>
     </div>
   <main class="container">
-   
-    <header class="page-header">
-      <h2>Thêm Sách Mới</h2>
-      <p>Nhập thông tin sách để thêm vào thư viện</p>
-    </header>
-
-    <section class="stats">
-      <div class="stat blue">
-        <p>Tổng Sách</p>
-        <span id="totalBooks">0</span>
-      </div>
-      <div class="stat green">
-        <p>Đã Thêm Hôm Nay</p>
-        <span id="todayAdded">0</span>
-      </div>
-      <div class="stat purple">
-        <p>Thể Loại</p>
-        <span id="totalCategories">7</span>
-      </div>
-    </section>
 
     <section class="card">
-      <h3>Thông Tin Sách Mới</h3>
+      <h2>Thêm Sách Mới</h2>
 
       <form onsubmit=" return addBook()" id="addBook">
         <div class="form-group">
@@ -87,7 +70,7 @@
 
         <div class="form-group">
           <label for="bookYear">Năm xuất bản *</label>
-          <input type="number" id="bookYear" min="1900" max="2025">
+          <input type="text" id="bookYear" min="1900" max="2025">
           <small class="error" id="yearError"></small>
         </div>
 
@@ -97,13 +80,24 @@
         </div>
 
         <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Thêm Sách</button>
-          <button type="reset" class="btn btn-secondary" id="clearForm">Xóa Form</button>
+          <button type="submit" class="add">Thêm Sách</button>
+          <button type="reset" class="delete" id="clearForm">Xóa Form</button>
         </div>
+
+        <div class="form-group">
+          <label for="upload">Ảnh bìa sách</label>
+          <input type="file" id="upload" accept="image/*">
+          <img id="preview" src="" alt="Xem trước ảnh">
+        </div>
+
       </form>
 
       
     </section>
+    
+    <input type="file" id="importFile" accept=".json">
+    <button onclick="importFromJSON()">📥 Nhập danh sách sách</button>
 </body>
 <script src="../Js/themsach.js"></script>
+
 </html>

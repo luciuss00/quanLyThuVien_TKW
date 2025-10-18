@@ -13,8 +13,11 @@
                 .then(res => res.text())
                 .then(data => {
                     document.getElementById("menu").innerHTML = data;
-                   let lienKet = document.querySelectorAll(".menu ul li a");
-                   let trangHienTai = window.location.pathname.split("/").pop();
+                    const script = document.createElement("script");
+                    script.src = "/Js/menu.js"; 
+                    document.body.appendChild(script);
+                    let lienKet = document.querySelectorAll(".menu ul li a");
+                    let trangHienTai = window.location.pathname.split("/").pop();
                     if(trangHienTai === "") {
                         trangHienTai = "trangchu.html";
                     }
