@@ -117,6 +117,7 @@ body{
 }
 .form-extra a:hover{
     text-decoration: underline;
+    color:#00e5ff;
 }
 .btn{ 
     width: 100%; 
@@ -152,6 +153,7 @@ body{
 }
 .form-link a:hover{
     text-decoration: underline;
+    color:#00e5ff;
 }
 .error{
     color: red;
