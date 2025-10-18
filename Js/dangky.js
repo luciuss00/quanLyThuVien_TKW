@@ -1,4 +1,3 @@
-//lay ra element cua form
 const formDangky = document.getElementById("formDangky");
 const userNameE = document.getElementById("userName");
 const emailE = document.getElementById("email");
@@ -7,7 +6,6 @@ const re_passwordE = document.getElementById("re-password");
 
 const telE = document.getElementById("tel");
 const CCCD_E=document.getElementById("CCCD");
-//element loi
 const userNameError =  document.getElementById("userNameError");
 const passwordError =  document.getElementById("passwordError");
 const re_passwordError =  document.getElementById("re-passwordError");
@@ -20,7 +18,6 @@ const CCCDError =  document.getElementById("CCCDError");
 const userLocal=JSON.parse(localStorage.getItem("users")) || [];
 formDangky.addEventListener("submit",function(e){
     e.preventDefault();
-    //kiem tra du lieu
     const GenderE=document.querySelector('input[name="gender"]:checked');
     if(!userNameE.value.trim()){
         userNameError.style.display = "block";

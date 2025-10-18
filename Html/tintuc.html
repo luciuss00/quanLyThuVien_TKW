@@ -72,6 +72,15 @@
     <li><a href="#">...</a></li>
     <li><a href="#">&raquo;</a></li>
   </ul>
+  <div id="footer">
+      <script>
+          fetch("footer.html")
+              .then(res => res.text())
+              .then(data => {
+                  document.getElementById("footer").innerHTML = data;
+              });
+      </script>
+  </div>
   
 </body>
 </html>
