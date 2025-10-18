@@ -34,8 +34,8 @@
     <div class="contact-info">
         <h2>Thông tin liên hệ</h2>
         <p><strong>🕐 Giờ mở cửa:</strong> Thứ 2 - Thứ 6: 7h30 - 17h00</p>
-        <p><strong>📞 Điện thoại:</strong> (028) 1234 5678</p>
-        <p><strong>📧 Email:</strong> thuviendaihoc@example.com</p>
+        <p><strong>📞 Điện thoại:</strong> <a href="tel:02812345678"> 028 1234 5678</a></p>
+        <p><strong>📧 Email:</strong><a href="mailto:thuviendaihoc@example.com">thuviendaihoc@example.com</a></p>
         <p><strong>📍 Địa chỉ:</strong> Trường đại học giao thông vận tải, Số 3 phố Cầu Giấy, Phường Láng, TP. Hà Nội.</p>
         <div class="map-container">
             <iframe
@@ -51,16 +51,16 @@
       <div class="contact-form">
         <h2>Phản hồi</h2>
         <form>
-          <label for="name">Họ và tên</label>
+          <label for="name" class="required">Họ và tên</label>
           <input type="text" id="name" name="name" required>
 
-          <label for="email">Email</label>
+          <label for="email" class="required">Email</label>
           <input type="email" id="email" name="email" required>
 
           <label for="subject">Chủ đề</label>
           <input type="text" id="subject" name="subject">
 
-          <label for="message">Nội dung</label>
+          <label for="message" class="required">Nội dung</label>
           <textarea id="message" name="message" rows="5" required></textarea>
 
           <button type="submit">Gửi liên hệ</button>
@@ -83,5 +83,6 @@
 
 </body>
 </html>
+
 
 
