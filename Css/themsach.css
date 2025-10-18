@@ -63,6 +63,12 @@ body {
   resize: none;
   height: 90px;
 }
+.form-actions {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  gap:20px;
+}
 .add, .delete{
   color:#fff;
   border:none;
