@@ -14,27 +14,25 @@
       .then(res => res.text())
       .then(data => document.getElementById("menu").innerHTML = data);
   </script>
+
   <section class="search-box">
     <div class="search-bar">
-      <input type="text" id="localSearchInput" placeholder="Nhập từ khóa...">
+      <input type="text" id="localSearchInput" placeholder="Tìm tên sách, tác giả hoặc thể loại...">
       <i class="fa fa-search" id="localSearchIcon"></i>
     </div>
   </section>
+
   <div class="search-layout">
     <aside class="filter-panel">
       <h3>Bộ lọc</h3>
       <div class="filter-group">
         <h4>Thể loại</h4>
-        <label><input type="checkbox" value="Tâm linh">Tâm linh</label>
-        <label><input type="checkbox" value="Phát triển bản thân">Phát triển bản thân</label>
-        <label><input type="checkbox" value="Kỹ năng sống">Kỹ năng sống</label>
-        <label><input type="checkbox" value="Triết học">Triết học</label>
-        <label><input type="checkbox" value="Khoa học">Khoa học</label>
-        <label><input type="checkbox" value="Tâm lý">Tâm lý</label>
-        <label><input type="checkbox" value="Kinh doanh">Kinh doanh</label>
-        <label><input type="checkbox" value="Tiểu thuyết">Tiểu thuyết</label>
-        <label><input type="checkbox" value="Văn học nước ngoài">Văn học nước ngoài</label>
-        <label><input type="checkbox" value="Văn học Việt Nam">Văn học Việt Nam</label>
+        <label><input type="checkbox" value="Tâm linh"> Tâm linh</label>
+        <label><input type="checkbox" value="Phát triển bản thân"> Phát triển bản thân</label>
+        <label><input type="checkbox" value="Tiểu thuyết"> Tiểu thuyết</label>
+        <label><input type="checkbox" value="Văn học Việt Nam"> Văn học Việt Nam</label>
+        <label><input type="checkbox" value="Văn học nước ngoài"> Văn học nước ngoài</label>
+        <label><input type="checkbox" value="Triết học"> Triết học</label>
       </div>
       <div class="filter-group">
         <h4>Tác giả</h4>
@@ -42,10 +40,13 @@
       </div>
       <div class="filter-group">
         <h4>Năm xuất bản</h4>
-        <input type="number" id="yearFilter" placeholder="VD: 2020">
+        <select id="yearFilter">
+          <option value="">Chọn năm</option>
+        </select>
       </div>
-      <button id="resetFilters">Làm mới</button>
+      <button id="resetFilters"><i class="fa fa-rotate-right"></i> Làm mới</button>
     </aside>
+
     <main class="results-section">
       <div class="results-header">
         <h2 id="resultsTitle">Sách đề xuất</h2>
@@ -55,10 +56,18 @@
       <div id="noResults" class="no-results" style="display:none;">
         <i class="fas fa-search"></i>
         <h3>Không tìm thấy kết quả</h3>
-        <p>Thử từ khóa khác.</p>
       </div>
     </main>
   </div>
+ <div id="footer">
+        <script>
+            fetch("footer.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("footer").innerHTML = data;
+                });
+        </script>
+    </div>
   <script src="/Js/timkiem.js"></script>
 </body>
 </html>

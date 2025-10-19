@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const fromDetail = sessionStorage.getItem("fromDetailPage");
+  if (!fromDetail) {
+    sessionStorage.removeItem("searchState"); 
+  }
+  sessionStorage.removeItem("fromDetailPage");
   const searchInput = document.getElementById("localSearchInput");
   const searchIcon = document.getElementById("localSearchIcon");
   const resultsGrid = document.getElementById("resultsGrid");
@@ -7,65 +12,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const noResults = document.getElementById("noResults");
   const resetBtn = document.getElementById("resetFilters");
   const authorFilter = document.getElementById("authorFilter");
+  const yearFilter = document.getElementById("yearFilter");
   let allBooks = JSON.parse(localStorage.getItem("listBook")) || [];
-  const defaultBooks = [
-    { 
-      tenSach: "Đắc nhân tâm", 
-      tacGia: "Dale Carnegie", 
-      theLoai: "Phát triển bản thân", 
-      nhaXB: "NXB Lao Động", 
-      namXB: 2023, 
-      anh: "../Img/Đắc nhân tâm.jpg" 
-    },
-    { 
-      tenSach: "Nhà giả kim", 
-      tacGia: "Paulo Coelho", 
-      theLoai: "Tâm linh", 
-      nhaXB: "NXB Lao Động", 
-      namXB: 2021, 
-      anh: "../Img/Nhà giả kim.jpg" 
-    },
-    { 
-      tenSach: "Tuổi trẻ đáng giá bao nhiêu", 
-      tacGia: "Rosie Nguyễn", 
-      theLoai: "Kỹ năng sống", 
-      nhaXB: "NXB Thế Giới", 
-      namXB: 2020, 
-      anh: "../Img/Tuổi trẻ đáng giá bao nhiêu.jpg" 
-    },
-  ];
+  for (let y = 1990; y <= 2025; y++) {
+    const opt = document.createElement("option");
+    opt.value = y;
+    opt.textContent = y;
+    yearFilter.appendChild(opt);
+  }
 
-  if (allBooks.length === 0) {
-    allBooks = defaultBooks;
-  }
   function renderBooks(list, showStats = true) {
-  if (!list || list.length === 0) {
-    resultsGrid.innerHTML = "";
-    noResults.style.display = "block";
-    stats.textContent = "";
-    return;
+    if (!list || list.length === 0) {
+      resultsGrid.innerHTML = "";
+      noResults.style.display = "block";
+      stats.textContent = "";
+      return;
+    }
+    noResults.style.display = "none";
+    stats.innerHTML = showStats ? `Tìm thấy <strong>${list.length}</strong> kết quả.` : "";
+    resultsGrid.innerHTML = list
+      .map((b) => {
+        const imagePath = `/Img/${encodeURIComponent(b.tenSach)}.jpg`;
+        const bookData = encodeURIComponent(JSON.stringify(b));
+        return `
+          <div class="book-card" onclick="viewBookDetail('${bookData}')">
+            <img src="${imagePath}" alt="${b.tenSach}" onerror="this.src='/Img/default-book.png'">
+            <div class="book-content">
+              <h3>${b.tenSach}</h3>
+              <p><strong>Tác giả:</strong> ${b.tacGia || "Không rõ"}</p>
+            </div>
+          </div>
+        `;
+      })
+      .join("");
   }
-  noResults.style.display = "none";
-  stats.innerHTML = showStats ? `Tìm thấy <strong>${list.length}</strong> kết quả.` : "";
-  resultsGrid.innerHTML = list.map(b => {
-    const imagePath = `/Img/${encodeURIComponent(b.tenSach)}.jpg`;
-    return `
-      <div class="book-card">
-        <img src="${imagePath}" alt="${b.tenSach}" onerror="this.src='/Img/default-book.png'">
-        <div class="book-content">
-          <h3>${b.tenSach}</h3>
-          <p><strong>Tác giả:</strong> ${b.tacGia || "Không rõ"}</p>
-          <p><strong>Thể loại:</strong> ${b.theLoai || "—"}</p>
-          <p><strong>Năm XB:</strong> ${b.namXB || "—"}</p>
-          <p><strong>Nhà XB:</strong> ${b.nhaXB || "—"}</p>
-        </div>
-      </div>
-    `;
-  }).join("");
-}
+  window.viewBookDetail = function (bookData) {
+    const book = JSON.parse(decodeURIComponent(bookData)); 
+    localStorage.setItem("sachDangXem", book.tenSach);
+    sessionStorage.setItem("fromDetailPage", "true");
+    window.location.href = "chitiet.html";
+  };
   function showDefaultBooks() {
-    resultsTitle.textContent = " Sách đề xuất";
-    renderBooks(allBooks.slice(0, 3), false);
+    resultsTitle.textContent = "Sách đề xuất";
+    renderBooks(allBooks.slice(0, 8), false);
   }
   showDefaultBooks();
   function performSearch() {
@@ -85,18 +74,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function applyFilters() {
     let filtered = [...allBooks];
     const checked = document.querySelector('.filter-group input[type="checkbox"]:checked');
-    if (checked) {
-      filtered = filtered.filter(b => b.theLoai === checked.value);
-    }
+    if (checked) filtered = filtered.filter(b => b.theLoai === checked.value);
     const authorValue = authorFilter.value.trim().toLowerCase();
-    if (authorValue) {
-      filtered = filtered.filter(b => b.tacGia && b.tacGia.toLowerCase().includes(authorValue));
-    }
-
+    if (authorValue) filtered = filtered.filter(b => b.tacGia && b.tacGia.toLowerCase().includes(authorValue));
+    const yearValue = yearFilter.value.trim();
+    if (yearValue) filtered = filtered.filter(b => String(b.namXB) === yearValue);
+    resultsTitle.textContent = filtered.length ? "Kết quả lọc" : "";
     renderBooks(filtered);
   }
   authorFilter.addEventListener("input", applyFilters);
-
+  yearFilter.addEventListener("change", applyFilters);
   document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(cb => {
     cb.addEventListener("change", e => {
       if (e.target.checked) {
@@ -107,14 +94,49 @@ document.addEventListener("DOMContentLoaded", () => {
       applyFilters();
     });
   });
+
   resetBtn.addEventListener("click", () => {
     searchInput.value = "";
     authorFilter.value = "";
+    yearFilter.value = "";
     document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(cb => cb.checked = false);
     showDefaultBooks();
   });
+
   searchIcon.addEventListener("click", performSearch);
   searchInput.addEventListener("keydown", e => {
     if (e.key === "Enter") performSearch();
   });
+  document.addEventListener("click", function (e) {
+    const card = e.target.closest(".book-card");
+    if (card) {
+      sessionStorage.setItem("searchState", JSON.stringify({
+        keyword: searchInput.value,
+        author: authorFilter.value,
+        year: yearFilter.value,
+        checkedCategory: document.querySelector('.filter-group input[type="checkbox"]:checked')?.value || "",
+        resultsTitle: resultsTitle.textContent,
+        statsText: stats.textContent
+      }));
+    }
+  });
+  const savedState = sessionStorage.getItem("searchState");
+  if (savedState) {
+    const state = JSON.parse(savedState);
+    searchInput.value = state.keyword || "";
+    authorFilter.value = state.author || "";
+    yearFilter.value = state.year || "";
+    if (state.checkedCategory) {
+      document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(cb => {
+        cb.checked = (cb.value === state.checkedCategory);
+      });
+    }
+
+    if (state.keyword) performSearch();
+    else applyFilters();
+    resultsTitle.textContent = state.resultsTitle || "Sách đề xuất";
+    stats.textContent = state.statsText || "";
+  } else {
+    showDefaultBooks();
+  }
 });
