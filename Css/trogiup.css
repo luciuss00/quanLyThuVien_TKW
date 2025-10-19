@@ -7,7 +7,6 @@ body {
     font-family: "Poppins", Arial, sans-serif;
     background:#fff;
     color: #333;
-    line-height: 1.6;
     font-size:16px;
 }
 .container {
@@ -18,8 +17,8 @@ body {
 .hero {
     text-align: center;
     background: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url('../Img/thuvien.jpg') no-repeat center center/cover;
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('../Img/anh-nen-sach-mo-ra_012540664.jpg') no-repeat center center/cover;
     padding: 50px 30px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
 }

@@ -14,20 +14,16 @@ function kiemTraDangNhap() {
         }
     };
 
-  // Kiểm tra trạng thái đăng nhập
     var username = localStorage.getItem("username");
     var role = localStorage.getItem("role");
 
   if (username) {
-    // Nếu đã đăng nhập
     btnDangNhap.style.display = "none";
     btnDangKy.style.display = "none";
     btnDangXuat.style.display = "block";
 
-    // Đổi tooltip icon (nếu muốn)
     userIcon.title = "Xin chào, " + username;
   } else {
-    // Nếu chưa đăng nhập
     btnDangNhap.style.display = "block";
     btnDangKy.style.display = "block";
     btnDangXuat.style.display = "none";
@@ -49,27 +45,19 @@ function kiemTraDangNhap() {
         window.location.href = "trangchu.html";
     };
 }
-window.onload = kiemTraDangNhap;
-// // Ngăn người chưa đăng nhập truy cập "Danh sách"
-// function chanDanhSachNeuChuaDangNhap() {
-//   var username = localStorage.getItem("username");
-//   var links = document.querySelectorAll('.menu a[href="danhsach.html"]');
+kiemTraDangNhap();
+function chanDanhSachNeuChuaDangNhap() {
+    var username = localStorage.getItem("username");
+    var links = document.querySelectorAll('.menu a[href="danhsach.html"]');
 
-//   for (var i = 0; i < links.length; i++) {
-//     links[i].onclick = function(event) {
-//       if (!username) {
-//         event.preventDefault(); // chặn chuyển trang
-//         alert("Vui lòng đăng nhập để xem danh sách sách!");
-//       }
-//     };
-//   }
-// }
-
-// // Gọi khi trang tải xong
-// window.onload = function() {
-//   // Giữ lại hàm kiểm tra đăng nhập nếu có
-//   if (typeof kiemTraDangNhap === "function") kiemTraDangNhap();
-
-//   // Gọi chặn truy cập
-//   chanDanhSachNeuChuaDangNhap();
-// };
+    for (var i = 0; i < links.length; i++) {
+      links[i].onclick = function(event) {
+        if (!username) {
+          event.preventDefault(); 
+          alert("Vui lòng đăng nhập để xem danh sách sách!");
+        }
+      };
+    }
+}
+  if (typeof kiemTraDangNhap === "function") kiemTraDangNhap();
+  chanDanhSachNeuChuaDangNhap();

@@ -7,12 +7,10 @@ function hienNutThemSach() {
         container.style.display = "block";
     }
 }
+hienNutThemSach();
 function moTrangThemSach() {
     window.location.href = "themsach.html";
 }
-window.onload = function() {
-    hienNutThemSach();
-};
 function xemTatCaSach() {
     var username = localStorage.getItem("username");
     if (!username) {
