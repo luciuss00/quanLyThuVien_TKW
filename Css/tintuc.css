@@ -1,15 +1,15 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #fff;  
-  color: #000;       
+  background: #fff;
+  color: #000;
 }
 .tin {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
   padding: 30px;
-   margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 .tintuc {
   background: #f9f9f9;
@@ -20,13 +20,14 @@ body {
   border: 1px solid #ddd;
 }
 .tintuc a {
-  text-decoration: none;       
-  color: #000;                 
+  text-decoration: none;
+  color: #000;
   transition: all 0.3s ease;
 }
+
 .tintuc:hover {
   background: #eee;
-   text-decoration: underline;
+  text-decoration: underline;
 }
 .tintuc img {
   width: 100%;
@@ -34,6 +35,7 @@ body {
   object-fit: cover;
   height: 250px;
 }
+
 .tintuc .date {
   font-size: 14px;
   color: #666;
@@ -45,9 +47,6 @@ body {
   font-weight: bold;
   color: #000;
 }
-.tintuc:hover{
-  text-decoration: underline;
-}
 .hidden {
   display: none;
 }
@@ -57,33 +56,157 @@ body {
   justify-content: center;
   padding: 0;
   border-radius: 4px;
-   margin: 20px 0;
+  margin: 20px 0;
 }
-
-.nut li button, .nut li a,.nut .ellipsis {
-  font-size: 20px;         
-  padding: 8px 12px;     
+.nut li button, .nut li a, .nut .ellipsis {
+  font-size: 20px;
+  padding: 8px 12px;
   display: block;
   color: #110d0d;
   text-decoration: none;
   border: 1px solid #250202;
   border-radius: 10px;
   transition: 0.3s;
-  min-width: 50px;  
+  min-width: 50px;
 }
-.nut li a:hover{
+.nut li a:hover {
   background: #ddd;
   color: aqua;
 }
-.nut .hđ a{
+.nut .hđ a {
   background: #9d97ce;
 }
 .nut .ellipsis {
-  cursor: default;         
+  cursor: default;
   background: #fff;
 }
 .nut .ellipsis:hover {
   background: #fff;
   color: #110d0d;
   text-decoration: none;
+}
+
+.tin-noi-bat {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  overflow: hidden;
+  background: #ccc;
+  margin-top: 5px;
+}
+
+.tin-lon {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.tin-lon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.tin-lon:hover img {
+  transform: scale(1.05);
+}
+
+.tin-lon .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px 30px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: #fff;
+}
+
+.tin-lon .overlay .date {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 5px;
+}
+
+.tin-lon .overlay h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.tin-nho {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+}
+
+.tin-nho .item {
+  position: relative;
+  overflow: hidden;
+  height: 245px;
+}
+
+.tin-nho img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.tin-nho .item:hover img {
+  transform: scale(1.05);
+}
+
+.tin-nho .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 20px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: #fff;
+}
+
+.tin-nho .overlay .date {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.tin-nho .overlay h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+@media (max-width: 768px) {
+  .tin-noi-bat {
+    grid-template-columns: 1fr;
+  }
+  .tin-nho {
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr;
+  }
+  .tin-lon {
+    height: 300px;
+  }
+  .tin-nho .item {
+    height: 200px;
+  }
+  .tin-lon .overlay {
+    padding: 15px;
+  }
+
+  .tin-lon .overlay h2 {
+    font-size: 1.2rem;
+  }
 }
