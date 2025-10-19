@@ -47,11 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
   }
   window.viewBookDetail = function (bookData) {
+    const username = localStorage.getItem("username");
+    if (!username) {
+      alert("⚠️ Vui lòng đăng nhập để xem chi tiết sách!");
+      return;
+    }
+
     const book = JSON.parse(decodeURIComponent(bookData)); 
     localStorage.setItem("sachDangXem", book.tenSach);
     sessionStorage.setItem("fromDetailPage", "true");
     window.location.href = "chitiet.html";
   };
+
   function showDefaultBooks() {
     resultsTitle.textContent = "Sách đề xuất";
     renderBooks(allBooks.slice(0, 8), false);

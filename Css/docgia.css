@@ -19,6 +19,18 @@ th, td {
     text-align: center;
 }
 th {
-    background-color: rgb(171, 82, 167);
+    background-color: rgb(137, 184, 227);
+    color: black;
+}
+#bt {
+    padding: 5px 13px;
+    border-radius: 10px;
+    background-color: red;
     color: white;
+    border: none;
+    cursor: pointer;
+}
+#bt:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }

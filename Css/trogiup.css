@@ -12,27 +12,7 @@ body {
 .container {
     width: 90%;
     max-width: 1100px;
-<<<<<<< HEAD
     margin: auto;
-}
-.hero {
-    text-align: center;
-    background: 
-    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('../Img/anh-nen-sach-mo-ra_012540664.jpg') no-repeat center center/cover;
-    padding: 50px 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
-}
-.hero h2 {
-    color:white;
-    margin-bottom: 10px;
-    font-size: 32px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-.hero p {
-    color: white;
-    font-size: 17px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
 }
 .search-section {
     text-align: center;
@@ -45,24 +25,6 @@ body {
     background: white;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     overflow: hidden;
-}
-.search-box input {
-    border: none;
-    padding: 12px 14px;
-    width: 280px;
-    outline: none;
-}
-.search-box button {
-   background: linear-gradient(to right , #6d28d9 40%, #2563eb);
-    color: white;
-    border: none;
-    padding: 12px 22px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s;
-}
-.search-box button:hover {
-    background: linear-gradient(to right , #4c1d95 40%, #1e3a8a);
 }
 .quick-grid {
     display: grid;
@@ -104,12 +66,12 @@ h3 {
     color: #1b043d; 
 }
 .hero {
-    padding: 50px 30px;
+    padding: 100px 30px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
      background: 
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url('../Img/thuvien.jpg') no-repeat center center/cover;
+        url('../Img/anh-nen-sach-mo-ra_012540664.jpg') no-repeat center center/cover;
 }
 .hero h2, .hero p {
     color: #fff;

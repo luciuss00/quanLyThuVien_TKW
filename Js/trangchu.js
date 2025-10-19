@@ -11,17 +11,10 @@ hienNutThemSach();
 function moTrangThemSach() {
     window.location.href = "themsach.html";
 }
-function xemTatCaSach() {
-    var username = localStorage.getItem("username");
-    if (!username) {
-        alert("Vui lòng đăng nhập để xem tất cả sách!");
-    } 
-    else {
-        window.location.href = "danhsach.html";
-    }
-}
 function xemChiTiet(tenSach) {
     localStorage.setItem("sachDangXem", tenSach);
     window.location.href = "chitiet.html";
 }
-
+function xemTatCaSach() {
+    window.location.href = "danhsach.html";
+}

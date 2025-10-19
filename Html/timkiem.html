@@ -8,13 +8,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <div id="menu"></div>
-  <script>
-    fetch("menu.html")
-      .then(res => res.text())
-      .then(data => document.getElementById("menu").innerHTML = data);
-  </script>
-
+  <div id="menu">
+        <script>
+            fetch("menu.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("menu").innerHTML = data;
+                    const script = document.createElement("script");
+                    script.src = "/Js/menu.js"; 
+                    document.body.appendChild(script)
+                });
+        </script>
+    </div>
   <section class="search-box">
     <div class="search-bar">
       <input type="text" id="localSearchInput" placeholder="Tìm tên sách, tác giả hoặc thể loại...">

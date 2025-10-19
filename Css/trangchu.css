@@ -2,6 +2,7 @@ body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
     margin: 0px;
+    background: linear-gradient(135deg, #f8f9fa, #e8f0ff);
 } 
 .header {
     position: relative;

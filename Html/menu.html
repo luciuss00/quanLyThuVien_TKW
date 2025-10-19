@@ -12,13 +12,16 @@
                 <li><a href="docgia.html">Độc giả</a></li>
                 <li><a href="lienhe.html">Liên hệ</a></li>
                 <li><a href="trogiup.html">Trợ giúp</a></li>
-                <div class="search">
-                   <input type="text" id="searchInput" placeholder="Tìm kiếm"  onclick="window.top.location.href='timkiem.html'">
-                   <i class="fa fa-search" id="searchIcon"onclick="window.top.location.href='timkiem.html'"></i>
+               <div class="search">
+                <button class="search-btn" onclick="window.location.href='timkiem.html'">
+                    <i class="fa fa-search"></i> Tìm kiếm
+                </button>
                 </div>
+
             </ul>
             <div class="sign">
                 <div class="user-menu">
+                    <span id="userGreeting" class="user-greeting"></span>
                     <i class="fa fa-user-circle user-icon" id="userIcon"></i>
                     <div class="user-dropdown" id="userDropdown">
                         <button class="dropdown-item" id="btnDangNhap">Đăng nhập</button>
@@ -55,7 +58,7 @@ body {
 }
 .menu ul li {
     display: inline-block;  
-    padding: 15px;
+    padding: 16px;
     cursor: pointer;
 }
 .menu ul li a {
@@ -72,24 +75,34 @@ body {
 .menu ul li.active {
     background-color: #9e67e6;
 }
-.search {
-    position: relative;
-    display: inline-block;
-}
-.search input {
+.search-btn {
+    background: white;
     border: none;
-    padding: 8px 35px 8px 10px; 
-    border-radius: 40px;
-    margin: 11px;
-    margin-left: 120px;
-    width: 200px;
-}   
-.search i {
-    position: absolute;
-    right: 3px;
-    margin: 18px;
+    color: #6b21a8;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 50px;
+    margin-top: 7.5px;
     cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
+
+.search-btn i {
+  font-size: 16px;
+}
+
+.search-btn:hover {
+  background: linear-gradient(135deg, #a770ef, #cf8bf3);
+  color: white;
+  transform: scale(1.05);
+}
+
 .sign {
     display: flex;
     margin-right: 15px;
@@ -100,14 +113,14 @@ body {
     display: inline-block;
 }
 
-  .user-icon {
+.user-icon {
     font-size: 34px;
     color: white;
     cursor: pointer;
     padding: 6px;
     border-radius: 50%;
-  }
-  .user-dropdown {
+}
+.user-dropdown {
     display: none;
     position: absolute;
     right: 0;
@@ -118,13 +131,13 @@ body {
     box-shadow: 0 6px 18px rgba(0,0,0,0.2);
     padding: 8px;
     z-index: 1000;
-  }
+}
 
-  .user-dropdown.show {
+.user-dropdown.show {
     display: block;
-  }
+}
 
-  .dropdown-item {
+.dropdown-item {
     display: block;
     width: 100%;
     border: none;
@@ -134,9 +147,25 @@ body {
     font-size: 15px;
     cursor: pointer;
     border-radius: 6px;
-  }
+}
 
 .dropdown-item:hover {
     background: #f0f0f0;
 }
+.user-greeting {
+    position: relative;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 40px;
+    top: -4.5px;
+    white-space: nowrap;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 </style>
