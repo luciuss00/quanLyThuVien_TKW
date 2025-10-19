@@ -22,12 +22,8 @@ function xemTatCaSach() {
         window.location.href = "danhsach.html";
     }
 }
-
-function xemChiTiet(ten, tacGia, anh, moTa) {
-  // Lưu thông tin sách vào localStorage
-  var sach = { ten: ten, tacGia: tacGia, anh: anh, moTa: moTa };
-  localStorage.setItem("sachChiTiet", JSON.stringify(sach));
-
-  // Chuyển sang trang chi tiết
-  window.location.href = "chitietsach.html";
+function xemChiTiet(tenSach) {
+    localStorage.setItem("sachDangXem", tenSach);
+    window.location.href = "chitiet.html";
 }
+

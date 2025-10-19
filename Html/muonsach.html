@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mượn sách</title>
+    <link rel="stylesheet" href="/Css/muonsach.css"/>
+</head>
+<body>
+    <div class="borrow-container">
+        <h2>Mượn sách</h2>
+
+        <form id="borrowForm">
+        <div class="form-group">
+            <label for="tenNguoiMuon">Họ và tên:</label>
+            <input type="text" id="tenNguoiMuon"/>
+        </div>
+
+        <div class="form-group">
+            <label for="maSinhVien">Mã sinh viên:</label>
+            <input type="text" id="maSinhVien"/>
+        </div>
+
+        <div class="form-group">
+            <label for="ngayMuon">Ngày mượn:</label>
+            <input type="date" id="ngayMuon"/>
+        </div>
+
+        <div class="form-group">
+            <label for="ngayTra">Ngày trả dự kiến:</label>
+            <input type="date" id="ngayTra"/>
+        </div>
+
+        <div class="form-group">
+            <label for="ghiChu">Ghi chú:</label>
+            <textarea id="ghiChu" rows="3" placeholder="Ghi chú thêm (nếu có)"></textarea>
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="submit-btn" id="muon" onclick="return muonSach()">Xác nhận mượn</button>
+            <button type="button" class="back-btn" onclick="back()">Quay lại</button>
+        </div>
+        </form>
+    </div>
+
+    <script src="/Js/muonsach.js"></script>
+</body>
+</html>

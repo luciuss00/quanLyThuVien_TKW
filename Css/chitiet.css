@@ -1,6 +1,8 @@
 #chitiet {
+    font-size: 40px;
     text-align: center;
     margin: 40px;
+    color: rgb(208, 58, 58);
 }
 .chitiet-container {
     display: flex;
@@ -20,25 +22,60 @@
 .info h2 {
   margin: 0 0 10px;
   font-size: 38px;
+  color: #5666f2;
 }
 .info h3 {
     font-size: 25px;
 }
-.info p {
-    font-size: 18px;
-    margin-right: 30px;
+.info h4 {
+    font-size: 20px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+#moTa {
+    font-size: 20px;
+    margin-right: 20px;
+}
+#mt {
+    font-size: 22px;
 }
 button {
-    padding: 10px 20px;
-    background: #833E7F;
+    background: linear-gradient(135deg, #a770ef, #cf8bf3, #fdb99b);
     color: white;
     border: none;
-    border-radius: 6px;
+    padding: 9px 23.5px;
+    border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 30px  0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+
 button:hover {
-  background: #5c2a5b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
+
 * {
     font-family: 'Times New Roman', Times, serif;
+}
+#muonSachBtn {
+    background: linear-gradient(135deg, #56ccf2, #2f80ed);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 10px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#muonSachBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
