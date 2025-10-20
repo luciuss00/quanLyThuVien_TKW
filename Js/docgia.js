@@ -4,7 +4,7 @@ if (!Array.isArray(docGia)) {
 }
 async function loadDocGia() {
   try {
-    const res = await fetch("/userMuonSach.json"); // 🔹 Đường dẫn tới file JSON
+    const res = await fetch("/userMuonSach.json");
     if (!res.ok) throw new Error("Không thể tải file JSON!");
     const data = await res.json();
     localStorage.setItem("muonSachInfo", JSON.stringify(data));
@@ -20,7 +20,7 @@ function renderTable(data) {
   tbody.innerHTML = ""; 
   data.forEach((dg, index) => {
     const row = document.createElement("tr");
-    row.innerHTML = `
+    row.innerHTML += `
       <td>${index + 1}</td>
       <td>${dg.ten}</td>
       <td>${dg.ma}</td>
@@ -34,6 +34,7 @@ function renderTable(data) {
   });
 }
 function xoaDocGia(i) {
+  confirm("Ban có chắc chắn muốn xóa không!");
   let ds = JSON.parse(localStorage.getItem("muonSachInfo")) || [];
   ds.splice(i, 1);
   localStorage.setItem("muonSachInfo", JSON.stringify(ds));

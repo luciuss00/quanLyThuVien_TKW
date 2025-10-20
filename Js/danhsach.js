@@ -73,3 +73,9 @@ function displayAllGenres() {
 }
 
 displayAllGenres();
+const role = localStorage.getItem("role");
+const btnThemSach = document.getElementById("btnThemSach");
+
+if (btnThemSach && role !== "admin") {
+    btnThemSach.style.display = "none";
+}

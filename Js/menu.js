@@ -33,7 +33,7 @@ function kiemTraDangNhap() {
         userIcon.title = "Xin chào, " + username;
         const greet = document.getElementById("userGreeting");
         if (greet) {
-            greet.textContent = "Xin chào, " + username;
+            greet.textContent = "Xin chào, " + username + " !";
         }
     }
     else {
@@ -57,6 +57,7 @@ function kiemTraDangNhap() {
     };
 
     btnDangXuat.onclick = function() {
+        confirm("Bạn có chắc muốn đăng xuất không!");
         localStorage.removeItem("username");
         localStorage.removeItem("role");
         alert("Đăng xuất thành công!");

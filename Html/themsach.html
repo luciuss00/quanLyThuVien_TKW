@@ -49,18 +49,7 @@
 
         <div class="form-group">
           <label for="bookCategory">Thể Loại *</label>
-          <select id="bookCategory">
-            <option value="">-- Chọn thể loại --</option>
-            <option value="tam-linh">Tâm linh</option>
-            <option value="phat-trien-ban-than">Phát triển bản thân</option>
-            <option value="tieu-thuyet">Tiểu thuyết</option>
-            <option value="triet">Triết học</option>
-            <option value="tam-ly">Tâm lý</option>
-            <option value="khoa-hoc">Khoa học</option>
-            <option value="giao-duc">Giáo dục</option>
-            <option value="kinh-doanh">Kinh doanh</option>
-            <option value="van-hoc-viet-nam">Văn học Việt Nam</option>
-          </select>
+          <input type="text" id="bookCategory">
           <small class="error" id="categoryError"></small>
         </div>
 
@@ -80,23 +69,27 @@
           <label for="bookDescription">Mô tả</label>
           <textarea id="bookDescription" rows="4"></textarea>
         </div>
-
+        
+        <div class="form-group">
+          <label for="upload" class="file-btn">📸 Chọn ảnh bìa sách</label>
+          <input type="file" id="upload" accept="image/*">
+        </div>
 
         <div class="form-group">
-          <label for="upload" class="imgLabel">Ảnh bìa sách</label>
-          <input type="file" id="upload" accept="image/*">
+          <label for="importFile" class="file-btn">📥 Nhập danh sách JSON</label>
+          <input type="file" id="importFile" accept=".json">
         </div>
 
         <div class="form-actions">
           <button type="submit" class="add">Thêm Sách</button>
           <button type="reset" class="delete" id="clearForm">Xóa Form</button>
         </div>
+
+    
       </form>
 
       
     </section>
-    <input type="file" id="importFile" accept=".json">
-        <button onclick="importFromJSON()">📥 Nhập danh sách sách</button>
 
 </body>
 <script src="../Js/themsach.js"></script>

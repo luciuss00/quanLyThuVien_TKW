@@ -36,7 +36,7 @@ function muonSach() {
     trangThaiSach[tenSach] = "daMuon";
     localStorage.setItem("trangThaiSach", JSON.stringify(trangThaiSach));
 
-    alert("✅ Bạn đã mượn sách: " + tenSach);
+    alert("✅ Bạn đã mượn sách: " + tenSach + " thành công!");
     window.location.href = "chitiet.html";
 }
 

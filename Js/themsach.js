@@ -59,38 +59,28 @@ function addBook() {
     if (file) reader.readAsDataURL(file);
     else reader.onload(); 
 }
-function importFromJSON() {
-    const fileInput = document.getElementById("importFile");
-    const file = fileInput.files[0];
-
-    if (!file) {
-        alert("Vui lòng chọn file JSON!");
-        return;
-    }
-
+document.getElementById("importFile").addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (!file) return;
     const reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = function (e) {
         try {
-            const importedBooks = JSON.parse(e.target.result);
-            if (!Array.isArray(importedBooks)) {
-                alert("File không đúng định dạng!");
-                return;
-            }
-
-            let listBook = JSON.parse(localStorage.getItem("listBook")) || [];
-            importedBooks.forEach(book => {
-                book.id = Date.now() + Math.floor(Math.random() * 10000);
-                book.ngayThem = new Date().toLocaleDateString("vi-VN");
-            });
-
-            listBook = listBook.concat(importedBooks);
-            localStorage.setItem("listBook", JSON.stringify(listBook));
-
-            alert("Nhập sách thành công!");
-            } catch {
-            alert("Lỗi đọc file JSON!");
+        const importedBooks = JSON.parse(e.target.result); 
+        if (!Array.isArray(importedBooks)) {
+            alert("❌ File JSON không đúng định dạng!");
+            return;
+        }
+        let currentBooks = JSON.parse(localStorage.getItem("listBook")) || [];
+        const updatedBooks = [...currentBooks, ...importedBooks];
+        localStorage.setItem("listBook", JSON.stringify(updatedBooks));
+        alert(`✅ Đã nhập ${importedBooks.length} quyển sách thành công!`);
+        document.getElementById("addBook").reset();
+        } catch (err) {
+        alert("❌ Lỗi khi đọc file JSON!");
+        console.error(err);
         }
     };
     reader.readAsText(file);
-}
+});
+
 
