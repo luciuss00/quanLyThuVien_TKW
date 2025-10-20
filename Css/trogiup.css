@@ -1,6 +1,10 @@
 * {
     box-sizing: border-box;
 }
+html, body {
+  min-width: 1200px; 
+  overflow-x: auto;  
+}
 body {
     font-family: "Poppins", Arial, sans-serif;
     background:#fff;

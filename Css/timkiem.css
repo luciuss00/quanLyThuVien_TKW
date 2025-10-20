@@ -168,6 +168,10 @@ body {
   text-align: center;
   color: #333;
 }
+html, body {
+  min-width: 1200px; 
+  overflow-x: auto;  
+}
 .no-results i {
   font-size: 55px;           
   margin-bottom: 10px;       

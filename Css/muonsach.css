@@ -6,6 +6,10 @@ body {
     justify-content: center;
     align-items: center;
 }
+html, body {
+  min-width: 1200px; 
+  overflow-x: auto;  
+}
 .borrow-container {
     margin-bottom: 70px;
     margin-top: 70px;
