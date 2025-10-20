@@ -81,7 +81,7 @@ body {
 .hero .p { font-size: 17px; }
 .main-content-split-2 {
     display: flex; 
-    gap: 30px; 
+    gap: 20px; 
     margin-top: 50px;
     align-items: flex-start;
 }
@@ -245,4 +245,5 @@ body {
 .faq-item li {
     margin-left: 25px; 
 }
+
 
