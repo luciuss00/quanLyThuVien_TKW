@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background: url("/Img/library-2507902_1280.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+.container {
+  width: 500px;
+  border-radius: 25px;
+  padding: 30px 40px;
+  backdrop-filter: blur(5px);
+  text-align: center;
+  margin: 80px auto;
+}
+.card h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-left: 45px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.form-group select option{
+  color: black;
+  background-color: white;
+}
+.form-group label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 90%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  outline: none;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+
+.form-group textarea {
+  resize: none;
+  height: 90px;
+}
+.form-actions {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  gap:20px;
+}
+.add, .delete{
+  color:#fff;
+  border:none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+.add {
+  background: linear-gradient(135deg, #28a745, #1e7e34); /* xanh lá nhạt → đậm */
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+}
+
+.add:hover {
+  background: linear-gradient(135deg, #34d058, #218838); /* sáng hơn khi hover */
+  transform: scale(1.05);
+}
+
+
+.delete {
+  background: linear-gradient(135deg, #d9534f, #b52b27);
+  box-shadow: 0 4px 10px rgba(181, 43, 39, 0.4);
+}
+
+.delete:hover {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  transform: scale(1.05);
+}
+#preview {
+  display: block;
+  margin: 25px auto 10px;
+  border-radius: 10px;
+  max-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

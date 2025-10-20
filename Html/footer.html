@@ -1,0 +1,118 @@
+<body>
+    <footer class="footer">
+        <div class="footer-noidung">
+            <div class="footer-thongtin">
+                <h3>Thư viện EA3</h3>
+                <p>Địa chỉ: Đường Tên Lửa, P. Bình Trị Đông B, Q. Bình Tân, TPHCM</p>
+                <p>Email: thuvienea3@gmail.com</p>
+                <p>Điện thoại: 0123 456 789</p>
+            </div>
+            <div class="menu1">
+                <ul>
+                    <li><a href="trangchu.html">Trang chủ</a></li>
+                    <li><a href="tintuc.html">Tin tức</a></li>
+                    <li><a href="danhsach.html">Danh sách</a></li>
+                    <li><a href="lienhe.html">Liên hệ</a></li>
+                    <li><a href="trogiup.html">Trợ giúp</a></li>
+                </ul>
+
+            </div>
+            <div class="footer-mxh">
+                <h4>Kết nối</h4>
+                <a><i class="fab fa-facebook-f" id="fb"></i></a>
+                <a><i class="fab fa-youtube" id="ytb"></i></a>
+                <a><i class="fab fa-instagram" id="ins"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Thư viện EA3. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+<style>
+.footer {
+    background: url(/Img/library-488679_1280.jpg) no-repeat center center/cover;
+    color: white;
+    padding: 20px 90px;
+    margin-top: 100px;
+    height: 210px;
+    position: relative;
+    overflow: hidden;
+}
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55); 
+    z-index: 0;
+}
+.footer-noidung {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    z-index: 1;
+    position: relative;
+}
+.footer-thongtin {
+    margin-left: 0px;
+}
+.footer-thongtin h3 {
+    margin-bottom: 15px;
+}
+.footer-mxh h4 {
+    margin-bottom: 10px;
+}
+.footer-mxh a {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 20px;
+    color: white;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+#fb:hover {
+    transform: scale(1.2);
+    color: blue;
+    transition: transform 0.3s;
+    
+}
+#ytb:hover {
+    transform: scale(1.2);
+    color: red;
+    transition: transform 0.3s;
+}
+#ins:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.2);
+    transition: transform 0.3s;
+
+}
+.footer-bottom {
+    border-top: 2px solid rgb(163, 161, 161);
+    font-size: 14px;
+    text-align: center;
+}
+footer .menu1 ul {
+    list-style-type: none;
+    margin-right: 100px;
+}
+footer .menu1 ul li {
+    padding-bottom: 10px;
+}
+footer .menu1 ul li a {
+    text-decoration: none;
+    color: white;
+}
+footer .menu1 ul li a:hover {
+    color: black;
+    background-color: white;
+    padding: 1px 5px;
+    border-radius: 8px;
+}
+
+</style>

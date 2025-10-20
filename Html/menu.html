@@ -1,0 +1,171 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="menu">
+            <img src="../Img/logo.png">
+            <ul>
+                <li><a href="trangchu.html">Trang chủ</a></li>
+                <li><a href="tintuc.html">Tin tức</a></li>
+                <li><a href="danhsach.html">Danh sách</a></li>
+                <li><a href="docgia.html">Độc giả</a></li>
+                <li><a href="lienhe.html">Liên hệ</a></li>
+                <li><a href="trogiup.html">Trợ giúp</a></li>
+               <div class="search">
+                <button class="search-btn" onclick="window.location.href='timkiem.html'">
+                    <i class="fa fa-search"></i> Tìm kiếm
+                </button>
+                </div>
+
+            </ul>
+            <div class="sign">
+                <div class="user-menu">
+                    <span id="userGreeting" class="user-greeting"></span>
+                    <i class="fa fa-user-circle user-icon" id="userIcon"></i>
+                    <div class="user-dropdown" id="userDropdown">
+                        <button class="dropdown-item" id="btnDangNhap">Đăng nhập</button>
+                        <button class="dropdown-item" id="btnDangKy">Đăng ký</button>
+                        <button class="dropdown-item" id="btnDangXuat" style="display:none;">Đăng xuất</button>
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+</body>
+
+<style>
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0px;
+} 
+.menu {
+    background: linear-gradient(135deg, #a770ef, #cf8bf3, #fdb99b);
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+.menu img {
+    width: 68px;
+    padding-right: 0px;
+}
+.menu ul {   
+    display: flex;
+    margin: 0px;
+    padding-left: 0px;
+    flex: 1;
+}
+.menu ul li {
+    display: inline-block;  
+    padding: 16px;
+    cursor: pointer;
+}
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    margin-left: 0px;
+    font-size: 18px;
+}
+.menu ul li:hover {
+    background-color: #9e67e6;
+    transform: scale(1.03);
+    transition: transform 0.3s;
+}
+.menu ul li.active {
+    background-color: #9e67e6;
+}
+.search-btn {
+    background: white;
+    border: none;
+    color: #6b21a8;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 50px;
+    margin-top: 7.5px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.search-btn i {
+  font-size: 16px;
+}
+
+.search-btn:hover {
+  background: linear-gradient(135deg, #a770ef, #cf8bf3);
+  color: white;
+  transform: scale(1.05);
+}
+
+.sign {
+    display: flex;
+    margin-right: 15px;
+    align-items: center;
+}
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.user-icon {
+    font-size: 34px;
+    color: white;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+}
+.user-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 48px;
+    min-width: 140px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    padding: 8px;
+    z-index: 1000;
+}
+
+.user-dropdown.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.dropdown-item:hover {
+    background: #f0f0f0;
+}
+.user-greeting {
+    position: relative;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 40px;
+    top: -4.5px;
+    white-space: nowrap;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+</style>

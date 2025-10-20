@@ -1,0 +1,470 @@
+[
+  {
+    "tenSach": "Nhà giả kim",
+    "tacGia": "Paulo Coelho",
+    "theLoai": "Tiểu thuyết",
+    "nhaXB": "NXB Lao Động",
+    "namXB": 2021,
+    "moTa": "Lời văn mềm mại, sâu lắng, đưa ta đến với thế giới nội tâm đầy phong phú và nhân hậu. Đây là một tác phẩm tâm linh được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Đắc nhân tâm",
+    "tacGia": "Dale Carnegie",
+    "theLoai": "Phát triển bản thân",
+    "nhaXB": "NXB Lao Động",
+    "namXB": 2023,
+    "moTa": "Cuốn sách như một làn gió dịu mát, dẫn người đọc qua miền ký ức và những giấc mơ chưa trọn. Đây là một tác phẩm tâm linh được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Đi tìm lẽ sống",
+    "tacGia": "Viktor Frankl",
+    "theLoai": "Tiểu thuyết",
+    "nhaXB": "NXB Thế Giới",
+    "namXB": 2016,
+    "moTa": "Tác phẩm khơi dậy lòng trắc ẩn và tình yêu thương, giúp ta nhận ra giá trị của những điều giản đơn. Đây là một tác phẩm văn học việt nam được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Không sinh không diệt đừng sợ hãi",
+    "tacGia": "Thích Nhất Hạnh",
+    "theLoai": "Triết học",
+    "nhaXB": "NXB Lao Động",
+    "namXB": 1998,
+    "moTa": "Tác phẩm khơi dậy lòng trắc ẩn và tình yêu thương, giúp ta nhận ra giá trị của những điều giản đơn. Đây là một tác phẩm tiểu thuyết được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Tôi tài giỏi, bạn cũng thế",
+    "tacGia": "Adam Khoo",
+    "theLoai": "Phát triển bản thân",
+    "nhaXB": "NXB Chính Trị Quốc Gia",
+    "namXB": 2023,
+    "moTa": "Không chỉ là câu chuyện, mà còn là lời tự sự của tâm hồn giữa dòng đời vội vã. Đây là một tác phẩm phát triển bản thân được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Thay đổi tư duy, thay đổi cuộc đời",
+    "tacGia": "Brian Tracy",
+    "theLoai": "Phát triển bản thân",
+    "nhaXB": "NXB Hồng Đức",
+    "namXB": 2002,
+    "moTa": "Một hành trình tâm linh đầy xúc cảm, nơi nhân vật tìm kiếm ý nghĩa của cuộc đời giữa những ngã rẽ của định mệnh. Đây là một tác phẩm lịch sử được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Trên đường băng",
+    "tacGia": "Tony Buổi Sáng",
+    "theLoai": "Phát triển bản thân",
+    "nhaXB": "NXB Hội Nhà Văn",
+    "namXB": 2022,
+    "moTa": "Cuốn sách như một làn gió dịu mát, dẫn người đọc qua miền ký ức và những giấc mơ chưa trọn. Đây là một tác phẩm triết học được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Tuổi trẻ đáng giá bao nhiêu",
+    "tacGia": "Rosie Nguyễn",
+    "theLoai": "Phát triển bản thân",
+    "nhaXB": "NXB Thế Giới",
+    "namXB": 2017,
+    "moTa": "Trang sách mở ra những suy ngẫm về con người, về khổ đau, hạnh phúc và hành trình tự khám phá bản thân. Đây là một tác phẩm phát triển bản thân được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Bí mật của may mắn",
+    "tacGia": "Álex Rovira",
+    "theLoai": "Phát triển bản thân",
+    "nhaXB": "NXB Hội Nhà Văn",
+    "namXB": 2000,
+    "moTa": "Trang sách mở ra những suy ngẫm về con người, về khổ đau, hạnh phúc và hành trình tự khám phá bản thân. Đây là một tác phẩm triết học được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Hành trình về phương Đông",
+    "tacGia": "Nguyên Phong",
+    "theLoai": "Khoa học",
+    "nhaXB": "NXB Văn Học",
+    "namXB": 2021,
+    "moTa": "Một cuốn sách mang đến cảm giác ấm áp và niềm tin vào cái đẹp của con người và cuộc sống. Đây là một tác phẩm khoa học được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Muôn kiếp nhân sinh",
+    "tacGia": "Nguyên Phong",
+    "theLoai": "Tâm linh",
+    "nhaXB": "NXB Thế Giới",
+    "namXB": 2020,
+    "moTa": "Tác phẩm khơi dậy lòng trắc ẩn và tình yêu thương, giúp ta nhận ra giá trị của những điều giản đơn. Đây là một tác phẩm lịch sử được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Bước chậm lại giữa thế gian vội vã",
+    "tacGia": "Hae Min",
+    "theLoai": "Triết học",
+    "nhaXB": "NXB Chính Trị Quốc Gia",
+    "namXB": 1992,
+    "moTa": "Lời văn mềm mại, sâu lắng, đưa ta đến với thế giới nội tâm đầy phong phú và nhân hậu. Đây là một tác phẩm tâm linh được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Bắt trẻ đồng xanh",
+    "tacGia": "Nguyễn Nhật Ánh",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Hồng Đức",
+    "namXB": 2009,
+    "moTa": "Tác phẩm khơi dậy lòng trắc ẩn và tình yêu thương, giúp ta nhận ra giá trị của những điều giản đơn. Đây là một tác phẩm triết học được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Mắt biếc",
+    "tacGia": "Nguyễn Nhật Ánh",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Trẻ",
+    "namXB": 2007,
+    "moTa": "Một hành trình tâm linh đầy xúc cảm, nơi nhân vật tìm kiếm ý nghĩa của cuộc đời giữa những ngã rẽ của định mệnh. Đây là một tác phẩm tiểu thuyết được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Cho tôi xin một vé đi tuổi thơ",
+    "tacGia": "Nguyễn Nhật Ánh",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Văn Học",
+    "namXB": 1996,
+    "moTa": "Cuốn sách như một làn gió dịu mát, dẫn người đọc qua miền ký ức và những giấc mơ chưa trọn. Đây là một tác phẩm tâm linh được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Người lái đò sông Đà",
+    "tacGia": "Nguyễn Tuân",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Văn Học",
+    "namXB": 1992,
+    "moTa": "Không chỉ là câu chuyện, mà còn là lời tự sự của tâm hồn giữa dòng đời vội vã. Đây là một tác phẩm phát triển bản thân được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Vợ nhặt",
+    "tacGia": "Kim Lân",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Lao Động",
+    "namXB": 2022,
+    "moTa": "Mỗi chương là một lát cắt cuộc đời, giản dị mà chứa đựng cả biển trời cảm xúc và triết lý nhân sinh. Đây là một tác phẩm triết học được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Chí Phèo",
+    "tacGia": "Nam Cao",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Chính Trị Quốc Gia",
+    "namXB": 2023,
+    "moTa": "Những dòng chữ nhẹ như hơi thở, nhưng đủ khiến trái tim người đọc thổn thức và suy tư. Đây là một tác phẩm triết học được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Lão Hạc",
+    "tacGia": "Nam Cao",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Chính Trị Quốc Gia",
+    "namXB": 2007,
+    "moTa": "Một cuốn sách mang đến cảm giác ấm áp và niềm tin vào cái đẹp của con người và cuộc sống. Đây là một tác phẩm triết học được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Số đỏ",
+    "tacGia": "Vũ Trọng Phụng",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Thế Giới",
+    "namXB": 2000,
+    "moTa": "Không chỉ là câu chuyện, mà còn là lời tự sự của tâm hồn giữa dòng đời vội vã. Đây là một tác phẩm khoa học được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Tắt đèn",
+    "tacGia": "Ngô Tất Tố",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Lao Động",
+    "namXB": 1993,
+    "moTa": "Một cuốn sách mang đến cảm giác ấm áp và niềm tin vào cái đẹp của con người và cuộc sống. Đây là một tác phẩm lịch sử được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Đời thừa",
+    "tacGia": "Nam Cao",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Lao Động",
+    "namXB": 1993,
+    "moTa": "Lời văn mềm mại, sâu lắng, đưa ta đến với thế giới nội tâm đầy phong phú và nhân hậu. Đây là một tác phẩm văn học việt nam được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Hai đứa trẻ",
+    "tacGia": "Thạch Lam",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Lao Động",
+    "namXB": 1990,
+    "moTa": "Câu chuyện nhẹ nhàng mà sâu sắc, gợi lên trong lòng người đọc niềm tin, tình yêu và khát vọng sống mãnh liệt. Đây là một tác phẩm triết học được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Dế mèn phiêu lưu ký",
+    "tacGia": "Tô Hoài",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Lao Động",
+    "namXB": 2013,
+    "moTa": "Không chỉ là câu chuyện, mà còn là lời tự sự của tâm hồn giữa dòng đời vội vã. Đây là một tác phẩm phát triển bản thân được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Làng",
+    "tacGia": "Kim Lân",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Tổng hợp TP.HCM",
+    "namXB": 2008,
+    "moTa": "Những dòng chữ nhẹ như hơi thở, nhưng đủ khiến trái tim người đọc thổn thức và suy tư. Đây là một tác phẩm tiểu thuyết được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Cà phê cùng Tony",
+    "tacGia": "Tony Buổi Sáng",
+    "theLoai": "Tâm lý",
+    "nhaXB": "NXB Hồng Đức",
+    "namXB": 2010,
+    "moTa": "Trang sách mở ra những suy ngẫm về con người, về khổ đau, hạnh phúc và hành trình tự khám phá bản thân. Đây là một tác phẩm khoa học được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Dám bị ghét",
+    "tacGia": "Ichiro Kishimi",
+    "theLoai": "Phát triển bản thân",
+    "nhaXB": "NXB Hồng Đức",
+    "namXB": 2023,
+    "moTa": "Không chỉ là câu chuyện, mà còn là lời tự sự của tâm hồn giữa dòng đời vội vã. Đây là một tác phẩm tâm linh được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Thiên tài bên trái kẻ điên bên phải",
+    "tacGia": "Trần Quốc Vượng",
+    "theLoai": "Tâm lý",
+    "nhaXB": "NXB Trẻ",
+    "namXB": 2024,
+    "moTa": "Lời văn mềm mại, sâu lắng, đưa ta đến với thế giới nội tâm đầy phong phú và nhân hậu. Đây là một tác phẩm giáo dục được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Tâm lý học tội phạm",
+    "tacGia": "Robert A. Heinlein",
+    "theLoai": "Tâm lý",
+    "nhaXB": "NXB Hồng Đức",
+    "namXB": 2014,
+    "moTa": "Cuốn sách như một làn gió dịu mát, dẫn người đọc qua miền ký ức và những giấc mơ chưa trọn. Đây là một tác phẩm tâm lý được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Phi lý trí",
+    "tacGia": "Dan Ariely",
+    "theLoai": "Kinh doanh",
+    "nhaXB": "NXB Thế Giới",
+    "namXB": 1995,
+    "moTa": "Những dòng chữ nhẹ như hơi thở, nhưng đủ khiến trái tim người đọc thổn thức và suy tư. Đây là một tác phẩm kinh doanh được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "7 thói quen của người thành đạt",
+    "tacGia": "Stephen Covey",
+    "theLoai": "Kinh doanh",
+    "nhaXB": "NXB Lao Động",
+    "namXB": 2023,
+    "moTa": "Tác phẩm khơi dậy lòng trắc ẩn và tình yêu thương, giúp ta nhận ra giá trị của những điều giản đơn. Đây là một tác phẩm triết học được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Tư duy nhanh và chậm",
+    "tacGia": "Daniel Kahneman",
+    "theLoai": "Phát triển bản thân",
+    "nhaXB": "NXB Hồng Đức",
+    "namXB": 1993,
+    "moTa": "Tác phẩm khơi dậy lòng trắc ẩn và tình yêu thương, giúp ta nhận ra giá trị của những điều giản đơn. Đây là một tác phẩm lịch sử được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Giết con chim nhại",
+    "tacGia": "Harper Lee",
+    "theLoai": "Văn học nước ngoài",
+    "nhaXB": "NXB Tổng hợp TP.HCM",
+    "namXB": 2001,
+    "moTa": "Tác phẩm khơi dậy lòng trắc ẩn và tình yêu thương, giúp ta nhận ra giá trị của những điều giản đơn. Đây là một tác phẩm khoa học được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Hoàng tử bé",
+    "tacGia": "Antoine de Saint-Exupéry",
+    "theLoai": "Văn học nước ngoài",
+    "nhaXB": "NXB Chính Trị Quốc Gia",
+    "namXB": 2016,
+    "moTa": "Không chỉ là câu chuyện, mà còn là lời tự sự của tâm hồn giữa dòng đời vội vã. Đây là một tác phẩm phát triển bản thân được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Những tấm lòng cao cả",
+    "tacGia": "Edmondo De Amicis",
+    "theLoai": "Văn học nước ngoài",
+    "nhaXB": "NXB Trẻ",
+    "namXB": 1990,
+    "moTa": "Một hành trình tâm linh đầy xúc cảm, nơi nhân vật tìm kiếm ý nghĩa của cuộc đời giữa những ngã rẽ của định mệnh. Đây là một tác phẩm kinh doanh được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Tuổi thơ dữ dội",
+    "tacGia": "Phùng Quán",
+    "theLoai": "Văn học Việt Nam",
+    "nhaXB": "NXB Chính Trị Quốc Gia",
+    "namXB": 2020,
+    "moTa": "Một cuốn sách mang đến cảm giác ấm áp và niềm tin vào cái đẹp của con người và cuộc sống. Đây là một tác phẩm văn học việt nam được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Không gia đình",
+    "tacGia": "Hector Malot",
+    "theLoai": "Văn học nước ngoài",
+    "nhaXB": "NXB Lao Động",
+    "namXB": 2023,
+    "moTa": "Không chỉ là câu chuyện, mà còn là lời tự sự của tâm hồn giữa dòng đời vội vã. Đây là một tác phẩm phát triển bản thân được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Vì sao chúng ta ngủ",
+    "tacGia": "Matthew Walker",
+    "theLoai": "Tâm lý",
+    "nhaXB": "NXB Hội Nhà Văn",
+    "namXB": 2002,
+    "moTa": "Lời văn mềm mại, sâu lắng, đưa ta đến với thế giới nội tâm đầy phong phú và nhân hậu. Đây là một tác phẩm tâm lý được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Vũ trụ trong vỏ hạt dẻ",
+    "tacGia": "Stephen Hawking",
+    "theLoai": "Khoa học",
+    "nhaXB": "NXB Hồng Đức",
+    "namXB": 2022,
+    "moTa": "Câu chuyện nhẹ nhàng mà sâu sắc, gợi lên trong lòng người đọc niềm tin, tình yêu và khát vọng sống mãnh liệt. Đây là một tác phẩm tiểu thuyết được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Lược sử thời gian",
+    "tacGia": "Stephen Hawking",
+    "theLoai": "Khoa học",
+    "nhaXB": "NXB Hồng Đức",
+    "namXB": 2022,
+    "moTa": "Một hành trình tâm linh đầy xúc cảm, nơi nhân vật tìm kiếm ý nghĩa của cuộc đời giữa những ngã rẽ của định mệnh. Đây là một tác phẩm kinh doanh được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Nguồn gốc các loài",
+    "tacGia": "Victor Hugo",
+    "theLoai": "Khoa học",
+    "nhaXB": "NXB Hồng Đức",
+    "namXB": 2023,
+    "moTa": "Mỗi chương là một lát cắt cuộc đời, giản dị mà chứa đựng cả biển trời cảm xúc và triết lý nhân sinh. Đây là một tác phẩm kinh doanh được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Những người khốn khổ",
+    "tacGia": "Leo Tolstoy",
+    "theLoai":"Văn học nước ngoài",
+    "nhaXB": "NXB Lao Động",
+    "namXB": 1992,
+    "moTa": "Trang sách mở ra những suy ngẫm về con người, về khổ đau, hạnh phúc và hành trình tự khám phá bản thân. Đây là một tác phẩm tiểu thuyết được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Chiến tranh và hòa bình",
+    "tacGia": "Fyodor Dostoevsky",
+    "theLoai": "Văn học nước ngoài",
+    "nhaXB": "NXB Thế Giới",
+    "namXB": 1999,
+    "moTa": "Không chỉ là câu chuyện, mà còn là lời tự sự của tâm hồn giữa dòng đời vội vã. Đây là một tác phẩm phát triển bản thân được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Tội ác và hình phạt",
+    "tacGia": "Ernest Hemingway",
+    "theLoai": "Tâm linh",
+    "nhaXB": "NXB Thế Giới",
+    "namXB": 2022,
+    "moTa": "Trang sách mở ra những suy ngẫm về con người, về khổ đau, hạnh phúc và hành trình tự khám phá bản thân. Đây là một tác phẩm tâm linh được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Ông già và biển cả",
+    "tacGia": "Emily Brontë",
+    "theLoai": "Văn học nước ngoài",
+    "nhaXB": "NXB Tổng hợp TP.HCM",
+    "namXB": 2024,
+    "moTa": "Lời văn mềm mại, sâu lắng, đưa ta đến với thế giới nội tâm đầy phong phú và nhân hậu. Đây là một tác phẩm tâm lý được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Đồi gió hú",
+    "tacGia": "Emily Brontë",
+    "theLoai": "Tiểu thuyết",
+    "nhaXB": "NXB Hội Nhà Văn",
+    "namXB": 1996,
+    "moTa": "Lời văn mềm mại, sâu lắng, đưa ta đến với thế giới nội tâm đầy phong phú và nhân hậu. Đây là một tác phẩm tiểu thuyết được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Kiêu hãnh và định kiến",
+    "tacGia": "Charlotte Brontë",
+    "theLoai": "Triết học",
+    "nhaXB": "NXB Thế Giới",
+    "namXB": 1994,
+    "moTa": "Trang sách mở ra những suy ngẫm về con người, về khổ đau, hạnh phúc và hành trình tự khám phá bản thân. Đây là một tác phẩm triết học được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Jane Eyre",
+    "tacGia": "Colleen McCullough",
+    "theLoai": "Tiểu thuyết",
+    "nhaXB": "NXB Chính Trị Quốc Gia",
+    "namXB": 2005,
+    "moTa": "Lời văn mềm mại, sâu lắng, đưa ta đến với thế giới nội tâm đầy phong phú và nhân hậu. Đây là một tác phẩm kinh doanh được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Tiếng chim hót trong bụi mận gai",
+    "tacGia": "Colleen McCullough",
+    "theLoai": "Tiểu thuyết",
+    "nhaXB": "NXB Chính Trị Quốc Gia",
+    "namXB": 2023,
+    "moTa": "Tác phẩm khơi dậy lòng trắc ẩn và tình yêu thương, giúp ta nhận ra giá trị của những điều giản đơn. Đây là một tác phẩm tâm lý được viết nên bằng tất cả trái tim và sự tinh tế của tác giả, mang đậm phong cách riêng và chiều sâu nhân văn.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Harry Potter và hòn đá phù thủy",
+    "tacGia": "J.K.Rowling",
+    "theLoai": "Tiểu thuyết",
+    "nhaXB": "NXB Trẻ",
+    "namXB": 2022,
+    "moTa": "Khi một lá thư được gởi đến cho cậu bé Harry Potter bình thường và bất hạnh, cậu khám phá ra một bí mật đã được che giấu suốt cả một thập kỉ. Cha mẹ cậu chính là phù thủy và cả hai đã bị lời nguyền của Chúa tể Hắc ám giết hại khi Harry mới chỉ là một đứa trẻ, và bằng cách nào đó, cậu đã giữ được mạng sống của mình. Thoát khỏi những người giám hộ Muggle không thể chịu đựng nổi để nhập học vào trường Hogwarts, một trường đào tạo phù thủy với những bóng ma và phép thuật, Harry tình cờ dấn thân vào một cuộc phiêu lưu đầy gai góc khi cậu phát hiện ra một con chó ba đầu đang canh giữ một căn phòng trên tầng ba. Rồi Harry nghe nói đến một viên đá bị mất tích sở hữu những sức mạnh lạ kì, rất quí giá, vô cùng nguy hiểm, mà cũng có thể là mang cả hai đặc điểm trên.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Harry Potter Và phòng chứa bí mật",
+    "tacGia": "Colleen McCullough",
+    "theLoai": "Tiểu thuyết",
+    "nhaXB": "NXB Trẻ",
+    "namXB": 2022,
+    "moTa": "Harry khổ sở mong ngóng cho kì nghỉ hè kinh khủng với gia đình Dursley kết thúc. Nhưng một con gia tinh bé nhỏ tội nghiệp đã cảnh báo cho Harry biết về mối nguy hiểm chết người đang chờ cậu ở trường Hogwarts. Trở lại trường học, Harry nghe một tin đồn đang lan truyền về phòng chứa bí mật, nơi cất giữ những bí ẩn đáng sợ dành cho giới phù thủy có nguồn gốc Muggle. Có kẻ nào đó đang phù phép làm tê liệt mọi người, khiến họ gần như đã chết, và một lời cảnh báo kinh hoàng được tìm thấy trên bức tường. Mối nghi ngờ hàng đầu – và luôn luôn sai lầm – là Harry. Nhưng một việc còn đen tối hơn thế đã được hé mở.",
+    "anh": ""
+  },
+  {
+    "tenSach": "Harry Potter Và Tên Tù Nhân Ngục Azkaban",
+    "tacGia": "J.K.Rowling",
+    "theLoai": "Tiểu thuyết",
+    "nhaXB": "NXB Trẻ",
+    "namXB": 2022,
+    "moTa": " Harry Potter may mắn sống sót đến tuổi 13, sau nhiều cuộc tấn công của Chúa tể hắc ám.Nhưng hy vọng có một học kỳ yên ổn với Quidditch của cậu đã tiêu tan thành mây khói khi một kẻ điên cuồng giết người hàng loạt vừa thoát khỏi nhà tù Azkaban, với sự lùng sục của những cai tù là giám ngục.Dường như trường Hogwarts là nơi an toàn nhất cho Harry lúc này. Nhưng có phải là sự trùng hợp khi cậu luôn cảm giác có ai đang quan sát mình từ bóng đêm, và những điềm báo của giáo sư Trelawney liệu có chính xác?",
+    "anh": ""
+  }
+]

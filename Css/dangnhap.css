@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../Img/george-peabody-bucherei-1629308_1280.jpg); 
+    background-size: cover;
+    overflow: hidden;
+
+
+}
+.my-container{
+    color: white;
+    position: relative;
+    width: 400px;
+    padding: 40px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.6);
+    z-index: 10;
+    overflow: hidden;
+}
+.my-container::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.05);
+    pointer-events: none;
+}
+.my-container:hover::before{
+    left: 120%;
+}
+.my-container h2{
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+}
+.form-input{
+    position: relative;
+    margin-bottom: 25px;
+
+}
+.form-input input{ 
+    width: 100%;
+    padding: 15px 20px;
+    background-color: rgba(255,255,255, 0.2);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 16px;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.form-input input::placeholder{
+    color: white;
+}
+.form-input input:focus{
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.form-input label{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 16px;
+    pointer-events: none;
+
+}
+.form-input input:focus+label,
+.form-input input:not(:placeholder-shown)+label{
+    top: -12px;
+    left: 10px;
+    font-size: 14px;
+    padding: 2px 6px;
+    color: white;
+    transform: none;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.form-extra{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+.form-extra label{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+
+}
+.form-extra input{
+    margin-right: 8px;
+}
+.form-extra a{
+    color:#00e5ff;
+    text-decoration: none;
+
+}
+.form-extra a:hover{
+    text-decoration: underline;
+    color:#00e5ff;
+}
+.btn{ 
+    width: 100%; 
+    padding: 15px !important;
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border: none;
+    outline: none;
+    border-radius: 10px !important;
+    color: white !important;
+    font-size: 16px ;
+    font-weight: 600 !important;
+    cursor: pointer ;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+
+}
+.btn:hover{
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+
+}
+.form-link{
+    text-align: center;
+    margin-top: 25px;
+    color: white;
+    font-size: 14px;
+
+}
+.form-link a{
+    color:#00e5ff;
+    font-weight: 600;
+    text-decoration: none; 
+}
+.form-link a:hover{
+    text-decoration: underline;
+    color:#00e5ff;
+}
+.error{
+    color: red;
+    font-size: 12px;
+    margin-left: 10px;
+    display: none;
+    margin-top: 5px;
+}

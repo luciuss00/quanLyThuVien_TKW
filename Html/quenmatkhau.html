@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quên mật khẩu</title>
+    <link href="/Css/quenmatkhau.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Quên mật khẩu</h1>
+
+    <form id="formForgot">
+      <label class="email">Email của bạn: <input type="email" id="emailForgot" placeholder="Nhập email đã đăng ký" required></label>
+      
+
+      <div id="emailError" class="error" style="display: none;">Email không tồn tại!</div>
+
+      <div id="resetSection" style="display:none;" class="newPassword">
+        <label>Mật khẩu mới:  <input type="password" id="newPassword" placeholder="Nhập mật khẩu mới" ></label>
+       <br>
+        <label>Xác nhận mật khẩu: <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu" ></label>
+        
+
+        <div id="passwordError" class="error" style="display: none;">Mật khẩu không khớp!</div>
+        <br>
+        <button type="button" id="btnReset">Đặt lại mật khẩu</button>
+      </div>
+
+      <button type="submit">Xác nhận Email</button>
+    </form>
+
+    <p class="alter"><a href="/Html/dangnhap.html">Quay lại đăng nhập</a></p>
+  </div>
+
+  <script src="/Js/quenmatkhau.js"></script>
+</body>
+</html>

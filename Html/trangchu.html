@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thư viện EA3</title>
+    <link rel="icon" type="image/x-icon" href="../Img/fav.png" class="fav">
+    <link rel="stylesheet" href="../Css/trangchu.css">
+</head>
+<body>
+    <div id="menu">
+        <script>
+            fetch("menu.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("menu").innerHTML = data;
+                    const script = document.createElement("script");
+                    script.src = "/Js/menu.js"; 
+                    document.body.appendChild(script);
+                    let lienKet = document.querySelectorAll(".menu ul li a");
+                    let trangHienTai = window.location.pathname.split("/").pop();
+                    if(trangHienTai === "") {
+                        trangHienTai = "trangchu.html";
+                    }
+                    lienKet.forEach(lk => {
+                        if(lk.getAttribute("href") === trangHienTai){
+                            lk.parentElement.classList.add("active");
+                        }
+                    })
+                });
+        </script>
+    </div>
+    <div class="header">
+        <div class="header-noidung">
+            <h1>Chào mừng đến với Thư viện EA3</h1>
+            <p>Khám phá hàng ngàn sách và tài liệu học tập miễn phí mọi lúc mọi nơi</p>
+            <button onclick="xemTatCaSach()">Khám phá ngay</button>
+        </div>
+    </div>
+    <div class="gioithieu">
+        <h2>Giới thiệu</h2>
+        <p>
+            Thư viện EA3 là hệ thống quản lý sách và tài liệu trực tuyến, giúp bạn dễ dàng
+            tìm kiếm, mượn và quản lý sách mọi lúc mọi nơi. Với kho tài nguyên phong phú 
+            và giao diện thân thiện, chúng tôi mong muốn mang đến trải nghiệm học tập và
+            nghiên cứu thuận tiện nhất cho người dùng
+        </p>
+    </div>
+    <div class="sach-noibat">
+        <div class="snb">
+            <h2>Sách nổi bật</h2>
+            <button onclick="xemTatCaSach()">Xem tất cả</button>
+        </div>
+        <div class="list">
+            <div class="item" onclick="xemChiTiet('Nhà giả kim')">
+                <img src="../Img/Nhà giả kim.jpg" alt="Nhà giả kim">
+                <h3>Nhà giả kim</h3>
+                <p>Paulo Coelho</p>
+            </div>
+            <div class="item" onclick="xemChiTiet('Đắc nhân tâm')">
+                <img src="../Img/Đắc nhân tâm.jpg" alt="Đắc nhân tâm">
+                <h3>Đắc nhân tâm</h3>
+                <p>Dale Carnegie</p>
+            </div>
+            <div class="item" onclick="xemChiTiet('Đi tìm lẽ sống')">
+                <img src="../Img/Đi tìm lẽ sống.jpg" alt="Đi tìm lẽ sống">
+                <h3>Đi tìm lẽ sống</h3>
+                <p>Viktor E. Frankl</p>
+            </div>
+            <div class="item" onclick="xemChiTiet('Con đầm pích')">
+                <img src="../Img/Con đầm pích.jpg" alt="Con đầm pích">
+                <h3>Con đầm pích</h3>
+                <p>Alexander Pushkin</p>
+            </div>
+            <div class="item" onclick="xemChiTiet('Nhật ký trong tù')">
+                <img src="../Img/Nhật ký trong tù.jpg" alt="Nhật ký trong tù">
+                <h3>Nhật ký trong tù</h3>
+                <p>Hồ Chí Minh</p>
+            </div>
+            <div class="item" onclick="xemChiTiet('Không sinh không diệt đừng sợ hãi')">
+                <img src="../Img/Không sinh không diệt đừng sợ hãi.jpg" alt="Không sinh không diệt đừng sợ hãi">
+                <h3>Không sinh không diệt đừng sợ hãi</h3>
+                <p>Thích Nhất Hạnh</p>
+            </div>
+        </div>
+        <div class="them-sach" id="themSachContainer" style="display:none;">
+            <button id="btnThemSach" onclick="moTrangThemSach()">Thêm sách</button>
+        </div>
+    </div>
+    <div id="footer">
+        <script>
+            fetch("footer.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("footer").innerHTML = data;
+                });
+        </script>
+    </div>
+    <script src="/Js/trangchu.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thêm Sách Mới - Quản Lý Thư Viện</title>
+  <link rel="stylesheet" href="/Css/themsach.css">
+</head>
+<body>
+  <div id="menu">
+        <script>
+            fetch("menu.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("menu").innerHTML = data;
+                    const script = document.createElement("script");
+                    script.src = "/Js/menu.js"; 
+                    document.body.appendChild(script);
+                    let lienKet = document.querySelectorAll(".menu ul li a");
+                    let trangHienTai = window.location.pathname.split("/").pop();
+                    if(trangHienTai === "") {
+                        trangHienTai = "trangchu.html";
+                    }
+                    lienKet.forEach(lk => {
+                        if(lk.getAttribute("href") === trangHienTai){
+                            lk.parentElement.classList.add("active");
+                        }
+                    })
+                });
+        </script>
+    </div>
+  <main class="container">
+
+    <section class="card">
+      <h2>Thêm Sách Mới</h2>
+
+      <form onsubmit=" return addBook()" id="addBook">
+        <div class="form-group">
+          <label for="bookTitle">Tên sách *</label>
+          <input type="text" id="bookTitle">
+          <small class="error" id="titleError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="bookAuthor">Tác giả *</label>
+          <input type="text" id="bookAuthor">
+          <small class="error" id="authorError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="bookCategory">Thể Loại *</label>
+          <select id="bookCategory">
+            <option value="">-- Chọn thể loại --</option>
+            <option value="tam-linh">Tâm linh</option>
+            <option value="phat-trien-ban-than">Phát triển bản thân</option>
+            <option value="tieu-thuyet">Tiểu thuyết</option>
+            <option value="triet">Triết học</option>
+            <option value="tam-ly">Tâm lý</option>
+            <option value="khoa-hoc">Khoa học</option>
+            <option value="giao-duc">Giáo dục</option>
+            <option value="kinh-doanh">Kinh doanh</option>
+            <option value="van-hoc-viet-nam">Văn học Việt Nam</option>
+          </select>
+          <small class="error" id="categoryError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="bookPublisher">Nhà xuất bản *</label>
+          <input type="text" id="bookPublisher" >
+          <small class="error" id="publisherError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="bookYear">Năm xuất bản *</label>
+          <input type="text" id="bookYear" min="1900" max="2025">
+          <small class="error" id="yearError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="bookDescription">Mô tả</label>
+          <textarea id="bookDescription" rows="4"></textarea>
+        </div>
+
+
+        <div class="form-group">
+          <label for="upload" class="imgLabel">Ảnh bìa sách</label>
+          <input type="file" id="upload" accept="image/*">
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="add">Thêm Sách</button>
+          <button type="reset" class="delete" id="clearForm">Xóa Form</button>
+        </div>
+      </form>
+
+      
+    </section>
+    <input type="file" id="importFile" accept=".json">
+        <button onclick="importFromJSON()">📥 Nhập danh sách sách</button>
+
+</body>
+<script src="../Js/themsach.js"></script>
+
+</html>

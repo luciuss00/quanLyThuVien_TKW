@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký</title>
+    <link rel="stylesheet" href="/Css/dangky.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Đăng Ký</h1>
+        <form id="formDangky">
+            <label for="userName"><input type="text" placeholder="Tên"  id="userName"></label>
+            <div class="error" id="userNameError">Tên đăng nhập không được để trống</div>
+            <label for="password"><input type="password" placeholder="Mật khẩu" id="password"></label>
+            <div class="error" id="passwordError">Mật khẩu không được để trống</div>
+            <label for="re-password"><input type="password" placeholder="Xác nhận lại mật khẩu"  id="re-password"></label>
+            <div class="error" id="re-passwordError">Mật khẩu  không được để trống</div>
+            <div class="error" id="re-passwordNotsuit">Mật khẩu xác minh không khớp </div>
+            <label for="email">
+               <input type="email" placeholder="Email"  id="email">
+            </label>
+            <div class="error" id="emailError">Email không được để trống</div>        
+            <button type="submit">Đăng ký</button>
+    </form>
+       
+        <p class="alter">Đã có tài khoản? <a href="/Html/dangnhap.html">Đăng nhập</a></p>
+    </div>
+</body>
+<script src="/Js/dangky.js"></script>
+</html>

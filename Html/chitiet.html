@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chi tiết sách</title>
+    <link rel="stylesheet" href="../Css/chitiet.css">
+</head>
+<body>
+    <div id="menu">
+        <script>
+            fetch("menu.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("menu").innerHTML = data;
+                    const script = document.createElement("script");
+                    script.src = "/Js/menu.js"; 
+                    document.body.appendChild(script);
+                    let lienKet = document.querySelectorAll(".menu ul li a");
+                    let trangHienTai = window.location.pathname.split("/").pop();
+                    if(trangHienTai === "") {
+                        trangHienTai = "trangchu.html";
+                    }
+                    lienKet.forEach(lk => {
+                        if(lk.getAttribute("href") === trangHienTai){
+                            lk.parentElement.classList.add("active");
+                        }
+                    })
+                });
+        </script>
+    </div>
+    <h1 id="chitiet">Thông tin chi tiết</h1>
+
+    <div class="chitiet-container">
+        <img id="anhSach" alt="Ảnh sách">
+        <div class="info">
+            <h2 id="tenSach"></h2>
+            <h3><strong>Tác giả: </strong> <span id="tacGia"></span></h3>
+            <h4><strong>Thể loại: </strong> <span id="theLoai"></span></h4>
+            <h4><strong>Nhà xuất bản: </strong> <span id="nhaXB"></span></h4>
+            <h4><strong>Năm xuất bản: </strong> <span id="namXB"></span></h4>
+            <span id="mt"><strong>Mô tả: </strong></span> <span id="moTa"></span>
+            <p><b>Trạng thái:</b> <span id="trangThaiSach"></span></p>
+            <button id="bt" onclick="window.history.back()">⬅ Quay lại</button>
+            <button id="muonSachBtn" onclick="window.location.href='muonsach.html'"> Mượn sách</button>
+
+        </div>
+    </div>
+    <div id="footer">
+        <script>
+            fetch("footer.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("footer").innerHTML = data;
+                });
+        </script>
+    </div>
+    <script src="/Js/chitiet.js"></script>
+</body>
+</html>

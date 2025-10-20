@@ -1,0 +1,172 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    margin: 0px;
+    background: linear-gradient(135deg, #f8f9fa, #e8f0ff);
+} 
+.header {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: url('/Img/bookshelf-413705_1280.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+.header button {
+    margin-top: 25px;
+    padding: 10px 40px;
+    font-size: 18px;
+    border-radius: 40px;
+    cursor: pointer;
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+.header button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.4), transparent);
+    transform: skewX(-25deg);
+    transition: 0.6s;
+}
+
+.header button:hover::before {
+    left: 125%;
+}
+.header button:hover {
+    background: linear-gradient(90deg, rgba(255, 204, 112, 0.9), rgba(255, 153, 153, 0.9));
+    color: white;
+    transform: scale(1.07);
+   
+}
+.header::after {
+    content: "";
+    position: absolute;
+    width: 100%; height: 100%;
+    background: rgba(0, 0 , 0, 0.5); 
+}
+.header-noidung {   
+    position: relative;
+    z-index: 1;
+}
+.header-noidung h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.header-noidung p {
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+.gioithieu {
+    padding: 75px ;
+    text-align: center;
+}
+.gioithieu h2 {
+    font-size: 35px;
+}
+.gioithieu h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    background-color: rgb(131, 62, 127);
+    margin: 10px auto;
+    border-radius: 10px;
+}
+.gioithieu p {
+    line-height: 1.8;
+    width: 1000px;
+    margin: auto;
+}
+.sach-noibat {
+    padding: 50px 10%;
+}
+.sach-noibat .snb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.sach-noibat .snb h2 {
+    font-size: 30px;
+}
+.sach-noibat .snb button {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 20px;
+    padding: 6px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #a770ef, #cf8bf3, #fdb99b);
+    width: 150px;
+}
+.sach-noibat .snb button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+.sach-noibat .them-sach {
+    margin-top: 50px;
+}
+
+.sach-noibat .them-sach button {
+    background: linear-gradient(135deg, #a770ef, #cf8bf3, #fdb99b);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.sach-noibat .them-sach button:hover {
+     transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    gap: 25px;
+}
+.item {
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+    background-size: cover;
+}
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+.item img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+.item h3 {
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 5px;
+}
+.item p {
+    font-size: 15px;
+    color: #555;
+}

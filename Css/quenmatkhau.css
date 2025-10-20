@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(../Img/george-peabody-bucherei-1629308_1280.jpg);
+  background-size: cover;
+  overflow: hidden;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.container {
+  color: white;
+  position: relative;
+  width: 400px;
+  padding: 40px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 50px;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.05);
+  pointer-events: none;
+}
+
+.container:hover::before {
+  left: 120%;
+}
+
+h1 {
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  gap: 6px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: rgba(255,255,255, 0.2);
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-size: 16px;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.9);
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+  display: none;
+}
+
+.alter {
+  text-align: center;
+  margin-top: 25px;
+  color: white;
+  font-size: 14px;
+}
+
+.alter a {
+  color: #00e5ff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.alter a:hover {
+  text-decoration: underline;
+  color: #00e5ff;
+}

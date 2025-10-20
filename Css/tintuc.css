@@ -1,0 +1,226 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #000;
+}
+.tin {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+.tintuc {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid #ddd;
+}
+.tintuc a {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+.tintuc:hover {
+  background: #eee;
+  text-decoration: underline;
+}
+.tintuc img {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  height: 250px;
+}
+
+.tintuc .date {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+.tintuc h3 {
+  font-size: 18px;
+  margin: 10px 0 0;
+  font-weight: bold;
+  color: #000;
+}
+.hidden {
+  display: none;
+}
+/* 🌟 Phần phân trang đẹp, hiện đại */
+.nut {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  margin: 40px 0;
+}
+
+.nut li {
+  display: inline-block;
+}
+
+.nut li button, 
+.nut li a, 
+.nut .ellipsis {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.25s ease;
+}
+.nut li button:hover {
+  background-color: #9d97ce;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(157, 151, 206, 0.4);
+}
+.nut li button.active {
+  background-color: #6c63ff;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(108, 99, 255, 0.4);
+  transform: scale(1.05);
+} 
+.nut .ellipsis {
+  background: transparent;
+  box-shadow: none;
+  cursor: default;
+  font-weight: bold;
+}
+
+
+.tin-noi-bat {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  overflow: hidden;
+  background: #ccc;
+  margin-top: 5px;
+}
+
+.tin-lon {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+
+.tin-lon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.tin-lon:hover img {
+  transform: scale(1.05);
+}
+
+.tin-lon .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px 30px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: #fff;
+}
+
+.tin-lon .overlay .date {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 5px;
+}
+
+.tin-lon .overlay h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.tin-nho {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+}
+
+.tin-nho .item {
+  position: relative;
+  overflow: hidden;
+  height: 245px;
+}
+
+.tin-nho img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.tin-nho .item:hover img {
+  transform: scale(1.05);
+}
+
+.tin-nho .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px 20px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: #fff;
+}
+
+.tin-nho .overlay .date {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.tin-nho .overlay h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+@media (max-width: 768px) {
+  .tin-noi-bat {
+    grid-template-columns: 1fr;
+  }
+  .tin-nho {
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr;
+  }
+  .tin-lon {
+    height: 300px;
+  }
+  .tin-nho .item {
+    height: 200px;
+  }
+  .tin-lon .overlay {
+    padding: 15px;
+  }
+
+  .tin-lon .overlay h2 {
+    font-size: 1.2rem;
+  }
+}
