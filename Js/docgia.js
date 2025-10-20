@@ -14,7 +14,7 @@ userLocal.forEach((user,index) => {
     <td>${user.email}</td>
     <td>${user.gender}</td>
     <td>${user.tel}</td>
-    <td>${user.CCCD}</td>
+    
   `;
   tbody.appendChild(row);
 });
