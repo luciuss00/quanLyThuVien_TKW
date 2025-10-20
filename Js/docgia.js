@@ -10,26 +10,6 @@ async function loadDocGia() {
     localStorage.setItem("muonSachInfo", JSON.stringify(data));
     renderTable(data);
 
-<<<<<<< HEAD
-const userLocal = JSON.parse(localStorage.getItem("users")) || [];
-
-const tbody = document.getElementById("userTableBody");
-
-tbody.innerHTML = "";
-
-
-userLocal.forEach((user,index) => {
-  const row = document.createElement("tr");
-  row.innerHTML = `
-    <td>${index + 1}</td>
-    <td>${user.userName}</td>
-    <td>${user.email}</td>
-    <td>${user.gender}</td>
-    <td>${user.tel}</td>
-    
-  `;
-  tbody.appendChild(row);
-=======
   } catch (error) {
     console.error("Lỗi:", error);
     alert("Không thể đọc dữ liệu từ file JSON!");
@@ -66,5 +46,4 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     loadDocGia();
   }
->>>>>>> 279eeba179c6f4665e2b88554be8ec4d1128b140
 });
