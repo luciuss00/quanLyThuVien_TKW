@@ -37,9 +37,9 @@ function muonSach() {
     localStorage.setItem("trangThaiSach", JSON.stringify(trangThaiSach));
 
     alert("✅ Bạn đã mượn sách: " + tenSach + " thành công!");
-    window.location.href = "chitiet.html";
+    window.location.href = "/bookDetail/chitiet.html";
 }
 
 function back() {
-    window.location.href = "chitiet.html";
+    window.location.href = "/bookDetail/chitiet.html";
 }

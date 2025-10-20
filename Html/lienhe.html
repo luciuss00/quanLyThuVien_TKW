@@ -20,10 +20,11 @@
                     let lienKet = document.querySelectorAll(".menu ul li a");
                     let trangHienTai = window.location.pathname.split("/").pop();
                     if(trangHienTai === "") {
-                        trangHienTai = "trangchu.html";
+                        trangHienTai = "/Html/trangchu.html";
                     }
                     lienKet.forEach(lk => {
-                        if(lk.getAttribute("href") === trangHienTai){
+                        let ten = lk.getAttribute("href").split("/").pop(); 
+                        if(ten === trangHienTai){
                             lk.parentElement.classList.add("active");
                         }
                     })

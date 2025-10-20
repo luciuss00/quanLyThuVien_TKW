@@ -9,12 +9,12 @@ function hienNutThemSach() {
 }
 hienNutThemSach();
 function moTrangThemSach() {
-    window.location.href = "themsach.html";
+    window.location.href = "/addBook/themsach.html";
 }
 function xemChiTiet(tenSach) {
     localStorage.setItem("sachDangXem", tenSach);
-    window.location.href = "chitiet.html";
+    window.location.href = "/bookdetail/chitiet.html";
 }
 function xemTatCaSach() {
-    window.location.href = "danhsach.html";
+    window.location.href = "/listBook/danhsach.html";
 }

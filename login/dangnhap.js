@@ -33,7 +33,7 @@ formLogin.onsubmit = function(e) {
     localStorage.setItem("username", foundUser.userName);
     localStorage.setItem("role", "user"); 
     alert("Đăng nhập thành công!");
-    window.location.href = "trangchu.html";
+    window.location.href = "/Html/trangchu.html";
     return;
   }
 
@@ -53,6 +53,6 @@ formLogin.onsubmit = function(e) {
       localStorage.setItem("username", adminUser.username);
       localStorage.setItem("role", adminUser.role);
       alert("Đăng nhập thành công với tư cách là Admin!");
-      window.location.href = "trangchu.html";
+      window.location.href = "/Html/trangchu.html";
     });
 };

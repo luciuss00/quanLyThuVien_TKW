@@ -16,7 +16,7 @@ if (books && tenSach) {
     }
 }
 else {
-    window.location.href = "danhsach.html";
+    window.location.href = "/listBook/danhsach.html";
 }
 const trangThai = document.getElementById("trangThaiSach");
 const muonBtn = document.getElementById("muonSachBtn");
@@ -33,7 +33,7 @@ if (trangThaiSach[tenSach] === "daMuon") {
 }
 muonBtn.onclick = function() {
     localStorage.setItem("sachDangXem", tenSach);
-    window.location.href = "muonsach.html";
+    window.location.href = "/borrowBook/muonsach.html";
 };
 
 

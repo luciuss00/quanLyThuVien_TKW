@@ -16,7 +16,7 @@ function kiemTraDangNhap() {
 
     var username = localStorage.getItem("username");
     var role = localStorage.getItem("role");
-    var docGiaMenu = document.querySelector('.menu a[href="docgia.html"]');
+    var docGiaMenu = document.querySelector('.menu a[href="/reader/docgia.html"]');
     if (docGiaMenu) {
         if (role !== "admin") {
             docGiaMenu.parentElement.style.display = "none";
@@ -49,11 +49,11 @@ function kiemTraDangNhap() {
 
 
     btnDangNhap.onclick = function() {
-        window.location.href = "dangnhap.html";
+        window.location.href = "/login/dangnhap.html";
     };
 
     btnDangKy.onclick = function() {
-        window.location.href = "dangky.html";
+        window.location.href = "/login/dangky.html";
     };
 
     btnDangXuat.onclick = function() {

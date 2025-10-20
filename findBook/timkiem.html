@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tìm kiếm - Thư viện Số</title>
+  <link rel="stylesheet" href="timkiem.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div id="menu">
+        <script>
+            fetch("/Html/menu.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("menu").innerHTML = data;
+                    const script = document.createElement("script");
+                    script.src = "/Js/menu.js"; 
+                    document.body.appendChild(script)
+                });
+        </script>
+    </div>
+  <section class="search-box">
+    <div class="search-bar">
+      <input type="text" id="localSearchInput" placeholder="Tìm tên sách, tác giả hoặc thể loại...">
+      <i class="fa fa-search" id="localSearchIcon"></i>
+    </div>
+  </section>
+
+  <div class="search-layout">
+    <aside class="filter-panel">
+      <h3>Bộ lọc</h3>
+      <div class="filter-group">
+        <h4>Thể loại</h4>
+        <label><input type="checkbox" value="Tâm linh"> Tâm linh</label>
+        <label><input type="checkbox" value="Phát triển bản thân"> Phát triển bản thân</label>
+        <label><input type="checkbox" value="Tiểu thuyết"> Tiểu thuyết</label>
+        <label><input type="checkbox" value="Văn học Việt Nam"> Văn học Việt Nam</label>
+        <label><input type="checkbox" value="Văn học nước ngoài"> Văn học nước ngoài</label>
+        <label><input type="checkbox" value="Triết học"> Triết học</label>
+      </div>
+      <div class="filter-group">
+        <h4>Tác giả</h4>
+        <input type="text" id="authorFilter" placeholder="Nhập tên tác giả...">
+      </div>
+      <div class="filter-group">
+        <h4>Năm xuất bản</h4>
+        <select id="yearFilter">
+          <option value="">Chọn năm</option>
+        </select>
+      </div>
+      <button id="resetFilters"><i class="fa fa-rotate-right"></i> Làm mới</button>
+    </aside>
+
+    <main class="results-section">
+      <div class="results-header">
+        <h2 id="resultsTitle">Sách đề xuất</h2>
+        <p id="searchStats"></p>
+      </div>
+      <div id="resultsGrid" class="results-grid"></div>
+      <div id="noResults" class="no-results" style="display:none;">
+        <i class="fas fa-search"></i>
+        <h3>Không tìm thấy kết quả</h3>
+      </div>
+    </main>
+  </div>
+ <div id="footer">
+        <script>
+            fetch("/Html/footer.html")
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById("footer").innerHTML = data;
+                });
+        </script>
+    </div>
+  <script src="timkiem.js"></script>
+</body>
+</html>
