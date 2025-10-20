@@ -33,6 +33,11 @@ function createGenreSection(genre, books) {
         </div>
         `;
         card.onclick = function() {
+            let username = localStorage.getItem("username");
+            if (!username) {
+                alert("⚠️ Vui lòng đăng nhập để xem chi tiết sách!");
+                return;
+            }
             localStorage.setItem("sachDangXem", book.tenSach);
             window.location.href = "chitiet.html";
         };
@@ -66,12 +71,11 @@ function displayAllGenres() {
         createGenreSection(genre, books);
     });
 }
-document.getElementById("clearBooksBtn").addEventListener("click", () => {
-  if (confirm("Bạn có chắc chắn muốn xóa toàn bộ danh sách sách không?")) {
-    localStorage.removeItem("listBook");
-    alert("Đã xóa toàn bộ sách!");
-    location.reload();
-  }
-});
 
 displayAllGenres();
+const role = localStorage.getItem("role");
+const btnThemSach = document.getElementById("btnThemSach");
+
+if (btnThemSach && role !== "admin") {
+    btnThemSach.style.display = "none";
+}

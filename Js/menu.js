@@ -4,7 +4,7 @@ function kiemTraDangNhap() {
     var btnDangNhap = document.getElementById("btnDangNhap");
     var btnDangKy = document.getElementById("btnDangKy");
     var btnDangXuat = document.getElementById("btnDangXuat");
-
+    
     userIcon.onclick = function() {
         if (dropdown.style.display === "block") {
             dropdown.style.display = "none";
@@ -14,25 +14,39 @@ function kiemTraDangNhap() {
         }
     };
 
-  // Kiểm tra trạng thái đăng nhập
     var username = localStorage.getItem("username");
     var role = localStorage.getItem("role");
+    var docGiaMenu = document.querySelector('.menu a[href="docgia.html"]');
+    if (docGiaMenu) {
+        if (role !== "admin") {
+            docGiaMenu.parentElement.style.display = "none";
+        }
+        else {
+            docGiaMenu.parentElement.style.display = "inline-block";
+        }
+    }
 
-  if (username) {
-    // Nếu đã đăng nhập
-    btnDangNhap.style.display = "none";
-    btnDangKy.style.display = "none";
-    btnDangXuat.style.display = "block";
+    if (username) {
+        btnDangNhap.style.display = "none";
+        btnDangKy.style.display = "none";
+        btnDangXuat.style.display = "block";
+        userIcon.title = "Xin chào, " + username;
+        const greet = document.getElementById("userGreeting");
+        if (greet) {
+            greet.textContent = "Xin chào, " + username + " !";
+        }
+    }
+    else {
+        btnDangNhap.style.display = "block";
+        btnDangKy.style.display = "block";
+        btnDangXuat.style.display = "none";
+        userIcon.title = "Tài khoản";
+        const greet = document.getElementById("userGreeting");
+        if (greet) {
+            greet.textContent = "";
+        }
+    }
 
-    // Đổi tooltip icon (nếu muốn)
-    userIcon.title = "Xin chào, " + username;
-  } else {
-    // Nếu chưa đăng nhập
-    btnDangNhap.style.display = "block";
-    btnDangKy.style.display = "block";
-    btnDangXuat.style.display = "none";
-    userIcon.title = "Tài khoản";
-  }
 
     btnDangNhap.onclick = function() {
         window.location.href = "dangnhap.html";
@@ -43,33 +57,12 @@ function kiemTraDangNhap() {
     };
 
     btnDangXuat.onclick = function() {
+        confirm("Bạn có chắc muốn đăng xuất không!");
         localStorage.removeItem("username");
         localStorage.removeItem("role");
         alert("Đăng xuất thành công!");
         window.location.href = "trangchu.html";
     };
 }
-window.onload = kiemTraDangNhap;
-// // Ngăn người chưa đăng nhập truy cập "Danh sách"
-// function chanDanhSachNeuChuaDangNhap() {
-//   var username = localStorage.getItem("username");
-//   var links = document.querySelectorAll('.menu a[href="danhsach.html"]');
+kiemTraDangNhap();
 
-//   for (var i = 0; i < links.length; i++) {
-//     links[i].onclick = function(event) {
-//       if (!username) {
-//         event.preventDefault(); // chặn chuyển trang
-//         alert("Vui lòng đăng nhập để xem danh sách sách!");
-//       }
-//     };
-//   }
-// }
-
-// // Gọi khi trang tải xong
-// window.onload = function() {
-//   // Giữ lại hàm kiểm tra đăng nhập nếu có
-//   if (typeof kiemTraDangNhap === "function") kiemTraDangNhap();
-
-//   // Gọi chặn truy cập
-//   chanDanhSachNeuChuaDangNhap();
-// };

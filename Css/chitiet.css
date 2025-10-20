@@ -39,7 +39,7 @@
 #mt {
     font-size: 22px;
 }
-button {
+#bt {
     background: linear-gradient(135deg, #a770ef, #cf8bf3, #fdb99b);
     color: white;
     border: none;
@@ -53,7 +53,7 @@ button {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-button:hover {
+#bt:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }

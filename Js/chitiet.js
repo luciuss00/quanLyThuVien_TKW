@@ -32,7 +32,7 @@ if (trangThaiSach[tenSach] === "daMuon") {
     trangThai.style.color = "green";
 }
 muonBtn.onclick = function() {
-    localStorage.setItem("sachDangChon", tenSach);
+    localStorage.setItem("sachDangXem", tenSach);
     window.location.href = "muonsach.html";
 };
 

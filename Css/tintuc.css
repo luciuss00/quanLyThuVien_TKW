@@ -50,41 +50,55 @@ body {
 .hidden {
   display: none;
 }
+/* 🌟 Phần phân trang đẹp, hiện đại */
 .nut {
   display: flex;
   list-style: none;
   justify-content: center;
+  align-items: center;
+  gap: 8px;
   padding: 0;
-  border-radius: 4px;
-  margin: 20px 0;
+  margin: 40px 0;
 }
-.nut li button, .nut li a, .nut .ellipsis {
-  font-size: 20px;
-  padding: 8px 12px;
-  display: block;
-  color: #110d0d;
-  text-decoration: none;
-  border: 1px solid #250202;
-  border-radius: 10px;
-  transition: 0.3s;
-  min-width: 50px;
+
+.nut li {
+  display: inline-block;
 }
-.nut li a:hover {
-  background: #ddd;
-  color: aqua;
-}
-.nut .hđ a {
-  background: #9d97ce;
-}
+
+.nut li button, 
+.nut li a, 
 .nut .ellipsis {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f5f5f5;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.25s ease;
+}
+.nut li button:hover {
+  background-color: #9d97ce;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(157, 151, 206, 0.4);
+}
+.nut li button.active {
+  background-color: #6c63ff;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(108, 99, 255, 0.4);
+  transform: scale(1.05);
+} 
+.nut .ellipsis {
+  background: transparent;
+  box-shadow: none;
   cursor: default;
-  background: #fff;
+  font-weight: bold;
 }
-.nut .ellipsis:hover {
-  background: #fff;
-  color: #110d0d;
-  text-decoration: none;
-}
+
 
 .tin-noi-bat {
   width: 100vw;

@@ -52,7 +52,7 @@
         </div>
       <div class="contact-form">
         <h2>Phản hồi</h2>
-        <form>
+        <form onsubmit="return phanHoi()">
           <label for="name" class="required">Họ và tên</label>
           <input type="text" id="name" name="name" required>
 
@@ -82,6 +82,9 @@
               .then(data => {
                   document.getElementById("footer").innerHTML = data;
               });
+          function phanHoi() {
+            alert("Phản hồi của bạn đã được gửi đi!");
+          }
       </script>
   </div>
 

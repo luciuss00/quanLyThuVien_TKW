@@ -1,0 +1,82 @@
+[
+  {
+    "ten": "Nguyễn Văn A",
+    "ma": "SV001",
+    "sdt": "0912345678",
+    "tenSach": "Nhà giả kim",
+    "ngayMuon": "2025-10-10",
+    "ngayTra": "2025-10-25"
+  },
+  {
+    "ten": "Trần Thị B",
+    "ma": "SV002",
+    "sdt": "0987654321",
+    "tenSach": "Đắc nhân tâm",
+    "ngayMuon": "2025-10-11",
+    "ngayTra": "2025-10-26"
+  },
+  {
+    "ten": "Lê Minh C",
+    "ma": "SV003",
+    "sdt": "0905123456",
+    "tenSach": "Tuổi trẻ đáng giá bao nhiêu",
+    "ngayMuon": "2025-10-12",
+    "ngayTra": "2025-10-27"
+  },
+  {
+    "ten": "Phạm Thị D",
+    "ma": "SV004",
+    "sdt": "0948123123",
+    "tenSach": "Không gia đình",
+    "ngayMuon": "2025-10-13",
+    "ngayTra": "2025-10-28"
+  },
+  {
+    "ten": "Nguyễn Thế E",
+    "ma": "SV005",
+    "sdt": "0934567890",
+    "tenSach": "Hai số phận",
+    "ngayMuon": "2025-10-14",
+    "ngayTra": "2025-10-29"
+  },
+  {
+    "ten": "Đặng Văn F",
+    "ma": "SV006",
+    "sdt": "0967123456",
+    "tenSach": "Harry Potter và Hòn đá phù thủy",
+    "ngayMuon": "2025-10-15",
+    "ngayTra": "2025-10-30"
+  },
+  {
+    "ten": "Hoàng Gia G",
+    "ma": "SV007",
+    "sdt": "0978456123",
+    "tenSach": "Sherlock Holmes Toàn Tập",
+    "ngayMuon": "2025-10-16",
+    "ngayTra": "2025-10-31"
+  },
+  {
+    "ten": "Vũ Hoàng H",
+    "ma": "SV008",
+    "sdt": "0923123123",
+    "tenSach": "Lão Hạc",
+    "ngayMuon": "2025-10-17",
+    "ngayTra": "2025-11-01"
+  },
+  {
+    "ten": "Bùi Quân I",
+    "ma": "SV009",
+    "sdt": "0909123456",
+    "tenSach": "Tôi thấy hoa vàng trên cỏ xanh",
+    "ngayMuon": "2025-10-18",
+    "ngayTra": "2025-11-02"
+  },
+  {
+    "ten": "Phạm Duy J",
+    "ma": "SV010",
+    "sdt": "0988123456",
+    "tenSach": "Doraemon Tập 1",
+    "ngayMuon": "2025-10-19",
+    "ngayTra": "2025-11-03"
+  }
+]

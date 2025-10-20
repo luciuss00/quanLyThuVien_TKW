@@ -1,13 +1,13 @@
 body {
   margin: 0;
-  background-color: #faf9ff;
+  background: linear-gradient(135deg, #f8f9fa, #e8f0ff);
   color: #111;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .search-box {
   text-align: center;
-  margin-top: 90px;
+  margin-top: 50px;
   margin-bottom: 10px;
 }
 .search-bar {
@@ -16,10 +16,12 @@ body {
   background: #fff;
   border: 2px solid #8b5cf6;
   border-radius: 50px;
-  padding: 15px 25px;    
-  width: 600px;         
+  padding: 5px 15px;    
+  width: 400px;         
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   transition: 0.3s ease;
+  margin-bottom: 50px;
+  margin-top: 0px;
 }
 
 .search-bar:hover {
@@ -104,10 +106,11 @@ body {
   flex: 1;
 }
 .results-header h2 {
-  font-size: 25px;
+  font-size: 30px;
   color: #4c1d95;
-  margin-top: 20px;
+  margin-top: 0px;
   margin-bottom: 10px;
+  margin-left: 30px;
 }
 
 .results-grid {
@@ -173,4 +176,9 @@ body {
 .no-results h3 {
   font-size: 20px;
   font-weight: bold;
+
+}
+#searchStats {
+  margin-left: 30px;
+  font-size: 20px;
 }
