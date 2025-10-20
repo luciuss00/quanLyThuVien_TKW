@@ -98,7 +98,10 @@ body {
   cursor: default;
   font-weight: bold;
 }
-
+html, body {
+  min-width: 1200px; 
+  overflow-x: auto;  
+}
 
 .tin-noi-bat {
   width: 100vw;

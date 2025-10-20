@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Times New Roman', Times, serif;
   background: url("/Img/library-2507902_1280.jpg") no-repeat center center fixed;
@@ -82,12 +81,12 @@ body {
   transition: all 0.3s ease;
 }
 .add {
-  background: linear-gradient(135deg, #28a745, #1e7e34); /* xanh lá nhạt → đậm */
+  background: linear-gradient(135deg, #28a745, #1e7e34); 
   box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
 }
 
 .add:hover {
-  background: linear-gradient(135deg, #34d058, #218838); /* sáng hơn khi hover */
+  background: linear-gradient(135deg, #34d058, #218838); 
   transform: scale(1.05);
 }
 
@@ -129,7 +128,6 @@ input[type="file"] {
   width: 340px;
 }
 
-/* Khi rê chuột vào nút */
 .file-btn:hover {
   background: linear-gradient(135deg, #339cff, #004c99);
   transform: scale(1.05);

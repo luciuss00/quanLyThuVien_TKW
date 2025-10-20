@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thêm Sách Mới - Quản Lý Thư Viện</title>
-  <link rel="stylesheet" href="/Css/themsach.css">
+  <link rel="stylesheet" href="themsach.css">
 </head>
 <body>
   <div id="menu">
         <script>
-            fetch("menu.html")
+            fetch("/Html/menu.html")
                 .then(res => res.text())
                 .then(data => {
                     document.getElementById("menu").innerHTML = data;
@@ -19,10 +19,11 @@
                     let lienKet = document.querySelectorAll(".menu ul li a");
                     let trangHienTai = window.location.pathname.split("/").pop();
                     if(trangHienTai === "") {
-                        trangHienTai = "trangchu.html";
+                        trangHienTai = "/Html/trangchu.html";
                     }
                     lienKet.forEach(lk => {
-                        if(lk.getAttribute("href") === trangHienTai){
+                        let ten = lk.getAttribute("href").split("/").pop(); 
+                        if(ten === trangHienTai){
                             lk.parentElement.classList.add("active");
                         }
                     })
@@ -92,6 +93,6 @@
     </section>
 
 </body>
-<script src="../Js/themsach.js"></script>
+<script src="themsach.js"></script>
 
 </html>

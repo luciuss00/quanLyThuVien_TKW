@@ -39,7 +39,7 @@ function createGenreSection(genre, books) {
                 return;
             }
             localStorage.setItem("sachDangXem", book.tenSach);
-            window.location.href = "chitiet.html";
+            window.location.href = "/bookDetail/chitiet.html";
         };
         row.appendChild(card);
     });

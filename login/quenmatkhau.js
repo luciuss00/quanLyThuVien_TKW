@@ -40,5 +40,5 @@ btnReset.addEventListener("click", function () {
 
   localStorage.setItem("users", JSON.stringify(userLocal));
   alert("✅ Đặt lại mật khẩu thành công!");
-  window.location.href = "/Html/dangnhap.html";
+  window.location.href = "dangnhap.html";
 });

@@ -4,6 +4,10 @@ body {
     margin: 0px;
     background: linear-gradient(135deg, #f8f9fa, #e8f0ff);
 } 
+html, body {
+  min-width: 1200px; 
+  overflow-x: auto;  
+}
 .header {
     position: relative;
     width: 100%;

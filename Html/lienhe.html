@@ -20,39 +20,69 @@
                     let lienKet = document.querySelectorAll(".menu ul li a");
                     let trangHienTai = window.location.pathname.split("/").pop();
                     if(trangHienTai === "") {
-                        trangHienTai = "trangchu.html";
+                        trangHienTai = "/Html/trangchu.html";
                     }
                     lienKet.forEach(lk => {
-                        if(lk.getAttribute("href") === trangHienTai){
+                        let ten = lk.getAttribute("href").split("/").pop(); 
+                        if(ten === trangHienTai){
                             lk.parentElement.classList.add("active");
                         }
                     })
                 });
         </script>
     </div>
-  
+
   <section class="contact-section">
     <div class="contact-container">
-    <div class="contact-info">
+      <div class="contact-info">
         <h2>Thông tin liên hệ</h2>
-        <p><strong> Giờ mở cửa:</strong> Thứ 2 - Thứ 6: 7h30 - 17h00</p>
-        <p><strong> Điện thoại:</strong> <a href="tel:0123 456 789"> 0123 456 789</a></p>
-        <p><strong> Email:</strong><a href="mailto: thuvienea3@gmail.com">thuvienea3@gmail.com</a></p>
-        <p><strong> Địa chỉ:</strong> Đường Tên Lửa, P. Bình Trị Đông B, Q. Bình Tân, T.p. Hồ Chí Minh</p>
-        <div class="map-container">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15190.42772870296!2d106.6115887!3d10.7485893!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752dcc6e16fe1d%3A0x2b0b9d8d8a7b5af3!2zQuG7gyBUw6JuIEx1YsOyLCBTC4buZyBUcuG7jW5nIEIgLCBRLiBCw6xuaCBUw6JuLCBUUDQuSE0!5e0!3m2!1svi!2s!4v1700000000000"
-                width="100%"
-                height="250"
-                style="border:0; border-radius:10px; margin-top:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-clock"></i></div>
+          <div class="info-text">
+            <strong>Giờ mở cửa</strong>
+            <p>Thứ 2 - Thứ 6: 7h30 - 17h00</p>
+          </div>
         </div>
+        
+
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-phone"></i></div>
+          <div class="info-text">
+            <strong>Điện thoại</strong>
+            <p><a href="tel:0123456789">0123 456 789</a></p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-envelope"></i></div>
+          <div class="info-text">
+            <strong>Email</strong>
+            <p><a href="mailto:thuvienea3@gmail.com">thuvienea3@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="info-text">
+            <strong>Địa chỉ</strong>
+            <p>Đường Tên Lửa, P. Bình Trị Đông B, Q. Bình Tân, TP. Hồ Chí Minh</p>
+          </div>
+        </div>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15190.42772870296!2d106.6115887!3d10.7485893!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752dcc6e16fe1d%3A0x2b0b9d8d8a7b5af3!2zQuG7gyBUw6JuIEx1YsOyLCBTC4buZyBUcuG7jW5nIEIgLCBRLiBCw6xuaCBUw6JuLCBUUDQuSE0!5e0!3m2!1svi!2s!4v1700000000000"
+            width="100%"
+            height="250"
+            style="border:0; border-radius:10px; margin-top:10px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
       <div class="contact-form">
         <h2>Phản hồi</h2>
-        <form onsubmit="return phanHoi()">
+        <form>
           <label for="name" class="required">Họ và tên</label>
           <input type="text" id="name" name="name" required>
 
@@ -63,15 +93,10 @@
           <input type="text" id="subject" name="subject">
 
           <label for="message" class="required">Nội dung</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-          <div>
-            
-          </div>
+          <textarea id="message" name="message" rows="5" required></textarea>       
+          
           <button type="submit">Gửi phản hồi</button>
         </form>
-      </div>
-    
-    </div>
       </div>
     </div>
   </section>
@@ -82,11 +107,11 @@
               .then(data => {
                   document.getElementById("footer").innerHTML = data;
               });
-          function phanHoi() {
-            alert("Phản hồi của bạn đã được gửi đi!");
-          }
       </script>
   </div>
 
 </body>
 </html>
+
+
+
