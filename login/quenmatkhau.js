@@ -2,18 +2,16 @@ const formForgot = document.getElementById("formForgot");
 const emailForgot = document.getElementById("emailForgot");
 const emailError = document.getElementById("emailError");
 const resetSection = document.getElementById("resetSection");
-const newPassword = document.getElementById("newPassword");
+var newPassword = document.getElementById("newPassword");
 const confirmPassword = document.getElementById("confirmPassword");
 const passwordError = document.getElementById("passwordError");
 const btnReset = document.getElementById("btnReset");
-
 const userLocal = JSON.parse(localStorage.getItem("users")) || [];
 var currentUserIndex = -1;
 
 
 formForgot.addEventListener("submit", function (e) {
   e.preventDefault();
-  
   const findUser = userLocal.find((user)=>
         (user.email === emailForgot.value)
     );
@@ -26,10 +24,15 @@ formForgot.addEventListener("submit", function (e) {
     resetSection.style.display = "block";
     currentUserIndex=userLocal.findIndex((user)=>user.email===emailForgot.value);
   }
+  document.getElementById("btnConfirmEmail").style.display = "none";
 });
 
 
 btnReset.addEventListener("click", function () {
+  if (newPassword.value.trim() === "") {
+    alert("Vui lòng nhập mật khẩu mới!");
+    return;
+  }
   if (newPassword.value !== confirmPassword.value) {
     passwordError.style.display = "block";
     return;

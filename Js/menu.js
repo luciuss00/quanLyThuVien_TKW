@@ -61,7 +61,7 @@ function kiemTraDangNhap() {
         localStorage.removeItem("username");
         localStorage.removeItem("role");
         alert("Đăng xuất thành công!");
-        window.location.href = "trangchu.html";
+        window.location.href = "/Html/trangchu.html";
     };
 }
 kiemTraDangNhap();

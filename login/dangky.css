@@ -6,19 +6,16 @@
 }
 
 body {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  background: url(../Img/george-peabody-bucherei-1629308_1280.jpg) no-repeat center center fixed;
+  align-items: center;
+  background: url(../Img/george-peabody-bucherei-1629308_1280.jpg);
   background-size: cover;
-  overflow-y: auto;
-  overflow-x: hidden;
   padding: 50px;
 }
 
 .container {
-  margin-top: 15px;
+  margin-top: 50px;
   color: white;
   position: relative;
   width: 400px;
@@ -42,10 +39,6 @@ body {
   pointer-events: none;
   transition: left 0.8s ease;
 }
-.container:hover::before {
-  left: 120%;
-}
-
 h1 {
   text-align: center;
   font-size: 28px;
