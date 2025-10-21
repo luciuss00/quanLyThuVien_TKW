@@ -63,6 +63,12 @@ function createGenreSection(genre, books) {
 }
 async function docFile() {
     try {
+        let existing = JSON.parse(localStorage.getItem("listBook"));
+        if (existing && existing.length > 0) {
+            listBook = existing;
+            displayAllGenres();
+            return;
+        }
         const res = await fetch("/books.json");
         if (!res.ok) throw new Error("Không thể đọc file JSON");
         const data = await res.json();
@@ -73,6 +79,7 @@ async function docFile() {
         console.error("Lỗi đọc file JSON:", err);
     }
 }
+
 docFile();
 
 function displayAllGenres() {

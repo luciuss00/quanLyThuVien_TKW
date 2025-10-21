@@ -1,0 +1,38 @@
+[
+    {
+        "tenSach": "One Piece",
+        "tacGia": "Eiichiro Oda",
+        "theLoai": "Truyện tranh",
+        "nhaXB": "Shueisha",
+        "namXB": 2001,
+        "moTa": "Hành trình trở thành Vua Hải Tặc của Monkey D. Luffy cùng băng Mũ Rơm, một bộ truyện tranh nổi tiếng toàn cầu do Eiichiro Oda sáng tác.",
+        "anh": ""
+    },
+    {
+        "tenSach": "Naruto",
+        "tacGia": "Masashi Kishimoto",
+        "theLoai": "Truyện tranh",
+        "nhaXB": "Shueisha",
+        "namXB": 2021,
+        "moTa": "Câu chuyện về Naruto Uzumaki cậu bé mang trong mình Cửu Vĩ Hồ, khao khát trở thành Hokage vĩ đại nhất làng Lá.",
+        "anh": ""
+    },
+    {
+        "tenSach": "Dragon Ball",
+        "tacGia": "Akira Toriyama",
+        "theLoai": "Truyện tranh",
+        "nhaXB": "Shueisha",
+        "namXB": 2022,
+        "moTa": "Câu chuyện huyền thoại về Son Goku và hành trình tìm kiếm 7 viên ngọc rồng cùng những trận chiến bảo vệ Trái Đất.",
+        "anh": ""
+    },
+    {
+        "tenSach": "One Punch Man",
+        "tacGia": "ONE, Yusuke Murata",
+        "theLoai": "Truyện tranh",
+        "nhaXB": "Shueisha",
+        "namXB": 2010,
+        "moTa": "Một anh hùng tên Saitama có thể đánh bại bất kỳ kẻ thù nào chỉ bằng một cú đấm, nhưng lại đau đầu vì... quá mạnh.",
+        "anh": ""
+    }
+]
