@@ -46,22 +46,19 @@ function kiemTraDangNhap() {
             greet.textContent = "";
         }
     }
-
-
     btnDangNhap.onclick = function() {
         window.location.href = "/login/dangnhap.html";
     };
-
     btnDangKy.onclick = function() {
         window.location.href = "/login/dangky.html";
     };
-
     btnDangXuat.onclick = function() {
-        confirm("Bạn có chắc muốn đăng xuất không!");
-        localStorage.removeItem("username");
-        localStorage.removeItem("role");
-        alert("Đăng xuất thành công!");
-        window.location.href = "/Html/trangchu.html";
+        if(confirm("Bạn có chắc muốn đăng xuất không!")  === true) {
+            localStorage.removeItem("username");
+            localStorage.removeItem("role");
+            alert("Đăng xuất thành công!");
+            window.location.href = "/Html/trangchu.html";
+        }
     };
 }
 kiemTraDangNhap();

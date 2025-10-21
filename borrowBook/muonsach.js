@@ -22,7 +22,6 @@ function muonSach() {
         alert("Hãy nhập đúng định dạng mã sinh viên!");
         return;
     }
-
     const info = { ten, ma, sdt, ngayMuon, ngayTra, tenSach };
 
     let infos = JSON.parse(localStorage.getItem("muonSachInfo")) || [];
@@ -39,7 +38,6 @@ function muonSach() {
     alert("✅ Bạn đã mượn sách: " + tenSach + " thành công!");
     window.location.href = "/bookDetail/chitiet.html";
 }
-
 function back() {
     window.location.href = "/bookDetail/chitiet.html";
 }

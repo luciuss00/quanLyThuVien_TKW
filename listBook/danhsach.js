@@ -61,6 +61,19 @@ function createGenreSection(genre, books) {
     leftBtn.addEventListener("click", () => row.scrollBy({ left: -400, behavior: "smooth" }));
     rightBtn.addEventListener("click", () => row.scrollBy({ left: 400, behavior: "smooth" }));
 }
+async function docFile() {
+    try {
+        const res = await fetch("/books.json");
+        if (!res.ok) throw new Error("Không thể đọc file JSON");
+        const data = await res.json();
+        localStorage.setItem("listBook", JSON.stringify(data));
+        listBook = data;
+        displayAllGenres(); 
+    } catch (err) {
+        console.error("Lỗi đọc file JSON:", err);
+    }
+}
+docFile();
 
 function displayAllGenres() {
     categoriesContainer.innerHTML = "";
