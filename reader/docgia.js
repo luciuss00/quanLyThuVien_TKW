@@ -34,7 +34,7 @@ function renderTable(data) {
   });
 }
 function xoaDocGia(i) {
-  confirm("Ban có chắc chắn muốn xóa không!");
+  if (!confirm("Bạn có chắc chắn muốn xóa không?")) return;
   let ds = JSON.parse(localStorage.getItem("muonSachInfo")) || [];
   ds.splice(i, 1);
   localStorage.setItem("muonSachInfo", JSON.stringify(ds));
