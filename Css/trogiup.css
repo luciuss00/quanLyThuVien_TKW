@@ -1,9 +1,6 @@
 html, body {
   min-width: 1200px; 
-  overflow-x: auto;  
-}
-* {
-    box-sizing: border-box;
+  overflow: auto;  
 }
 body {
     font-family: "Poppins", Arial, sans-serif;
@@ -249,5 +246,6 @@ body {
 .faq-item li {
     margin-left: 25px; 
 }
+
 
 
