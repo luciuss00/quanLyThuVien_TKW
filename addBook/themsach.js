@@ -30,12 +30,9 @@ function addBook() {
 
     const file = fileInput.files[0];
     const reader = new FileReader();
-
     reader.onload = function () {
         const base64Image = file ? reader.result : "";
-
         let listBook = JSON.parse(localStorage.getItem("listBook")) || [];
-
         const newBook = {
             id: Date.now(),
             tenSach,

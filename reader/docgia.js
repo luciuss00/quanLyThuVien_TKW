@@ -34,11 +34,12 @@ function renderTable(data) {
   });
 }
 function xoaDocGia(i) {
-  confirm("Ban có chắc chắn muốn xóa không!");
-  let ds = JSON.parse(localStorage.getItem("muonSachInfo")) || [];
-  ds.splice(i, 1);
-  localStorage.setItem("muonSachInfo", JSON.stringify(ds));
-  renderTable(ds); 
+  if(confirm("Ban có chắc chắn muốn xóa không!") === true) {
+    let ds = JSON.parse(localStorage.getItem("muonSachInfo")) || [];
+      ds.splice(i, 1);
+      localStorage.setItem("muonSachInfo", JSON.stringify(ds));
+      renderTable(ds); 
+  }
 }
 document.addEventListener("DOMContentLoaded", () => {
   if (docGia.length > 0) {
